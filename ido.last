@@ -1,0 +1,32 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/pompey/.emacs.d/" . "lisp/")
+ ("/home/pompey/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/pompey/.emacs.d/lisp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init-packages.el"
+ "helper.el"
+ "init-manages.el"
+ "init-settings.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/pompey/.emacs.d/lisp/" (22487 43359 402247 160000) "init-manages.el" "../" ".#init-manages.el" "./" "init-packages.el" "helper.el" "init-settings.el")
+
+ ("/home/pompey/.emacs.d/" (22487 42411 22365 402000) "auto-save-list/" "smex-items" "../" "elpa/" "./" "snippets/" "lisp/" "init.el")
+
+ ("/home/pompey/" (22487 40439 280025 591000) ".bash_history" ".emacs.d/" ".cache/" ".local/" "warehouse/" "Videos/" ".dmrc" "workspace/" ".xsession-errors" ".config/" "Templates/" ".gnupg/" ".dbus/" ".bash_logout" "Documents/" "Public/" ".nvidia-settings-rc" "Music/" ".gconf/" "Downloads/" ".bashrc" "Pictures/" "../" ".xinputrc" ".presage/" ".sudo_as_admin_successful" ".xsession-errors.old" ".Xauthority" ".profile" ".nv/" ".pam_environment" "practise/" ".gksu.lock" "./" ".ICEauthority" ".pki/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
