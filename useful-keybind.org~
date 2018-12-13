@@ -1,0 +1,21 @@
+* Some usefule keybind
+** org-mode
+
+** help
+   1. C-h f : function help
+   2. C-h v : variable help
+   3. C-h k : keybind help
+
+
+
+** window
+   1. C-x 1 keep current and kill other windows
+   2. C-x b switch buffer
+   3. close emacs window
+
+
+** editor
+   1. C-a C-k C-y copy current line
+   2.    serch in current direction
+   3. C-x k kill buffer
+   4. close emacs window

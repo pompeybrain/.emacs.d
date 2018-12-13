@@ -7,7 +7,7 @@
 (when (>= emacs-major-version 24)
     (require 'package)
     (package-initialize)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") 1))
+    (add-to-list 'package-archives '("melpa" . "http://elpa.emacs-china.org/melpa-stable/") 1))
 
 ;; cl - Common Lisp Extension
 (require 'cl)
@@ -18,14 +18,12 @@
 			  web-mode
 			  js2-mode
 			  ;; --- Minor Mode ---
+			  neotree
 			  company
 			  smex
 			  yasnippet
 			  ido-ubiquitous
 			  ido-vertical-mode
-			  ;; --- Themes ---
-			  jazz-theme
-			  spacemacs-theme
 			  ) "Default packages")
 (setq packages-selected-packages pompey-packages)
 
