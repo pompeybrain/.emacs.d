@@ -1,30 +1,22 @@
-;;  __        __             __   ___
-;; |__)  /\  /  ` |__/  /\  / _` |__
-;; |    /~~\ \__, |  \ /~~\ \__> |___
-;;                      __   ___        ___      ___
-;; |\/|  /\  |\ |  /\  / _` |__   |\/| |__  |\ |  |
-;; |  | /~~\ | \| /~~\ \__> |___  |  | |___ | \|  |
-(when (>= emacs-major-version 24)
-    (require 'package)
-    (package-initialize)
-    (add-to-list 'package-archives '("melpa" . "http://elpa.emacs-china.org/melpa-stable/") 1))
+(require 'package)
+
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://elpa.emacs-china.org/melpa-stable/") t)
 
 ;; cl - Common Lisp Extension
 (require 'cl)
 
 ;; Add Packages
 (defvar pompey-packages '(
-			  ;; --- Major Mode ---
-			  web-mode
-			  js2-mode
-			  ;; --- Minor Mode ---
+			  ;; helpful plugins
+			  helm
+			  rainbow-delimiters
+			  paredit
 			  neotree
+			  all-the-icons
 			  company
-			  smex
 			  yasnippet
-			  ido-ubiquitous
-			  ido-vertical-mode
-			  ) "Default packages")
+	      		  ) "Default packages")
 (setq packages-selected-packages pompey-packages)
 
 (defun pompey-packages-installed-p ()

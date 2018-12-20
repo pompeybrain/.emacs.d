@@ -19,4 +19,13 @@
 (global-set-key (kbd "<f2>") 'open-init-file)
 
 
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'none))
+
+(recentf-mode t)
+(setq recentf-max-menu-items 10)
+(global-set-key (kbd "C-x C-r") 'helm-recentf)
+
+
 (provide 'init-settings)
