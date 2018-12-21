@@ -1,3 +1,7 @@
+(setq custom-file "~/.emacs.d/custom.el")
+
+(load custom-file)
+
 ;;;关闭自动保存
 (setq auto-save-default nil)
 

@@ -16,7 +16,11 @@
 			  all-the-icons
 			  company
 			  yasnippet
-	      		  ) "Default packages")
+			  lsp-mode
+			  lsp-ui
+			  company-lsp
+			  ace-jump-mode
+			  ) "Default packages")
 (setq packages-selected-packages pompey-packages)
 
 (defun pompey-packages-installed-p ()

@@ -18,4 +18,13 @@
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
+
+(require 'lsp-mode)
+
+(add-hook 'prog-mode-hook 'lsp)
+
+(require 'init-helm)
+
 (provide 'init-manages)
