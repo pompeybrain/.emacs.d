@@ -5,7 +5,7 @@
 ;;;关闭自动保存
 (setq auto-save-default nil)
 
-;; 关闭自动生成备份
+;;关闭自动生成备份
 (setq make-backup-files nil)
 
 ;;;自动加载更改过的文件
@@ -31,5 +31,6 @@
 (setq recentf-max-menu-items 10)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
 
+(setq-default tab-width 2)
 
 (provide 'init-settings)

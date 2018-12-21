@@ -1,5 +1,7 @@
 ;; set company
 (add-hook 'after-init-hook 'global-company-mode)
+(define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
+(define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 ;; set yasnippet
@@ -27,4 +29,5 @@
 
 (require 'init-helm)
 
+;;; (add-hook 'scheme-mode-hook 'run-geiser)
 (provide 'init-manages)
