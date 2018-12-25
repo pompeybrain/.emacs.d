@@ -1,25 +1,17 @@
+;; -*- lexical-binding: t -*-
+
+;;; This file;; set gc 
+(let ((normal-gc-cons-threshold (* 20 1024 1024))
+      (init-gc-cons-threshold (* 128 1024 1024)))
+  (setq gc-cons-threshold init-gc-cons-threshold)
+  (add-hook 'emacs-startup-hook
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp/" t)
-(add-to-list 'load-path "~/.emacs.d/site-lisp/" t)
-
 (require 'init-ui)
-
-;;; (setq show-paren-mode t)
-;;; (setq electric-pair-mode t)
-
 (require 'init-settings)
-
 (require 'init-packages)
-
-(require 'init-manages)
-
-
-(show-paren-mode t)
-(electric-pair-mode t)
-
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(global-set-key (kbd "C-x d") 'neotree-dir)
-;; some package short config
-
+;; (require 'init-manages)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/" t)
 (require 'init-site-lisp)
-
