@@ -1,6 +1,5 @@
-(load-theme 'atom-one-dark t)
-
 (setq inhibit-startup-screen t)
+(load-theme 'zenburn t)
 
 ;; set title
 (setq frame-title-format
@@ -12,7 +11,7 @@
 (tool-bar-mode -1)
 
 ;; 关闭菜单栏
-(menu-bar-mode -1)
+;; (menu-bar-mode t)
 
 ;; 关闭文件滑动控件
 (scroll-bar-mode -1)
@@ -30,7 +29,11 @@
 (setq-default cursor-type '(bar . 2))
 
 ;; set pair match face
-(set-face-background 'show-paren-match "#55575e")
+;; (set-face-background 'show-paren-match "#55575e")
+
+(let ((no-border '(internal-border-width . 0)))
+  (add-to-list 'default-frame-alist no-border)
+  (add-to-list 'initial-frame-alist no-border))
 
 (provide 'init-ui)
 ;;; init-ui.el ends here

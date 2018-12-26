@@ -1,10 +1,4 @@
-(require 'package)
-
-(add-to-list 'package-archives
-						 '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
-
-(package-initialize)
-
+;;; Code:
 (eval-when-compile
 	(require 'use-package))
 
@@ -41,6 +35,8 @@
 	:config
 	(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 	(setq neo-autorefresh nil)
+	(setq neo-show-hidden-files t)
+	(add-to-list 'neo-hidden-regexp-list "\\.git") ;;; doesn't work
 	:bind ("C-c d". neotree-dir))
 
 (use-package typescript-mode
@@ -86,6 +82,11 @@
 
 (use-package eglot
 	:ensure t)
+
+(use-package js2-mode
+	:ensure t
+	:config
+	(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

@@ -1,9 +1,5 @@
 (setq debug-on-error t)
 
-(setq custom-file "~/.emacs.d/custom.el")
-
-(load custom-file)
-
 ;; 关闭自动保存
 (setq auto-save-default nil)
 
@@ -15,7 +11,6 @@
 
 ;;;别名
 (fset 'yes-or-no-p 'y-or-n-p)
-
 
 (show-paren-mode t)
 
@@ -36,9 +31,7 @@
   (setq mac-option-modifier 'none))
 
 (recentf-mode t)
-(setq recentf-max-menu-items 10)
-(global-set-key (kbd "C-c r") 'helm-recentf)
-
+(setq-default recentf-max-menu-items 10)
 
 (defun kill-and-switch-buffer ()
 	"Kill current buffer and switch other default buffer."
@@ -47,12 +40,10 @@
 	(switch-to-buffer (previous-buffer) ))
 
 (global-set-key (kbd "C-c C-k") 'kill-current-buffer)
-;; (defun toggle-comment-current-line ()
-;; 	"comment or uncomment current line"
-;; 	(interactive)
-;; 	(comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-;; (global-set-key (kbd "M-;") 'toggle-comment-current-line)
+
 (global-set-key (kbd "M-;") 'comment-line)
+
+(global-set-key (kbd "M-j") 'delete-indentation)
 
 (setq-default tab-width 2)
 

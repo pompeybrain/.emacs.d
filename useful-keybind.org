@@ -16,4 +16,4 @@
    1. C-a C-k C-y copy current line
    2.    serch in current direction
    3. C-x k kill buffer
-   4. close emacs window
+   4. C-x C-c close emacs window
