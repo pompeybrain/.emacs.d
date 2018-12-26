@@ -23,6 +23,7 @@
 
 ;; 快速打开配置文件
 (defun open-init-file()
+	"Open init file."
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
@@ -40,7 +41,7 @@
 
 
 (defun kill-and-switch-buffer ()
-	"kill current buffer and switch other default buffer"
+	"Kill current buffer and switch other default buffer."
 	(interactive)
 	(kill-buffer (current-buffer))
 	(switch-to-buffer (previous-buffer) ))
@@ -56,3 +57,4 @@
 (setq-default tab-width 2)
 
 (provide 'init-settings)
+;;; init-settings.el ends here

@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t -*-
 
-;;; This file;; set gc 
+;;; set gc
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
       (init-gc-cons-threshold (* 128 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
@@ -12,6 +12,6 @@
 (require 'init-ui)
 (require 'init-settings)
 (require 'init-packages)
-;; (require 'init-manages)
 (add-to-list 'load-path "~/.emacs.d/site-lisp/" t)
 (require 'init-site-lisp)
+;;; init.el ends here

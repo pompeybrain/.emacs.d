@@ -31,3 +31,4 @@
 ;; (setq inhibit-splash-screen 1)
 
 (provide 'init-ui)
+;;; init-ui.el ends here

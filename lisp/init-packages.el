@@ -1,4 +1,5 @@
 (require 'package)
+
 (add-to-list 'package-archives
 						 '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
 
@@ -13,13 +14,13 @@
 (use-package auto-package-update
 	:ensure t
 	:config
-	(setq auto-package-update-delete-old-version t)
+	(setq auto-package-update-delete-old-versions t)
 	(setq auto-package-update-hide-results t)
 	(auto-package-update-maybe))
 
 (use-package flycheck
 	:ensure t
-	:init
+	:config
 	(global-flycheck-mode))
 
 (use-package company
@@ -39,6 +40,7 @@
 	:ensure t
 	:config
 	(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+	(setq neo-autorefresh nil)
 	:bind ("C-c d". neotree-dir))
 
 (use-package typescript-mode
@@ -62,16 +64,19 @@
 (use-package helm
 	:ensure t
 	:delight
+	:init
+	(add-hook 'after-init-hook 'helm-mode t)
 	:config
-	(helm-mode t)
-	(setq helm-split-window-in-side-p           t
+	(require 'helm-config)
+	(setq helm-split-window-inside-p            t
 				helm-buffers-fuzzy-matching           t
 				helm-move-to-line-cycle-in-source     t
 				helm-ff-search-library-in-sexp        t
 				helm-ff-file-name-history-use-recentf t)
 	:bind (("M-x" . helm-M-x)
 				 ("C-c o" . helm-occur)
-				 ("C-c f" . helm-find-files)))
+				 ("C-c f" . helm-find-files)
+				 ("C-c r". helm-recentf)))
 
 (use-package exec-path-from-shell
 	:ensure t
@@ -82,50 +87,5 @@
 (use-package eglot
 	:ensure t)
 
-;; (use-package lsp-mode
-;; 	:ensure t
-;; 	:commands lsp
-;; 	:hook(prog-mode . lsp))
-
-;; (use-package lsp-ui
-;; 	:ensure t
-;; 	:commands lsp-ui-mode)
-
-;; (use-package company-lsp
-;; 	:ensure t
-;; 	:commands company-lsp)
-
-
-;; ;; cl - Common Lisp Extension
-;; (require 'cl)
-
-;; ;; Add Packages
-;; (defvar pompey-packages '(
-;; 			  ;; helpful plugins
-;; 			  helm
-;; 			  rainbow-delimiters
-;; 			  paredit
-;; 			  neotree
-;; 			  all-the-icons
-;; 			  company
-;; 			  yasnippet
-;; 			  ;; lsp-mode
-;; 			  ;; lsp-ui
-;; 			  ;; company-lsp
-;; 			  ace-jump-mode
-;; 			  ) "Default packages")
-;; (setq packages-selected-packages pompey-packages)
-
-;; (defun pompey-packages-installed-p ()
-;;   (loop for pkg in pompey-packages
-;; 	when (not (package-installed-p pkg)) do (return nil)
-;; 	finally (return t)))
-
-;; (unless (pompey-packages-installed-p)
-;;   (message "%s" "Refreshing package database...")
-;;   (package-refresh-contents)
-;;   (dolist (pkg pompey-packages)
-;;     (when (not (package-installed-p pkg))
-;;       (package-install pkg))))
-
 (provide 'init-packages)
+;;; init-packages.el ends here
