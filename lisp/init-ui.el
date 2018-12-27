@@ -17,7 +17,7 @@
 (scroll-bar-mode -1)
 
 ;; 显示行号
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 
 ;; set font
 (set-face-attribute 'default nil :family "Consolas")

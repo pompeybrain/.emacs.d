@@ -39,8 +39,16 @@
 	(add-to-list 'neo-hidden-regexp-list "\\.git") ;;; doesn't work
 	:bind ("C-c d". neotree-dir))
 
-(use-package typescript-mode
-	:ensure t)
+(use-package tide
+	:ensure t
+	:after (typescript-mode company flycheck)
+	:hook((typescript-mode . tide-setup)
+				(typescript-mode . tide-hl-identifier-mode)))
+
+(use-package  prettier-js
+	:ensure t
+	:hook((typescript-mode . prettier-js-mode)
+				(js2-mode . prettier-js-mode)))
 
 (use-package geiser
 	:ensure t
