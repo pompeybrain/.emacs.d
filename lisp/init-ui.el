@@ -21,7 +21,7 @@
 
 ;; set font
 (set-face-attribute 'default nil :family "Consolas")
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 160)
 (set-face-attribute 'default nil :weight 'normal)
 (setq-default line-spacing 4)
 

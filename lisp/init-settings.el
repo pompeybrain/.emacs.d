@@ -25,7 +25,6 @@
 ;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
 (global-set-key (kbd "<f2>") 'open-init-file)
 
-
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'none))
@@ -46,6 +45,10 @@
 (global-set-key (kbd "M-j") 'delete-indentation)
 
 (setq-default tab-width 2)
+
+(global-visual-line-mode 1)
+(add-hook 'minibuffer-setup-hook (lambda ()
+																	 (visual-line-mode -1)))
 
 (provide 'init-settings)
 ;;; init-settings.el ends here
