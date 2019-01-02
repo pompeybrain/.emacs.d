@@ -50,5 +50,9 @@
 (add-hook 'minibuffer-setup-hook (lambda ()
 																	 (visual-line-mode -1)))
 
+(add-hook 'after-init-hook (lambda ()
+														 (column-number-mode t)
+														 (global-hl-line-mode t)))
+
 (provide 'init-settings)
 ;;; init-settings.el ends here
