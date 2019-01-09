@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (setq inhibit-startup-screen t)
 (load-theme 'zenburn t)
 
@@ -17,7 +18,8 @@
 (scroll-bar-mode -1)
 
 ;; 显示行号
-;; (global-linum-mode 1)
+(global-linum-mode 1)
+(setq-default linum-format "%3d  ")
 
 ;; set font
 (set-face-attribute 'default nil :family "Consolas")
@@ -31,9 +33,12 @@
 ;; set pair match face
 ;; (set-face-background 'show-paren-match "#55575e")
 
-(let ((no-border '(internal-border-width . 0)))
-  (add-to-list 'default-frame-alist no-border)
-  (add-to-list 'initial-frame-alist no-border))
+;; (let ((no-border '(internal-border-width . 0)))
+  ;; (add-to-list 'default-frame-alist no-border)
+  ;; (add-to-list 'initial-frame-alist no-border))
+
+;; 左右边界
+(fringe-mode 0)
 
 (provide 'init-ui)
 ;;; init-ui.el ends here

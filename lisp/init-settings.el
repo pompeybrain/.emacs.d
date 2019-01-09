@@ -54,5 +54,7 @@
 														 (column-number-mode t)
 														 (global-hl-line-mode t)))
 
+(setq mark-even-if-inactive nil)
+
 (provide 'init-settings)
 ;;; init-settings.el ends here

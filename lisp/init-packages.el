@@ -14,6 +14,7 @@
 
 (use-package flycheck
 	:ensure t
+	:delight
 	:config
 	(global-flycheck-mode))
 
@@ -39,6 +40,8 @@
 	(add-to-list 'neo-hidden-regexp-list "\\.git") ;;; doesn't work
 	:bind ("C-c d". neotree-dir))
 
+
+
 (defun setup-ts-mode()
 	"Setup typescript mode configs."
 	(setq tab-always-indent nil))
@@ -46,10 +49,14 @@
 (use-package tide
 	:ensure t
 	:after (typescript-mode company flycheck)
-	:hook((typescript-mode . tide-setup)
-				(typescript-mode . tide-hl-identifier-mode)
-				;; (typescript-mode . setup-ts-mode)
-				))
+	:hook(
+				((typescript-mode js-mode) . tide-setup)
+				((typescript-mode js-mode) . tide-hl-identifier-mode)))
+
+;; (use-package js2-mode
+;; 	:ensure t
+;; 	:config
+;; 	(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
 ;; Prettier-emacs can't surpport config files, and need
 ;; config to use node_modules/bin/prettier, so don't use it temporarily.
@@ -99,10 +106,7 @@
 (use-package eglot
 	:ensure t)
 
-(use-package js2-mode
-	:ensure t
-	:config
-	(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
