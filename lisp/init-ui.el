@@ -19,7 +19,7 @@
 
 ;; 显示行号
 (global-linum-mode 1)
-(setq-default linum-format "%3d  ")
+(setq-default linum-format "%4d  ")
 
 ;; set font
 (set-face-attribute 'default nil :family "Consolas")

@@ -1,0 +1,3 @@
+* target for my emacs config files
+
+** TODO benchmark start time

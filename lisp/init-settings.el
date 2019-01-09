@@ -56,5 +56,7 @@
 
 (setq mark-even-if-inactive nil)
 
+(setq-default indent-tabs-mode nil)
+
 (provide 'init-settings)
 ;;; init-settings.el ends here
