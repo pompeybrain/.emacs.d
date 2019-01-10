@@ -105,15 +105,18 @@
 
 (use-package counsel
   :ensure t
+  :delight
+  :init
+  (add-hook 'after-init-hook (ivy-mode 1))
   :bind(("C-s" . swiper)
         ("M-x" . counsel-M-x)
         ("C-c f" . counsel-find-file)
         ("C-c s" . counsel-rg))
   :config
-  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
 
+;; (ivy-mode 1)
 ;; (use-package helm
 ;; 	:ensure t
 ;; 	:delight
