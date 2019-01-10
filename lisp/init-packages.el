@@ -1,3 +1,5 @@
+;;; package -- Summary
+;;; Commentary:
 ;;; Code:
 (eval-when-compile
 	(require 'use-package))
@@ -48,18 +50,34 @@
   :config
   (setq js-indent-level 2))
 
-(defun setup-ts-mode()
-	"Setup typescript mode configs."
-	(setq tab-always-indent nil))
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.ts\\'"
+   :config
+  (setq typescript-indent-level 2))
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (add-hook 'before-save-hook 'tide-format-before-save)
+  (company-mode +1)
+  (setq tide-format-options
+      '(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t)))
+
+;; aligns annotation to the right hand side
+;; (setq company-tooltip-align-annotations t)
 
 (use-package tide
 	:ensure t
-	:after (typescript-mode js2-mode company flycheck)
-	:hook(
-				((typescript-mode js2-mode) . tide-setup)
-				((typescript-mode js2-mode) . tide-hl-identifier-mode)))
+	:after (typescript-mode js2-mode company flycheck))
 
-(add-hook 'js2-mode-hook (lambda () "setup tide for js2-mode" (interactive) (tide-setup)))
+(add-hook 'js2-mode-hook #'setup-tide-mode)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
 
 ;; Prettier-emacs can't surpport config files, and need
 ;; config to use node_modules/bin/prettier, so don't use it temporarily.
@@ -85,22 +103,33 @@
 	:ensure t
 	:bind ("C-c j". ace-jump-mode))
 
-(use-package helm
-	:ensure t
-	:delight
-	:init
-	(add-hook 'after-init-hook 'helm-mode t)
-	:bind (("M-x" . helm-M-x)
-				 ("C-c o" . helm-occur)
-				 ("C-c f" . helm-find-files)
-				 ("C-c r". helm-recentf))
-	:config
-	(require 'helm-config)
-	(setq helm-split-window-inside-p            t
-				helm-buffers-fuzzy-matching           t
-				helm-move-to-line-cycle-in-source     t
-				helm-ff-search-library-in-sexp        t
-				helm-ff-file-name-history-use-recentf t))
+(use-package counsel
+  :ensure t
+  :bind(("C-s" . swiper)
+        ("M-x" . counsel-M-x)
+        ("C-c f" . counsel-find-file)
+        ("C-c s" . counsel-rg))
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
+
+;; (use-package helm
+;; 	:ensure t
+;; 	:delight
+;; 	:init
+;; 	(add-hook 'after-init-hook 'helm-mode t)
+;; 	:bind (("M-x" . helm-M-x)
+;; 				 ("C-c o" . helm-occur)
+;; 				 ("C-c f" . helm-find-files)
+;; 				 ("C-c r". helm-recentf))
+;; 	:config
+;; 	(require 'helm-config)
+;; 	(setq helm-split-window-inside-p            t
+;; 				helm-buffers-fuzzy-matching           t
+;; 				helm-move-to-line-cycle-in-source     t
+;; 				helm-ff-search-library-in-sexp        t
+;; 				helm-ff-file-name-history-use-recentf t))
 
 (use-package exec-path-from-shell
 	:ensure t

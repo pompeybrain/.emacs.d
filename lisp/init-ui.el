@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 ;; -*- lexical-binding: t -*-
 (setq inhibit-startup-screen t)
 (load-theme 'zenburn t)
@@ -23,19 +26,12 @@
 
 ;; set font
 (set-face-attribute 'default nil :family "Consolas")
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 150)
 (set-face-attribute 'default nil :weight 'normal)
-(setq-default line-spacing 4)
+(setq-default line-spacing 5)
 
 ;; set cursor
 (setq-default cursor-type '(bar . 2))
-
-;; set pair match face
-;; (set-face-background 'show-paren-match "#55575e")
-
-;; (let ((no-border '(internal-border-width . 0)))
-  ;; (add-to-list 'default-frame-alist no-border)
-  ;; (add-to-list 'initial-frame-alist no-border))
 
 ;; 左右边界
 (fringe-mode 0)

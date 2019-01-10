@@ -1,3 +1,7 @@
 * target for my emacs config files
 
 ** TODO benchmark start time
+** TODO which-key support
+** DONE replace helm with ivy-counsel-swiper
+** TODO use hydra
+** TODO intelligent auto save

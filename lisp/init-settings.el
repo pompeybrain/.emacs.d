@@ -1,3 +1,6 @@
+;;; package -- summary
+;;; Commentary:
+;;; Code:
 (setq debug-on-error t)
 
 ;; 关闭自动保存
@@ -40,6 +43,8 @@
 
 (global-set-key (kbd "C-c C-k") 'kill-current-buffer)
 
+(global-set-key (kbd "C-c g") 'goto-line)
+
 (global-set-key (kbd "M-;") 'comment-line)
 
 (global-set-key (kbd "M-j") 'delete-indentation)
@@ -47,12 +52,15 @@
 (setq-default tab-width 2)
 
 (global-visual-line-mode 1)
-(add-hook 'minibuffer-setup-hook (lambda ()
-																	 (visual-line-mode -1)))
 
-(add-hook 'after-init-hook (lambda ()
-														 (column-number-mode t)
-														 (global-hl-line-mode t)))
+(add-hook 'minibuffer-setup-hook
+          (lambda ()
+						(visual-line-mode -1)))
+
+(add-hook 'after-init-hook
+          (lambda ()
+						(column-number-mode t)
+						(global-hl-line-mode t)))
 
 (setq mark-even-if-inactive nil)
 

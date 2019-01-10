@@ -1,4 +1,7 @@
-;; -*- lexical-binding: t -*-
+;;; package -- Summary ;; -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;;; set gc
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
       (init-gc-cons-threshold (* 128 1024 1024)))
