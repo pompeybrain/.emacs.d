@@ -26,4 +26,8 @@ C-x g  magit-status
    1. n : next
    2. p : prev
    3. tab : view
-   4. q : quit
+   4. s stage
+   5. c commit (c : create commit)
+   6. P push (u : master)
+   7. z stash (l:list; z: save; k: drop; a: apply; p:pop)
+   8. q : quit
