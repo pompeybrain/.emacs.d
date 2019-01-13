@@ -18,7 +18,16 @@
 	:ensure t
 	:delight
 	:config
-	(global-flycheck-mode))
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+	(global-flycheck-mode t))
+
+(use-package flycheck-pos-tip
+  :ensure t
+  :after flycheck
+  :config
+  (setq flycheck-pos-tip-timeout 10
+        flycheck-display-errors-delay 0.5)
+  (flycheck-pos-tip-mode +1))
 
 (use-package company
 	:ensure t
@@ -36,13 +45,38 @@
 
 (use-package neotree
 	:ensure t
-	:bind ("C-c d". neotree-dir)
+	:bind (("C-c d". neotree-dir)
+         (:map neotree-mode-map
+               ("l" . neotree-enter-vertical-split)
+               ("D" . neotree-delete-node)
+               ))
 	:config
 	(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-	(setq neo-autorefresh nil)
-	(setq neo-show-hidden-files t)
-	(add-to-list 'neo-hidden-regexp-list "\\.git") ;;; doesn't work
-	)
+	(setq neo-autorefresh nil
+        neo-auto-indent-point t
+        neo-window-width 25
+        neo-window-fixed-size nil
+        neo-mode-line-type 'none
+	      neo-show-hidden-files nil
+        neo-hidden-regexp-list
+        '(;; vcs folders
+          "^\\.\\(git\\|hg\\|svn\\)$"
+          ;; compiled files
+          "\\.\\(pyc\\|o\\|elc\\|lock\\|css.map\\)$"
+          ;; generated files, caches or local pkgs
+          "^\\(node_modules\\|vendor\\|.\\(project\\|cask\\|yardoc\\|sass-cache\\)\\)$"
+          ;; org-mode folders
+          "^\\.\\(sync\\|export\\|attach\\)$"
+          "~$"
+          "^#.*#$"))
+	(add-hook 'neo-after-create-hook
+            #'(lambda (_)
+                (with-current-buffer (get-buffer neo-buffer-name)
+                  (setq truncate-lines t)
+                  (setq word-wrap nil)
+                  (make-local-variable 'auto-hscroll-mode)
+                  (setq auto-hscroll-mode nil))))
+  )
 
 (use-package js2-mode
 	:ensure t
@@ -53,10 +87,11 @@
 (use-package typescript-mode
   :ensure t
   :mode "\\.ts\\'"
-   :config
+  :config
   (setq typescript-indent-level 2))
 
 (defun setup-tide-mode ()
+  "Setup tide config."
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
@@ -66,7 +101,7 @@
   (add-hook 'before-save-hook 'tide-format-before-save)
   (company-mode +1)
   (setq tide-format-options
-      '(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t)))
+        '(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t)))
 
 ;; aligns annotation to the right hand side
 ;; (setq company-tooltip-align-annotations t)
@@ -103,14 +138,21 @@
 	:ensure t
 	:bind ("C-c j". ace-jump-mode))
 
+(use-package ivy
+  :ensure t
+  :init
+  (add-hook 'after-init-hook (ivy-mode 1)))
+
+(use-package swiper
+  :ensure t
+  :defer t)
+
 (use-package counsel
   :ensure t
-  :delight
-  :init
-  (add-hook 'after-init-hook (ivy-mode 1))
   :bind(("C-s" . swiper)
         ("M-x" . counsel-M-x)
         ("C-c f" . counsel-find-file)
+        ("C-c r" . counsel-recentf)
         ("C-c s" . counsel-rg))
   :config
   (setq ivy-use-virtual-buffers t)
@@ -143,6 +185,10 @@
 (use-package eglot
 	:ensure t
 	:defer t)
+
+(use-package magit
+  :ensure t
+  :bind("C-x g" . #'magit-status))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

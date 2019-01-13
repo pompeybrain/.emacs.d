@@ -21,3 +21,9 @@
    2.    serch in current direction
    3. C-x k kill buffer
    4. C-x C-c close emacs window
+** magit
+C-x g  magit-status
+   1. n : next
+   2. p : prev
+   3. tab : view
+   4. q : quit

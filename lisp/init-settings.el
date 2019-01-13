@@ -1,7 +1,6 @@
 ;;; package -- summary
 ;;; Commentary:
 ;;; Code:
-(setq debug-on-error t)
 
 ;; 关闭自动保存
 (setq auto-save-default nil)
@@ -39,7 +38,7 @@
 	"Kill current buffer and switch other default buffer."
 	(interactive)
 	(kill-buffer (current-buffer))
-	(switch-to-buffer (previous-buffer) ))
+	(switch-to-buffer (previous-buffer)))
 
 (global-set-key (kbd "C-c C-k") 'kill-current-buffer)
 
@@ -62,6 +61,7 @@
 						(column-number-mode t)
 						(global-hl-line-mode t)))
 
+;; prevent some operation for region like C-w
 (setq mark-even-if-inactive nil)
 
 (setq-default indent-tabs-mode nil)

@@ -1,6 +1,7 @@
 ;;; package -- Summary ;; -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
+(setq debug-on-error t)
 
 ;;; set gc
 (let ((normal-gc-cons-threshold (* 20 1024 1024))

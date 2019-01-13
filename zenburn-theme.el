@@ -106,8 +106,10 @@ defining them in this alist."
     ("zenburn-fg-1"     . "#656555")
     ("zenburn-bg-2"     . "#000000")
     ("zenburn-bg-1"     . "#2B2B2B")
-    ("zenburn-bg-05"    . "#383838")
-    ("zenburn-bg"       . "#3F3F3F")
+    ;; ("zenburn-bg-05"    . "#383838")
+    ("zenburn-bg-05"    . "#333333")
+    ("zenburn-bg"       . "#393939")
+        ;; ("zenburn-bg"       . "#3F3F3F")
     ("zenburn-bg+05"    . "#494949")
     ("zenburn-bg+1"     . "#4F4F4F")
     ("zenburn-bg+2"     . "#5F5F5F")
@@ -146,7 +148,9 @@ defining them in this alist."
     ("zenburn-blue-4"   . "#4C7073")
     ("zenburn-blue-5"   . "#366060")
     ("zenburn-magenta"  . "#DC8CC3")
-    ("zenburn-gray"     . "#666666"))
+    ("zenburn-gray-3"     . "#999999")
+    ("zenburn-gray"     . "#666666")
+    )
   "List of Zenburn colors.
 Each element has the form (NAME . HEX).
 
@@ -233,13 +237,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mode-line
      ((,class (:foreground ,zenburn-green+1
                            :background ,zenburn-bg-1
-                           :box (:line-width -1 :style released-button)))
+                           ;; :box (:line-width -1 :style released-button)))
+                           ))
       (t :inverse-video t)))
-   `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
+   
+   `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow))))
+   ;; `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
    `(mode-line-inactive
      ((t (:foreground ,zenburn-green-2
                       :background ,zenburn-bg-05
-                      :box (:line-width -1 :style released-button)))))
+                      ;; :box (:line-width -1 :style released-button)
+                      ))))
    `(region ((,class (:background ,zenburn-bg-1))
              (t :inverse-video t)))
    `(secondary-selection ((t (:background ,zenburn-bg+2))))
@@ -247,12 +255,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vertical-border ((t (:foreground ,zenburn-fg))))
 ;;;;; font lock
    `(font-lock-builtin-face ((t (:foreground ,zenburn-fg :weight bold))))
-   `(font-lock-comment-face ((t (:foreground ,zenburn-green))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,zenburn-green-2))))
+   `(font-lock-comment-face ((t (:foreground ,zenburn-gray-3))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,zenburn-gray-3))))
+   ;; `(font-lock-comment-delimiter-face ((t (:foreground ,zenburn-green-2))))
    `(font-lock-constant-face ((t (:foreground ,zenburn-green+4))))
-   `(font-lock-doc-face ((t (:foreground ,zenburn-green+2))))
+   ;; `(font-lock-doc-face ((t (:foreground ,zenburn-green+2))))
+   `(font-lock-doc-face ((t (:foreground ,zenburn-gray-3))))
    `(font-lock-function-name-face ((t (:foreground ,zenburn-cyan))))
-   `(font-lock-keyword-face ((t (:foreground ,zenburn-yellow :weight bold))))
+   ;; `(font-lock-keyword-face ((t (:foreground ,zenburn-yellow :weight bold))))
+   `(font-lock-keyword-face ((t (:foreground ,zenburn-yellow))))
    `(font-lock-negation-char-face ((t (:foreground ,zenburn-yellow :weight bold))))
    `(font-lock-preprocessor-face ((t (:foreground ,zenburn-blue+1))))
    `(font-lock-regexp-grouping-construct ((t (:foreground ,zenburn-yellow :weight bold))))
