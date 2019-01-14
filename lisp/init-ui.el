@@ -36,7 +36,6 @@
 (provide 'init-ui)
 ;;; init-ui.el ends here
 
-
 ;;; how to set frame size and position in mac os
 ;;; defaults write org.gnu.Emacs Width 150
 ;;; defaults write org.gnu.Emacs Height 50

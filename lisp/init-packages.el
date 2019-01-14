@@ -2,28 +2,29 @@
 ;;; Commentary:
 ;;; Code:
 (eval-when-compile
-	(require 'use-package))
+  (require 'use-package))
 
 (use-package diminish
-	:ensure t
-  :config
-  (diminish 'visual-line-mode)
-  (diminish 'eldoc-mode)
-  )
+  :ensure t)
+
+(require 'diminish)
+
+(diminish 'visual-line-mode)
+(diminish 'eldoc-mode)
 
 (use-package auto-package-update
-	:ensure t
-	:config
-	(setq auto-package-update-delete-old-versions t)
-	(setq auto-package-update-hide-results t)
-	(auto-package-update-maybe))
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 (use-package flycheck
-	:ensure t
-	:diminish
-	:config
+  :ensure t
+  :diminish
+  :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-	(global-flycheck-mode +1)
+  (global-flycheck-mode +1)
   (flycheck-pos-tip-mode +1))
 
 (use-package flycheck-pos-tip
@@ -35,36 +36,36 @@
         flycheck-display-errors-delay 0.5))
 
 (use-package company
-	:ensure t
-	:diminish
-	:config
-	(global-company-mode)
+  :ensure t
+  :diminish
+  :config
+  (global-company-mode)
   (setq company-show-numbers t)
-	:bind (:map company-active-map
-							("C-n" . 'company-select-next-or-abort)
-							("C-p" . 'company-select-previous-or-abort)
-							))
+  :bind (:map company-active-map
+	      ("C-n" . 'company-select-next-or-abort)
+	      ("C-p" . 'company-select-previous-or-abort)
+	      ))
 
 (use-package all-the-icons
-	:defer t
-	:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package neotree
-	:ensure t
-	:bind (
+  :ensure t
+  :bind (
          ;; ("C-c d". neotree-dir)
          (:map neotree-mode-map
                ("l" . neotree-enter-vertical-split)
                ("D" . neotree-delete-node)
                ))
-	:config
-	(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-	(setq neo-autorefresh nil
+  :config
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq neo-autorefresh nil
         neo-auto-indent-point t
         neo-window-width 25
         neo-window-fixed-size nil
         neo-mode-line-type 'none
-	      neo-show-hidden-files nil
+	neo-show-hidden-files nil
         neo-hidden-regexp-list
         '(;; vcs folders
           "^\\.\\(git\\|hg\\|svn\\)$"
@@ -76,7 +77,7 @@
           "^\\.\\(sync\\|export\\|attach\\)$"
           "~$"
           "^#.*#$"))
-	(add-hook 'neo-after-create-hook
+  (add-hook 'neo-after-create-hook
             #'(lambda (_)
                 (with-current-buffer (get-buffer neo-buffer-name)
                   (setq truncate-lines t)
@@ -119,10 +120,11 @@
   )
 
 (use-package js2-mode
-	:ensure t
-	:mode "\\.js\\'"
+  :ensure t
+  :mode "\\.js\\'"
   :config
-  (setq js-indent-level 2))
+  (setq js-indent-level 2)
+  )
 
 (use-package typescript-mode
   :ensure t
@@ -140,19 +142,20 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (tide-hl-identifier-mode +1)
   (add-hook 'before-save-hook 'tide-format-before-save)
-  (setq-default tide-format-options
-        '(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t)))
+  ;; (setq-default tide-format-options
+  ;; 		'(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t))
+  )
 
 ;; aligns annotation to the right hand side
 
 
 (use-package tide
-	:ensure t
+  :ensure t
+  :diminish
   :defer t
   :init
   (add-hook 'js2-mode-hook #'setup-tide-mode)
   (add-hook 'typescript-mode-hook #'setup-tide-mode)
-	;; :after (typescript-mode js2-mode company flycheck)
   )
 
 ;; Prettier-emacs can't surpport config files, and need
@@ -162,22 +165,24 @@
 ;; 	:hook((typescript-mode . prettier-js-mode)
 ;; 				(js2-mode . prettier-js-mode)))
 
+
 (use-package geiser
-	:ensure t
-	:defer t
-	:config
-	(setq scheme-program-name "chez")
-	(setq geiser-chez-binary "chez")
-	(setq geiser-active-implementations '(chez))
-  (setq geiser-mode-start-repl-p t))
+  :ensure t
+  :defer t
+  :config
+  (setq scheme-program-name "chez")
+  (setq geiser-chez-binary "chez")
+  (setq geiser-active-implementations '(chez))
+  (setq geiser-mode-start-repl-p t)
+  )
 
 (use-package rainbow-delimiters
-	:ensure t
-	:hook (prog-mode . rainbow-delimiters-mode))
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package ace-jump-mode
-	:ensure t
-	:bind ("C-c j". ace-jump-mode))
+  :ensure t
+  :bind ("C-c j". ace-jump-mode))
 
 (use-package ivy
   :ensure t
@@ -219,14 +224,14 @@
 ;; 				helm-ff-file-name-history-use-recentf t))
 
 (use-package exec-path-from-shell
-	:ensure t
-	:config
-	(when (memq window-system '(mac ns x))
-		(exec-path-from-shell-initialize)))
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 (use-package eglot
-	:ensure t
-	:defer t)
+  :ensure t
+  :defer t)
 
 (use-package magit
   :ensure t
@@ -243,6 +248,12 @@
   :diminish
   :config
   (which-key-mode t))
+
+(use-package editorconfig
+  :ensure t
+  :diminish
+  :config
+  (editorconfig-mode 1))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

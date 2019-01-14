@@ -21,7 +21,7 @@
 
 ;; 快速打开配置文件
 (defun open-init-file()
-	"Open init file."
+  "Open init file."
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
@@ -36,10 +36,10 @@
 (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
 
 (defun kill-and-switch-buffer ()
-	"Kill current buffer and switch other default buffer."
-	(interactive)
-	(kill-buffer (current-buffer))
-	(switch-to-buffer (previous-buffer)))
+  "Kill current buffer and switch other default buffer."
+  (interactive)
+  (kill-buffer (current-buffer))
+  (switch-to-buffer (previous-buffer)))
 
 (global-set-key (kbd "C-c C-k") 'kill-current-buffer)
 
@@ -49,23 +49,25 @@
 
 (global-set-key (kbd "M-j") 'delete-indentation)
 
-(setq-default tab-width 2)
+;; set for some specify lang
+;; (setq-default tab-width 2)
+;; (setq-default indent-tabs-mode nil)
 
 (global-visual-line-mode 1)
 
 (add-hook 'minibuffer-setup-hook
           (lambda ()
-						(visual-line-mode -1)))
+	    (visual-line-mode -1)))
 
 (add-hook 'after-init-hook
           (lambda ()
-						(column-number-mode t)
-						(global-hl-line-mode t)))
+	    (column-number-mode t)
+	    (global-hl-line-mode t)))
 
 ;; prevent some operation for region like C-w
 (setq mark-even-if-inactive nil)
 
-(setq-default indent-tabs-mode nil)
+
 
 ;; line number
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)

@@ -1,10 +1,11 @@
 * target for my emacs config files
 
-** TODO flycheck-pos-tooltip bugy
-** TODO editorconfig support
+
 ** TODO use hydra
 ** TODO benchmark start time
 ** TODO scheme config
+** TODO flycheck-pos-tooltip bugy
+** DONE editorconfig support
 ** DONE typescript/javascript config
 ** DONE treemacs with icons
 ** DONE intelligent auto save
