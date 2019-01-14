@@ -1,7 +1,13 @@
 * target for my emacs config files
 
-** TODO benchmark start time
-** TODO which-key support
-** DONE replace helm with ivy-counsel-swiper
+** TODO flycheck-pos-tooltip bugy
+** TODO editorconfig support
 ** TODO use hydra
-** TODO intelligent auto save
+** TODO benchmark start time
+** TODO scheme config
+** DONE typescript/javascript config
+** DONE treemacs with icons
+** DONE intelligent auto save
+** DONE replace helm with ivy-counsel-swiper
+** DONE nlinum highlight
+** DONE which-key support

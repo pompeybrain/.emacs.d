@@ -4,8 +4,12 @@
 (eval-when-compile
 	(require 'use-package))
 
-(use-package delight
-	:ensure t)
+(use-package diminish
+	:ensure t
+  :config
+  (diminish 'visual-line-mode)
+  (diminish 'eldoc-mode)
+  )
 
 (use-package auto-package-update
 	:ensure t
@@ -16,24 +20,26 @@
 
 (use-package flycheck
 	:ensure t
-	:delight
+	:diminish
 	:config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-	(global-flycheck-mode t))
+	(global-flycheck-mode +1)
+  (flycheck-pos-tip-mode +1))
 
 (use-package flycheck-pos-tip
   :ensure t
+  :defer t
   :after flycheck
   :config
   (setq flycheck-pos-tip-timeout 10
-        flycheck-display-errors-delay 0.5)
-  (flycheck-pos-tip-mode +1))
+        flycheck-display-errors-delay 0.5))
 
 (use-package company
 	:ensure t
-	:delight
+	:diminish
 	:config
 	(global-company-mode)
+  (setq company-show-numbers t)
 	:bind (:map company-active-map
 							("C-n" . 'company-select-next-or-abort)
 							("C-p" . 'company-select-previous-or-abort)
@@ -45,7 +51,8 @@
 
 (use-package neotree
 	:ensure t
-	:bind (("C-c d". neotree-dir)
+	:bind (
+         ;; ("C-c d". neotree-dir)
          (:map neotree-mode-map
                ("l" . neotree-enter-vertical-split)
                ("D" . neotree-delete-node)
@@ -78,6 +85,39 @@
                   (setq auto-hscroll-mode nil))))
   )
 
+(use-package treemacs
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
+          treemacs-show-hidden-files          t
+          treemacs-width                      30)
+    (treemacs-resize-icons 14)
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+    ;; (add-to-list treemacs-ignored-file-predicates (lambda ())) TODO: add ignore dirs and files
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null (executable-find "python3"))))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))
+      ))
+  :bind
+  (:map global-map
+        ("C-x d"     . treemacs)
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag))
+  )
+
 (use-package js2-mode
 	:ensure t
 	:mode "\\.js\\'"
@@ -95,24 +135,25 @@
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
+  (company-mode +1)
+  (setq company-tooltip-align-annotations t)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (add-hook 'before-save-hook 'tide-format-before-save)
-  (company-mode +1)
-  (setq tide-format-options
+  (setq-default tide-format-options
         '(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t)))
 
 ;; aligns annotation to the right hand side
-;; (setq company-tooltip-align-annotations t)
+
 
 (use-package tide
 	:ensure t
-	:after (typescript-mode js2-mode company flycheck))
-
-(add-hook 'js2-mode-hook #'setup-tide-mode)
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-
+  :defer t
+  :init
+  (add-hook 'js2-mode-hook #'setup-tide-mode)
+  (add-hook 'typescript-mode-hook #'setup-tide-mode)
+	;; :after (typescript-mode js2-mode company flycheck)
+  )
 
 ;; Prettier-emacs can't surpport config files, and need
 ;; config to use node_modules/bin/prettier, so don't use it temporarily.
@@ -140,7 +181,9 @@
 
 (use-package ivy
   :ensure t
+  :diminish
   :init
+  (setq ivy-initial-inputs-alist nil)
   (add-hook 'after-init-hook (ivy-mode 1)))
 
 (use-package swiper
@@ -158,10 +201,9 @@
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
 
-;; (ivy-mode 1)
 ;; (use-package helm
 ;; 	:ensure t
-;; 	:delight
+;; 	:diminish
 ;; 	:init
 ;; 	(add-hook 'after-init-hook 'helm-mode t)
 ;; 	:bind (("M-x" . helm-M-x)
@@ -188,7 +230,19 @@
 
 (use-package magit
   :ensure t
+  :init
+  (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   :bind("C-x g" . #'magit-status))
+
+(use-package org
+  :ensure t
+  :defer t)
+
+(use-package which-key
+  :ensure t
+  :diminish
+  :config
+  (which-key-mode t))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

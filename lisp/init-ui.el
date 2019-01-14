@@ -25,11 +25,6 @@
 ;; 关闭文件滑动控件
 (scroll-bar-mode -1)
 
-;; 显示行号
-(global-linum-mode 1)
-(setq-default linum-format "%4d ")
-(set-face-attribute 'linum nil :weight 'normal)
-
 ;; set cursor
 (setq-default cursor-type '(bar . 2))
 

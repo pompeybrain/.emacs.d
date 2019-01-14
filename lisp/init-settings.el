@@ -2,8 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-;; 关闭自动保存
+;; 自动保存到文件，而不是另外的
 (setq auto-save-default nil)
+(auto-save-visited-mode t)
 
 ;;关闭自动生成备份
 (setq make-backup-files nil)
@@ -32,7 +33,7 @@
   (setq mac-option-modifier 'none))
 
 (recentf-mode t)
-(setq-default recentf-max-menu-items 10)
+(add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
 
 (defun kill-and-switch-buffer ()
 	"Kill current buffer and switch other default buffer."
@@ -65,6 +66,11 @@
 (setq mark-even-if-inactive nil)
 
 (setq-default indent-tabs-mode nil)
+
+;; line number
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(global-set-key (kbd "C-c c") 'ispell-buffer)
 
 (provide 'init-settings)
 ;;; init-settings.el ends here

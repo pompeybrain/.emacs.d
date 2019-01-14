@@ -10,10 +10,15 @@
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
+;; prevent auto-save-list dir
+(setq auto-save-list-file-prefix nil)
+
 (require 'package)
 
-(add-to-list 'package-archives
-						 '("melpa" . "http://elpa.emacs-china.org/melpa/") t)
+(setq package-archives
+      '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("org"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 (package-initialize)
 
