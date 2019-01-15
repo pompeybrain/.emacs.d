@@ -5,15 +5,18 @@
   (require 'use-package))
 
 (use-package diminish
-  :ensure t)
-
-(require 'diminish)
-
-(diminish 'visual-line-mode)
-(diminish 'eldoc-mode)
+  :ensure t
+  :defer 1
+  :init
+  (add-hook 'after-init-hook
+	     (lambda ()
+	       (progn
+		 (diminish 'visual-line-mode)
+		 (diminish 'eldoc-mode)))))
 
 (use-package auto-package-update
   :ensure t
+  :defer t
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
@@ -21,6 +24,7 @@
 
 (use-package flycheck
   :ensure t
+  :defer 1
   :diminish
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
@@ -37,6 +41,7 @@
 
 (use-package company
   :ensure t
+  :defer 1
   :diminish
   :config
   (global-company-mode)
@@ -52,6 +57,7 @@
 
 (use-package neotree
   :ensure t
+  :defer t
   :bind (
          ;; ("C-c d". neotree-dir)
          (:map neotree-mode-map
@@ -121,17 +127,19 @@
 
 (use-package js2-mode
   :ensure t
+  :defer t
   :mode "\\.js\\'"
   :config
-  (setq js-indent-level 2)
-  )
+  (setq js-indent-level 2))
 
 (use-package typescript-mode
   :ensure t
+  :defer t
   :mode "\\.ts\\'"
   :config
   (setq typescript-indent-level 2))
 
+;;;###autoload
 (defun setup-tide-mode ()
   "Setup tide config."
   (interactive)
@@ -147,16 +155,13 @@
   )
 
 ;; aligns annotation to the right hand side
-
-
 (use-package tide
   :ensure t
   :diminish
   :defer t
   :init
   (add-hook 'js2-mode-hook #'setup-tide-mode)
-  (add-hook 'typescript-mode-hook #'setup-tide-mode)
-  )
+  (add-hook 'typescript-mode-hook #'setup-tide-mode))
 
 ;; Prettier-emacs can't surpport config files, and need
 ;; config to use node_modules/bin/prettier, so don't use it temporarily.
@@ -173,19 +178,21 @@
   (setq scheme-program-name "chez")
   (setq geiser-chez-binary "chez")
   (setq geiser-active-implementations '(chez))
-  (setq geiser-mode-start-repl-p t)
-  )
+  (setq geiser-mode-start-repl-p t))
 
 (use-package rainbow-delimiters
   :ensure t
+  :defer t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package ace-jump-mode
   :ensure t
+  :defer t
   :bind ("C-c j". ace-jump-mode))
 
 (use-package ivy
   :ensure t
+  :defer t
   :diminish
   :init
   (setq ivy-initial-inputs-alist nil)
@@ -197,6 +204,7 @@
 
 (use-package counsel
   :ensure t
+  :defer t
   :bind(("C-s" . swiper)
         ("M-x" . counsel-M-x)
         ("C-c f" . counsel-find-file)
@@ -225,16 +233,19 @@
 
 (use-package exec-path-from-shell
   :ensure t
+  :init
+  (setq exec-path-from-shell-check-startup-files nil)
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package eglot
-  :ensure t
-  :defer t)
+;; (use-package eglot
+;;   :ensure t
+;;   :defer t)
 
 (use-package magit
   :ensure t
+  :defer t
   :init
   (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   :bind("C-x g" . #'magit-status))
@@ -245,12 +256,14 @@
 
 (use-package which-key
   :ensure t
+  :defer t
   :diminish
   :config
   (which-key-mode t))
 
 (use-package editorconfig
   :ensure t
+  :defer t
   :diminish
   :config
   (editorconfig-mode 1))
