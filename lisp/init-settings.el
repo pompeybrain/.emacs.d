@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+(setq make-backup-files nil)
 ;;;###autoload
 (defun setting-after-init ()
   "Config something don't need early."
@@ -9,9 +10,6 @@
   (setq auto-save-default nil)
 
   (auto-save-visited-mode t)
-
-  ;;关闭自动生成备份
-  (setq make-backup-files nil)
 
 ;;;自动加载更改过的文件
   (global-auto-revert-mode 1)
@@ -22,13 +20,15 @@
   (show-paren-mode t)
 
   (electric-pair-mode t)
+  
   (when (eq system-type 'darwin)
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier 'none))
 
   (recentf-mode t)
+  
   (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
-  (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/\\.cache/.*" (getenv "HOME")))
+    (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/\\.cache/.*" (getenv "HOME")))
 
   (global-set-key (kbd "C-c C-k") 'kill-current-buffer)
 
@@ -37,20 +37,14 @@
   (global-set-key (kbd "M-;") 'comment-line)
 
   (global-set-key (kbd "M-j") 'delete-indentation)
-  )
+
+  (global-visual-line-mode 1)
+  ;; prevent some operation for region like C-w
+  (setq mark-even-if-inactive nil)
+
+  (global-set-key (kbd "C-c c") 'ispell-buffer))
 
 (add-hook 'after-init-hook #'setting-after-init)
-
-;; 快速打开配置文件
-;;;###autoload
-;; (defun open-init-file()
-;;   "Open init file."
-;;   (interactive)
-;;   (find-file "~/.emacs.d/init.el"))
-
-;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
-;; (global-set-key (kbd "<f2>") 'open-init-file)
-
 
 ;;;###autoload
 (defun kill-and-switch-buffer ()
@@ -63,8 +57,6 @@
 ;; (setq-default tab-width 2)
 ;; (setq-default indent-tabs-mode nil)
 
-(global-visual-line-mode 1)
-
 (add-hook 'minibuffer-setup-hook
           (lambda ()
 	    (visual-line-mode -1)))
@@ -74,15 +66,8 @@
 	    (column-number-mode t)
 	    (global-hl-line-mode t)))
 
-;; prevent some operation for region like C-w
-(setq mark-even-if-inactive nil)
-
-
-
 ;; line number
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-
-(global-set-key (kbd "C-c c") 'ispell-buffer)
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
 (add-hook 'emacs-startup-hook

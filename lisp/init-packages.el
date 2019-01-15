@@ -16,7 +16,7 @@
 
 (use-package auto-package-update
   :ensure t
-  :defer t
+  :defer 3
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
@@ -207,7 +207,7 @@
   :defer t
   :bind(("C-s" . swiper)
         ("M-x" . counsel-M-x)
-        ("C-c f" . counsel-find-file)
+        ("C-x f" . counsel-find-file)
         ("C-c r" . counsel-recentf)
         ("C-c s" . counsel-rg))
   :config
@@ -250,23 +250,44 @@
   (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   :bind("C-x g" . #'magit-status))
 
-(use-package org
-  :ensure t
-  :defer t)
+;; (use-package org
+;;   :ensure t
+;;   :defer t)
 
 (use-package which-key
   :ensure t
-  :defer t
+  :defer 3
   :diminish
   :config
   (which-key-mode t))
 
 (use-package editorconfig
   :ensure t
-  :defer t
+  :defer 3
   :diminish
   :config
   (editorconfig-mode 1))
+
+(use-package rainbow-mode
+  :ensure t
+  :defer t)
+
+(use-package hl-todo
+  :ensure t
+  :defer 2
+  :diminish
+  :config
+  (global-hl-todo-mode +1))
+
+(use-package web-mode
+  :ensure t
+  :init
+  (setq web-mode-markup-indent-offset 2)
+  :mode "\\.html\\'")
+
+(use-package emmet-mode
+  :ensure t
+  :hook (web-mode css-mode))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

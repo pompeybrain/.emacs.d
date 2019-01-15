@@ -1,6 +1,7 @@
 elpa/*
-recentf
+recentf*
 auto-save-list
 url
 .cache/*
 eshell/*
+.last-package-update-day

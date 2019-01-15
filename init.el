@@ -13,22 +13,22 @@
 ;; prevent auto-save-list dir
 (setq auto-save-list-file-prefix nil)
 
-(require 'package)
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+(add-to-list 'load-path "~/.emacs.d/lisp/" t)
+(require 'init-ui)
 
+(require 'package)
 (setq package-archives
       '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
         ("org"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 (package-initialize)
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-(add-to-list 'load-path "~/.emacs.d/lisp/" t)
-(require 'init-ui)
-(require 'init-settings)
 (require 'init-packages)
+(require 'init-settings)
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/" t)
 ;; (require 'init-site-lisp)
+
 (provide 'init)
 ;;; init.el ends here

@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 ;; -*- lexical-binding: t -*-
-(load-theme 'zenburn t)
+(load-theme 'atom-one-dark t)
+;; (load-theme 'zenburn t)
 
 ;; set font
 (set-face-attribute 'default nil :family "Source Code Pro")
