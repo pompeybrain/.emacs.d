@@ -28,7 +28,7 @@
   (recentf-mode t)
   
   (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
-    (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/\\.cache/.*" (getenv "HOME")))
+  (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/\\.cache/.*" (getenv "HOME")))
 
   (global-set-key (kbd "C-c C-k") 'kill-current-buffer)
 
@@ -41,6 +41,9 @@
   (global-visual-line-mode 1)
   ;; prevent some operation for region like C-w
   (setq mark-even-if-inactive nil)
+
+  ;;; mac default shortkey fullscreen
+  (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
 
   (global-set-key (kbd "C-c c") 'ispell-buffer))
 

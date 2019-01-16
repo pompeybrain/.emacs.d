@@ -2,6 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 ;; -*- lexical-binding: t -*-
+
+;; titlebar
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . light))
+
 (load-theme 'atom-one-dark t)
 ;; (load-theme 'zenburn t)
 
@@ -12,7 +17,9 @@
 (setq-default line-spacing 3)
 
 ;; 左右边界
-(fringe-mode 0)
+(fringe-mode '(3 . 0))
+(setq overflow-newline-into-fringe nil)
+(setq indicate-empty-lines nil)
 
 ;; set title
 (setq frame-title-format
@@ -37,7 +44,7 @@
 (provide 'init-ui)
 ;;; init-ui.el ends here
 
-;;; how to set frame size and position in mac os
+;;; how to set frame size and position in mac os very early
 ;;; defaults write org.gnu.Emacs Width 150
 ;;; defaults write org.gnu.Emacs Height 50
 ;;; defaults write org.gnu.Emacs Top 150

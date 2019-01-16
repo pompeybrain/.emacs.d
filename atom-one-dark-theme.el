@@ -153,12 +153,13 @@
   `(isearch-fail ((t (:foreground ,atom-one-dark-red-2 :background nil))))
   `(lazy-highlight ((t (:foreground ,atom-one-dark-purple :background ,atom-one-dark-bg-1 :underline ,atom-one-dark-purple))))
 
+  
   ;; diff-hl (https://github.com/dgutov/diff-hl)
-  '(diff-hl-change ((t (:foreground "#E9C062" :background "#8b733a"))))
-  '(diff-hl-delete ((t (:foreground "#CC6666" :background "#7a3d3d"))))
-  '(diff-hl-insert ((t (:foreground "#A8FF60" :background "#547f30"))))
-
-  ;; dired-mode
+  '(diff-hl-change ((t (:foreground "#282c34" :background "#367E9E"))))
+  '(diff-hl-delete ((t (:foreground "#282c34" :background "#890015"))))
+  '(diff-hl-insert ((t (:foreground "#282c34" :background "#5E7D00"))))
+  
+ ;; dired-mode
   '(dired-directory ((t (:inherit (font-lock-keyword-face)))))
   '(dired-flagged ((t (:inherit (diff-hl-delete)))))
   '(dired-symlink ((t (:foreground "#FD5FF1"))))

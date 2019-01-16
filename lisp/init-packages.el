@@ -9,10 +9,9 @@
   :defer 1
   :init
   (add-hook 'after-init-hook
-	     (lambda ()
-	       (progn
-		 (diminish 'visual-line-mode)
-		 (diminish 'eldoc-mode)))))
+	    (lambda ()
+	      (diminish 'visual-line-mode)
+	      (diminish 'eldoc-mode))))
 
 (use-package auto-package-update
   :ensure t
@@ -28,6 +27,7 @@
   :diminish
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq flycheck-indication-mode nil)
   (global-flycheck-mode +1)
   (flycheck-pos-tip-mode +1))
 
@@ -107,6 +107,9 @@
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
+    (treemacs-git-mode 'simple)
+    (setq treemacs-icon-open-png   (propertize "⊖ " 'face 'treemacs-directory-face)
+          treemacs-icon-closed-png (propertize "⊕ " 'face 'treemacs-directory-face))
     ;; (add-to-list treemacs-ignored-file-predicates (lambda ())) TODO: add ignore dirs and files
     (pcase (cons (not (null (executable-find "git")))
                  (not (null (executable-find "python3"))))
@@ -130,7 +133,8 @@
   :defer t
   :mode "\\.js\\'"
   :config
-  (setq js-indent-level 2))
+  (setq js-indent-level 2)
+  (setq js2-strict-missing-semi-warning nil))
 
 (use-package typescript-mode
   :ensure t
@@ -248,6 +252,7 @@
   :defer t
   :init
   (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :bind("C-x g" . #'magit-status))
 
 ;; (use-package org
@@ -256,14 +261,14 @@
 
 (use-package which-key
   :ensure t
-  :defer 3
+  :defer 2
   :diminish
   :config
   (which-key-mode t))
 
 (use-package editorconfig
   :ensure t
-  :defer 3
+  :defer 2
   :diminish
   :config
   (editorconfig-mode 1))
@@ -288,6 +293,17 @@
 (use-package emmet-mode
   :ensure t
   :hook (web-mode css-mode))
+
+(use-package diff-hl
+  :ensure t
+  :defer 1
+  :config
+  (setq diff-hl-draw-borders nil)
+  (global-diff-hl-mode +1))
+
+(use-package smex
+  :ensure t
+  :defer 2)
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
