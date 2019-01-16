@@ -2,12 +2,18 @@
 ;;; Commentary:
 ;;; Code:
 
+(setq debug-on-error t)
 
-;; titlebar
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-;; (add-to-list 'default-frame-alist '(ns-appearance . light))
+;;; set gc
+(let ((normal-gc-cons-threshold (* 32 1024 1024))
+      (init-gc-cons-threshold (* 256 1024 1024)))
+  (setq gc-cons-threshold init-gc-cons-threshold)
+  (add-hook 'emacs-startup-hook
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
-(load-theme 'atom-one-dark t)
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . light))
+;; (load-theme 'atom-one-dark t)
 ;; (load-theme 'zenburn t)
 
 ;; set font
@@ -36,16 +42,18 @@
 ;; set cursor
 (setq-default cursor-type '(bar . 2))
 
-;; audio
-(setq ring-bell-function 'ignore)
-
-(setq inhibit-startup-screen t)
-
-(provide 'init-ui)
-;;; init-ui.el ends here
-
 ;;; how to set frame size and position in mac os very early
 ;;; defaults write org.gnu.Emacs Width 150
 ;;; defaults write org.gnu.Emacs Height 50
 ;;; defaults write org.gnu.Emacs Top 150
 ;;; defaults write org.gnu.Emacs Left 400
+
+;; (require 'package)
+(setq package-archives
+     '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+             ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+         ("org"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+(provide 'early-init)
+;;; early-init.el ends here
+

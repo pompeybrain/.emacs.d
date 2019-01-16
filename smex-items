@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ package-refresh-contents
  pkg-info-package-version
  load-theme
  projectile-project-info
  customize-group
  projectile-switch-project
  counsel-projectile-rg
- counsel-projectile-find-file
 )
 
 ;; ----- smex-data -----
@@ -38,4 +38,5 @@
  (projectile-add-known-project . 3)
  (load-theme . 1)
  (pkg-info-package-version . 1)
+ (package-refresh-contents . 1)
 )

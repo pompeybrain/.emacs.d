@@ -3,6 +3,11 @@
 ;;; Code:
 
 (setq make-backup-files nil)
+;; audio
+(setq ring-bell-function 'ignore)
+
+(setq inhibit-startup-screen t)
+
 ;;;###autoload
 (defun setting-after-init ()
   "Config something don't need early."
