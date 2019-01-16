@@ -55,42 +55,41 @@
   :defer t
   :ensure t)
 
-(use-package neotree
-  :ensure t
-  :defer t
-  :bind (
-         ;; ("C-c d". neotree-dir)
-         (:map neotree-mode-map
-               ("l" . neotree-enter-vertical-split)
-               ("D" . neotree-delete-node)
-               ))
-  :config
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-  (setq neo-autorefresh nil
-        neo-auto-indent-point t
-        neo-window-width 25
-        neo-window-fixed-size nil
-        neo-mode-line-type 'none
-	neo-show-hidden-files nil
-        neo-hidden-regexp-list
-        '(;; vcs folders
-          "^\\.\\(git\\|hg\\|svn\\)$"
-          ;; compiled files
-          "\\.\\(pyc\\|o\\|elc\\|lock\\|css.map\\)$"
-          ;; generated files, caches or local pkgs
-          "^\\(node_modules\\|vendor\\|.\\(project\\|cask\\|yardoc\\|sass-cache\\)\\)$"
-          ;; org-mode folders
-          "^\\.\\(sync\\|export\\|attach\\)$"
-          "~$"
-          "^#.*#$"))
-  (add-hook 'neo-after-create-hook
-            #'(lambda (_)
-                (with-current-buffer (get-buffer neo-buffer-name)
-                  (setq truncate-lines t)
-                  (setq word-wrap nil)
-                  (make-local-variable 'auto-hscroll-mode)
-                  (setq auto-hscroll-mode nil))))
-  )
+;; (use-package neotree
+;;   :defer t
+;;   :bind (
+;;          ;; ("C-c d". neotree-dir)
+;;          (:map neotree-mode-map
+;;                ("l" . neotree-enter-vertical-split)
+;;                ("D" . neotree-delete-node)
+;;                ))
+;;   :config
+;;   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+;;   (setq neo-autorefresh nil
+;;         neo-auto-indent-point t
+;;         neo-window-width 25
+;;         neo-window-fixed-size nil
+;;         neo-mode-line-type 'none
+;; 	neo-show-hidden-files nil
+;;         neo-hidden-regexp-list
+;;         '(;; vcs folders
+;;           "^\\.\\(git\\|hg\\|svn\\)$"
+;;           ;; compiled files
+;;           "\\.\\(pyc\\|o\\|elc\\|lock\\|css.map\\)$"
+;;           ;; generated files, caches or local pkgs
+;;           "^\\(node_modules\\|vendor\\|.\\(project\\|cask\\|yardoc\\|sass-cache\\)\\)$"
+;;           ;; org-mode folders
+;;           "^\\.\\(sync\\|export\\|attach\\)$"
+;;           "~$"
+;;           "^#.*#$"))
+;;   (add-hook 'neo-after-create-hook
+;;             #'(lambda (_)
+;;                 (with-current-buffer (get-buffer neo-buffer-name)
+;;                   (setq truncate-lines t)
+;;                   (setq word-wrap nil)
+;;                   (make-local-variable 'auto-hscroll-mode)
+;;                   (setq auto-hscroll-mode nil))))
+;;   )
 
 (use-package treemacs
   :ensure t
@@ -304,6 +303,26 @@
 (use-package smex
   :ensure t
   :defer 2)
+
+(use-package projectile
+  :ensure t
+  :defer t
+  :diminish
+  :init
+  (setq projectile-cache-file (expand-file-name ".emacs.1d/.cache/projectile.cache" (getenv "HOME")))
+  (setq projectile-known-projects-file (expand-file-name ".emacs.d/.cache/projectile-bookmarks.eld" (getenv "HOME")))
+  :config
+  (add-to-list 'projectile-globally-ignored-directories "node_modules")
+  )
+ 
+(use-package counsel-projectile
+  :ensure t
+  :defer t
+  :diminish
+  :config
+  (counsel-projectile-mode +1)
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :bind ("C-c f" . #'counsel-projectile-find-file))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

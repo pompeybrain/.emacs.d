@@ -45,6 +45,8 @@
   ;;; mac default shortkey fullscreen
   (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
 
+  (global-set-key (kbd "C-r") 'query-replace)
+
   (global-set-key (kbd "C-c c") 'ispell-buffer))
 
 (add-hook 'after-init-hook #'setting-after-init)

@@ -1,18 +1,39 @@
 
 ;; ----- smex-history -----
 (
+ projectile-add-known-project
+ projectile-project-info
  customize-group
- eval-buffer
- smex
- cd
- 5x5
- arp
- dbx
+ projectile-switch-project
+ counsel-projectile-rg
+ counsel-projectile-find-file
+ projectile-find-file
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 1)
- (customize-group . 4)
+ (customize-group . 7)
+ (query-replace . 1)
+ (query-replace-regexp . 1)
+ (swiper-query-replace . 3)
+ (isearch-query-replace . 2)
+ (counsel-git-grep-query-replace . 1)
+ (package-install . 3)
+ (anzu-query-replace . 2)
+ (anzu-query-replace-at-cursor . 1)
+ (global-anzu-mode . 1)
+ (ns-find-file . 1)
+ (treemacs-find-file . 2)
+ (vc-dir-find-file . 1)
+ (project-find-file . 1)
+ (find-name-dired . 1)
+ (projectile-mode . 1)
+ (projectile-find-file . 1)
+ (counsel-projectile-find-file . 1)
+ (projectile-project-info . 2)
+ (counsel-projectile-rg . 1)
+ (projectile-switch-project . 1)
+ (projectile-add-known-project . 3)
 )

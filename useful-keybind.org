@@ -9,6 +9,10 @@
    1. C-h f : function help
    2. C-h v : variable help
    3. C-h k : keybind help
+*** help buffer
+    1. q quit help
+    2. l back prev help
+
 
 ** window
    1. C-x 1 keep current and kill other windows
