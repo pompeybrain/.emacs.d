@@ -6,7 +6,6 @@
 
 (use-package diminish
   :ensure t
-  :defer 1
   :init
   (add-hook 'after-init-hook
 	    (lambda ()
@@ -44,8 +43,9 @@
   :defer 1
   :diminish
   :config
-  (global-company-mode)
+  (setq company-dabbrev-downcase nil)
   (setq company-show-numbers t)
+  (global-company-mode)
   :bind (:map company-active-map
 	      ("C-n" . 'company-select-next-or-abort)
 	      ("C-p" . 'company-select-previous-or-abort)
@@ -90,6 +90,20 @@
 ;;                   (make-local-variable 'auto-hscroll-mode)
 ;;                   (setq auto-hscroll-mode nil))))
 ;;   )
+;;;###autoload
+(defun iopen-dir-tree ()
+  "Smart open dir tree, use treemacs."
+  (interactive)
+  (pcase (treemacs-current-visibility)
+    ('visible (if
+		  t
+		  (treemacs--select-visible-window)
+		()
+		))
+    ('exists  (treemacs--select-not-visible-window))
+    ('none    (treemacs--init)))
+  ;; TODO: need read treemacs src to know how to get treemacs status
+  )
 
 (use-package treemacs
   :ensure t
@@ -125,6 +139,10 @@
         ("C-x t B"   . treemacs-bookmark)
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag))
+  (:map treemacs-mode-map
+	("C" . treemacs-create-file)
+	("RET" . treemacs-visit-node-no-split)
+	)
   )
 
 (use-package js2-mode
@@ -149,10 +167,11 @@
   (tide-setup)
   (flycheck-mode +1)
   (company-mode +1)
+  (setq tab-width 2)
   (setq company-tooltip-align-annotations t)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (tide-hl-identifier-mode +1)
-  (add-hook 'before-save-hook 'tide-format-before-save)
+  ;; (add-hook 'before-save-hook 'tide-format-before-save);; TODO: work with tide
   ;; (setq-default tide-format-options
   ;; 		'(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t))
   )
@@ -191,7 +210,7 @@
 (use-package ace-jump-mode
   :ensure t
   :defer t
-  :bind ("C-c j". ace-jump-mode))
+  :bind ("C-x j". ace-jump-mode))
 
 (use-package ivy
   :ensure t
@@ -210,7 +229,7 @@
   :defer t
   :bind(("C-s" . swiper)
         ("M-x" . counsel-M-x)
-        ("C-x f" . counsel-find-file)
+        ("C-c f" . counsel-find-file)
         ("C-c r" . counsel-recentf)
         ("C-c s" . counsel-rg))
   :config
@@ -267,10 +286,15 @@
 
 (use-package editorconfig
   :ensure t
-  :defer 2
   :diminish
   :config
-  (editorconfig-mode 1))
+  ;; debug
+  ;; (add-hook 'editorconfig-after-apply-functions
+  ;; 	    (lambda (props)
+  ;; 	      (message "editorconfig applied\n")
+  ;; 	      (maphash (lambda (key value)
+  ;; 			 (message "%s : %s"  key value)) props)))
+  (editorconfig-mode +1))
 
 (use-package rainbow-mode
   :ensure t
@@ -314,15 +338,21 @@
   :config
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
   )
- 
+
 (use-package counsel-projectile
   :ensure t
   :defer t
   :diminish
   :config
   (counsel-projectile-mode +1)
-  :bind-keymap ("C-c p" . projectile-command-map)
-  :bind ("C-c f" . #'counsel-projectile-find-file))
+  :bind-keymap ("C-x p" . projectile-command-map)
+  :bind ("C-x f" . #'counsel-projectile-find-file))
+
+(use-package hydra
+  :ensure t
+  :defer t
+  ;; (require 'init-hydra)
+  )
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

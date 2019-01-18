@@ -13,8 +13,6 @@
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . light))
-;; (load-theme 'atom-one-dark t)
-;; (load-theme 'zenburn t)
 
 ;; set font
 (set-face-attribute 'default nil :family "Source Code Pro")
@@ -27,6 +25,7 @@
 (setq overflow-newline-into-fringe nil)
 (setq indicate-empty-lines nil)
 
+(setq ns-use-proxy-icon nil)
 ;; set title
 (setq frame-title-format
       '((:eval (if (buffer-file-name)

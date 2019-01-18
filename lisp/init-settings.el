@@ -22,8 +22,6 @@
 ;;;别名
   (fset 'yes-or-no-p 'y-or-n-p)
 
-  (show-paren-mode t)
-
   (electric-pair-mode t)
   
   (when (eq system-type 'darwin)
@@ -76,8 +74,15 @@
 	    (column-number-mode t)
 	    (global-hl-line-mode t)))
 
+;;;###autoload
+(defun setup-prog-mode ()
+  "Setup prog mode."
+  (display-line-numbers-mode +1)
+  (show-paren-mode t)
+  )
+
 ;; line number
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'setup-prog-mode)
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
 (add-hook 'emacs-startup-hook

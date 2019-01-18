@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
- package-refresh-contents
- pkg-info-package-version
- load-theme
- projectile-project-info
- customize-group
- projectile-switch-project
- counsel-projectile-rg
+ describe-key
+ editorconfig-apply
+ editorconfig-format-buffer
+ editorconfig-mode
+ vue-mode
+ multi-web-mode
+ package-install
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 1)
+ (eval-buffer . 2)
  (customize-group . 7)
  (query-replace . 1)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 3)
+ (package-install . 5)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -39,4 +39,25 @@
  (load-theme . 1)
  (pkg-info-package-version . 1)
  (package-refresh-contents . 1)
+ (js2-mode . 2)
+ (thing-copy-symbol . 1)
+ (list-buffers . 1)
+ (ace-window . 1)
+ (indent-region . 1)
+ (org-goto . 1)
+ (org-next-block . 1)
+ (org-next-item . 1)
+ (org-next-visible-heading . 1)
+ (org-previous-visible-heading . 1)
+ (counsel-find-file . 2)
+ (rename-file . 1)
+ (rename-buffer . 1)
+ (vue-mode . 2)
+ (web-mode . 1)
+ (html-mode . 1)
+ (multi-web-mode . 2)
+ (editorconfig-mode . 2)
+ (editorconfig-format-buffer . 2)
+ (editorconfig-apply . 3)
+ (describe-key . 1)
 )
