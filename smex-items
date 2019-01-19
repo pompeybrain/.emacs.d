@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
- describe-key
- editorconfig-apply
- editorconfig-format-buffer
- editorconfig-mode
- vue-mode
- multi-web-mode
+ fringe-mode
+ flycheck-mode
+ tab-to-tab-stop
+ rainbow-mode
+ projectile-switch-project
+ projectile-mode
  package-install
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 2)
- (customize-group . 7)
+ (eval-buffer . 5)
+ (customize-group . 15)
  (query-replace . 1)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 5)
+ (package-install . 13)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -29,16 +29,16 @@
  (vc-dir-find-file . 1)
  (project-find-file . 1)
  (find-name-dired . 1)
- (projectile-mode . 1)
+ (projectile-mode . 4)
  (projectile-find-file . 1)
  (counsel-projectile-find-file . 1)
  (projectile-project-info . 2)
  (counsel-projectile-rg . 1)
- (projectile-switch-project . 1)
- (projectile-add-known-project . 3)
+ (projectile-switch-project . 2)
+ (projectile-add-known-project . 4)
  (load-theme . 1)
- (pkg-info-package-version . 1)
- (package-refresh-contents . 1)
+ (pkg-info-package-version . 2)
+ (package-refresh-contents . 2)
  (js2-mode . 2)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -60,4 +60,17 @@
  (editorconfig-format-buffer . 2)
  (editorconfig-apply . 3)
  (describe-key . 1)
+ (emacs-lisp-macroexpand . 1)
+ (yaml-mode . 1)
+ (eglot . 2)
+ (eglot-help-at-point . 1)
+ (flymake-goto-next-error . 1)
+ (hydra-ivy/body . 1)
+ (counsel-hydra-heads . 1)
+ (flymake-mode . 4)
+ (tooltip-mode . 2)
+ (rainbow-mode . 7)
+ (tab-to-tab-stop . 4)
+ (flycheck-mode . 1)
+ (fringe-mode . 1)
 )

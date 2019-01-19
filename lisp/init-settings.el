@@ -79,6 +79,7 @@
   "Setup prog mode."
   (display-line-numbers-mode +1)
   (show-paren-mode t)
+  (flymake-mode +1)
   )
 
 ;; line number

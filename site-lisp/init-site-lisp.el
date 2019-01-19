@@ -1,5 +1,12 @@
 ;; init some el file in site-lisp
 
-(require 'thing-edit)
+;; (require 'thing-edit)
+
+(use-package flymake-diagnostic-at-point
+  :after flymake
+  :init
+  (setq flymake-diagnostic-at-point-error-prefix "Error: ")
+  :config
+  (add-hook 'flymake-mode-hook #'flymake-diagnostic-at-point-mode))
 
 (provide 'init-site-lisp)

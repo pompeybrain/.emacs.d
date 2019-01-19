@@ -118,7 +118,7 @@
   ;; ace-jump
   `(ace-jump-face-background ((t (:foreground ,atom-one-dark-mono-3 :background ,atom-one-dark-bg-1 :inverse-video nil))))
   `(ace-jump-face-foreground ((t (:foreground ,atom-one-dark-red-1 :background ,atom-one-dark-bg-1 :inverse-video nil))))
-
+  
   ;; company-mode
   `(company-tooltip ((t (:foreground ,atom-one-dark-fg :background ,atom-one-dark-bg-1))))
   `(company-tooltip-annotation ((t (:foreground ,atom-one-dark-mono-2 :background ,atom-one-dark-bg-1))))
@@ -136,7 +136,10 @@
   `(flymake-note ((t (:underline (:color ,atom-one-dark-green :style wave)))))
   `(flymake-warning ((t (:underline (:color ,atom-one-dark-orange-1 :style wave)))))
 
-  ;; flycheck
+  ;; popup
+  `(popup-tip-face ((t (:foreground ,atom-one-dark-orange-2 :background ,atom-one-dark-gray))))
+ 
+    ;; flycheck
   `(flycheck-error ((t (:underline (:color ,atom-one-dark-red-1 :style wave)))))
   `(flycheck-info ((t (:underline (:color ,atom-one-dark-green :style wave)))))
   `(flycheck-warning ((t (:underline (:color ,atom-one-dark-orange-1 :style wave)))))

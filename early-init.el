@@ -21,7 +21,7 @@
 (setq-default line-spacing 3)
 
 ;; 左右边界
-(fringe-mode '(3 . 0))
+(fringe-mode '(8 . 0))
 (setq overflow-newline-into-fringe nil)
 (setq indicate-empty-lines nil)
 

@@ -15,7 +15,7 @@
 (require 'init-settings)
 (add-to-list 'load-path "~/.emacs.d/site-lisp/" t)
 (require 'init-site-lisp)
-
+(require 'init-hydra)
 ;; (require 'init-ui)
 
 ;; (require 'package)

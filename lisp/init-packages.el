@@ -10,7 +10,8 @@
   (add-hook 'after-init-hook
 	    (lambda ()
 	      (diminish 'visual-line-mode)
-	      (diminish 'eldoc-mode))))
+	      (diminish 'eldoc-mode)
+	      (diminish 'flymake-mode))))
 
 (use-package auto-package-update
   :ensure t
@@ -22,12 +23,11 @@
 
 (use-package flycheck
   :ensure t
-  :defer 1
+  :defer t
   :diminish
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (setq flycheck-indication-mode nil)
-  (global-flycheck-mode +1)
+  ;; (global-flycheck-mode +1)
   (flycheck-pos-tip-mode +1))
 
 (use-package flycheck-pos-tip
@@ -350,9 +350,36 @@
 
 (use-package hydra
   :ensure t
-  :defer t
+  :defer 1
   ;; (require 'init-hydra)
   )
+
+(use-package dart-mode
+  :ensure t
+  :defer t
+  :mode
+  ("\\.dart\\'"))
+
+(use-package yaml-mode
+  :ensure t
+  :defer t
+  :mode
+  ("\\.yaml\\'"))
+
+(use-package eglot
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'dart-mode-hook 'eglot-ensure)
+  :bind
+  ("M-i" . eglot-help-at-point)
+  ;; (add-to-list 'eglot-server-programs '(dart-mode . ("dart_language_server")))
+  ;; :config
+  )
+
+(use-package popup
+  :ensure t
+  :defer t)
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
