@@ -1,19 +1,19 @@
 
 ;; ----- smex-history -----
 (
+ rename-buffer
+ eval-last-sexp
  eval-buffer
+ counsel-grep
+ swiper
  delete-file
  counsel-find-file
- load-theme
- diff-hl-mode
- ace-jump-mode
- eval-last-sexp
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 13)
+ (eval-buffer . 20)
  (customize-group . 15)
  (query-replace . 1)
  (query-replace-regexp . 1)
@@ -51,7 +51,7 @@
  (org-previous-visible-heading . 1)
  (counsel-find-file . 5)
  (rename-file . 1)
- (rename-buffer . 1)
+ (rename-buffer . 2)
  (vue-mode . 2)
  (web-mode . 1)
  (html-mode . 1)
@@ -76,7 +76,9 @@
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 1)
+ (eval-last-sexp . 2)
  (diff-hl-mode . 4)
  (delete-file . 3)
+ (counsel-grep . 4)
+ (swiper . 1)
 )

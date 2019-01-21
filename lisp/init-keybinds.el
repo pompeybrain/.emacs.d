@@ -39,7 +39,6 @@
 	     ("e" . ierror-hydra/body))
   )
 
-(bind-key "M-g" #'keyboard-quit)
 (bind-key "M-q" #'save-buffers-kill-terminal)
 ;;; C-x 
 (bind-keys :prefix-map window-map

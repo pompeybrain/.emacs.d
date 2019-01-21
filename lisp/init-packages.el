@@ -188,7 +188,10 @@
 (use-package counsel
   :ensure t
   :defer t
-  :bind(("M-s" . swiper)
+  :init
+  ;; (setq counsel-grep-base-command
+  ;; 	"rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+  :bind(("C-s" . counsel-grep-or-swiper)
         ("M-x" . counsel-M-x)
         ("C-c f" . counsel-find-file)
         ("M-r" . counsel-recentf)
@@ -269,8 +272,8 @@
   :defer t
   :diminish
   :init
-  (setq projectile-cache-file (expand-file-name ".emacs.1d/.cache/projectile.cache" (getenv "HOME")))
-  (setq projectile-known-projects-file (expand-file-name ".emacs.d/.cache/projectile-bookmarks.eld" (getenv "HOME")))
+  (setq projectile-cache-file (expand-file-name ".cache/projectile.cache" emacs-d))
+  (setq projectile-known-projects-file (expand-file-name ".cache/projectile-bookmarks.eld" emacs-d))
   :config
   (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 
