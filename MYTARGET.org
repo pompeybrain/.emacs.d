@@ -1,5 +1,10 @@
 * Target for my emacs config files
 
+** TODO improve my painful pinky
+   1. use M-* prefix key to replace some frequently prefix like C-c C-x
+   2. use M-* to replace some C-* command key
+   3. use hydra to simulate some state
+   4. 无名指代替小指
 ** TODO better html for vue template .html and .vue
 ** TODO add plugin for prettyhtml
 ** TODO 感知当前cursor的元素
@@ -28,6 +33,7 @@ builtin query replace ok, if can change direction is good
 ** DONE treemacs with icons
 ** DONE intelligent auto save
 ** DONE replace helm with ivy-counsel-swiper
-** DONE which-key support
+** DONE which-key support 
 ** DONE highlight todo
 ** DONE web-mode profile
+

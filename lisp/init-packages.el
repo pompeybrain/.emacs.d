@@ -15,7 +15,7 @@
 
 (use-package auto-package-update
   :ensure t
-  :defer 3
+  :defer 2
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
@@ -46,50 +46,16 @@
   (setq company-dabbrev-downcase nil)
   (setq company-show-numbers t)
   (global-company-mode)
-  :bind (:map company-active-map
-	      ("C-n" . 'company-select-next-or-abort)
-	      ("C-p" . 'company-select-previous-or-abort)
-	      ))
+  ;; :bind (:map company-active-map
+	      ;; ("C-n" . 'company-select-next-or-abort)
+	      ;; ("C-p" . 'company-select-previous-or-abort)
+	      ;; )
+  )
 
 (use-package all-the-icons
   :defer t
   :ensure t)
 
-;; (use-package neotree
-;;   :defer t
-;;   :bind (
-;;          ;; ("C-c d". neotree-dir)
-;;          (:map neotree-mode-map
-;;                ("l" . neotree-enter-vertical-split)
-;;                ("D" . neotree-delete-node)
-;;                ))
-;;   :config
-;;   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-;;   (setq neo-autorefresh nil
-;;         neo-auto-indent-point t
-;;         neo-window-width 25
-;;         neo-window-fixed-size nil
-;;         neo-mode-line-type 'none
-;; 	neo-show-hidden-files nil
-;;         neo-hidden-regexp-list
-;;         '(;; vcs folders
-;;           "^\\.\\(git\\|hg\\|svn\\)$"
-;;           ;; compiled files
-;;           "\\.\\(pyc\\|o\\|elc\\|lock\\|css.map\\)$"
-;;           ;; generated files, caches or local pkgs
-;;           "^\\(node_modules\\|vendor\\|.\\(project\\|cask\\|yardoc\\|sass-cache\\)\\)$"
-;;           ;; org-mode folders
-;;           "^\\.\\(sync\\|export\\|attach\\)$"
-;;           "~$"
-;;           "^#.*#$"))
-;;   (add-hook 'neo-after-create-hook
-;;             #'(lambda (_)
-;;                 (with-current-buffer (get-buffer neo-buffer-name)
-;;                   (setq truncate-lines t)
-;;                   (setq word-wrap nil)
-;;                   (make-local-variable 'auto-hscroll-mode)
-;;                   (setq auto-hscroll-mode nil))))
-;;   )
 ;;;###autoload
 (defun iopen-dir-tree ()
   "Smart open dir tree, use treemacs."
@@ -134,16 +100,11 @@
   :bind
   (:map global-map
         ("C-x d"     . treemacs)
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag))
+        ("M-0"       . treemacs-select-window))
   (:map treemacs-mode-map
 	("C" . treemacs-create-file)
 	("RET" . treemacs-visit-node-no-split)
-	)
-  )
+	))
 
 (use-package js2-mode
   :ensure t
@@ -210,7 +171,7 @@
 (use-package ace-jump-mode
   :ensure t
   :defer t
-  :bind ("C-x j". ace-jump-mode))
+  :bind ("M-SPC". ace-jump-mode))
 
 (use-package ivy
   :ensure t
@@ -227,31 +188,14 @@
 (use-package counsel
   :ensure t
   :defer t
-  :bind(("C-s" . swiper)
+  :bind(("M-s" . swiper)
         ("M-x" . counsel-M-x)
         ("C-c f" . counsel-find-file)
-        ("C-c r" . counsel-recentf)
+        ("M-r" . counsel-recentf)
         ("C-c s" . counsel-rg))
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
-
-;; (use-package helm
-;; 	:ensure t
-;; 	:diminish
-;; 	:init
-;; 	(add-hook 'after-init-hook 'helm-mode t)
-;; 	:bind (("M-x" . helm-M-x)
-;; 				 ("C-c o" . helm-occur)
-;; 				 ("C-c f" . helm-find-files)
-;; 				 ("C-c r". helm-recentf))
-;; 	:config
-;; 	(require 'helm-config)
-;; 	(setq helm-split-window-inside-p            t
-;; 				helm-buffers-fuzzy-matching           t
-;; 				helm-move-to-line-cycle-in-source     t
-;; 				helm-ff-search-library-in-sexp        t
-;; 				helm-ff-file-name-history-use-recentf t))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -261,10 +205,6 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-;; (use-package eglot
-;;   :ensure t
-;;   :defer t)
-
 (use-package magit
   :ensure t
   :defer t
@@ -273,13 +213,9 @@
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :bind("C-x g" . #'magit-status))
 
-;; (use-package org
-;;   :ensure t
-;;   :defer t)
-
 (use-package which-key
   :ensure t
-  :defer 2
+  :defer 1
   :diminish
   :config
   (which-key-mode t))
@@ -336,8 +272,7 @@
   (setq projectile-cache-file (expand-file-name ".emacs.1d/.cache/projectile.cache" (getenv "HOME")))
   (setq projectile-known-projects-file (expand-file-name ".emacs.d/.cache/projectile-bookmarks.eld" (getenv "HOME")))
   :config
-  (add-to-list 'projectile-globally-ignored-directories "node_modules")
-  )
+  (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 
 (use-package counsel-projectile
   :ensure t
@@ -350,9 +285,7 @@
 
 (use-package hydra
   :ensure t
-  :defer 1
-  ;; (require 'init-hydra)
-  )
+  :defer 1)
 
 (use-package dart-mode
   :ensure t
@@ -372,10 +305,7 @@
   :init
   (add-hook 'dart-mode-hook 'eglot-ensure)
   :bind
-  ("M-i" . eglot-help-at-point)
-  ;; (add-to-list 'eglot-server-programs '(dart-mode . ("dart_language_server")))
-  ;; :config
-  )
+  ("M-i" . eglot-help-at-point))
 
 (use-package popup
   :ensure t

@@ -1,19 +1,19 @@
 
 ;; ----- smex-history -----
 (
- fringe-mode
- flycheck-mode
- tab-to-tab-stop
- rainbow-mode
- projectile-switch-project
- projectile-mode
- package-install
+ eval-buffer
+ delete-file
+ counsel-find-file
+ load-theme
+ diff-hl-mode
+ ace-jump-mode
+ eval-last-sexp
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 5)
+ (eval-buffer . 13)
  (customize-group . 15)
  (query-replace . 1)
  (query-replace-regexp . 1)
@@ -36,9 +36,9 @@
  (counsel-projectile-rg . 1)
  (projectile-switch-project . 2)
  (projectile-add-known-project . 4)
- (load-theme . 1)
+ (load-theme . 3)
  (pkg-info-package-version . 2)
- (package-refresh-contents . 2)
+ (package-refresh-contents . 3)
  (js2-mode . 2)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -49,7 +49,7 @@
  (org-next-item . 1)
  (org-next-visible-heading . 1)
  (org-previous-visible-heading . 1)
- (counsel-find-file . 2)
+ (counsel-find-file . 5)
  (rename-file . 1)
  (rename-buffer . 1)
  (vue-mode . 2)
@@ -67,10 +67,16 @@
  (flymake-goto-next-error . 1)
  (hydra-ivy/body . 1)
  (counsel-hydra-heads . 1)
- (flymake-mode . 4)
+ (flymake-mode . 5)
  (tooltip-mode . 2)
  (rainbow-mode . 7)
  (tab-to-tab-stop . 4)
  (flycheck-mode . 1)
  (fringe-mode . 1)
+ (describe-prefix-bindings . 1)
+ (ace-jump-mode . 2)
+ (ijump-hydra/body . 1)
+ (eval-last-sexp . 1)
+ (diff-hl-mode . 4)
+ (delete-file . 3)
 )

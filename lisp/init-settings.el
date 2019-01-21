@@ -42,8 +42,9 @@
   (global-set-key (kbd "M-j") 'delete-indentation)
 
   (global-visual-line-mode 1)
+
   ;; prevent some operation for region like C-w
-  (setq mark-even-if-inactive nil)
+  ;; (setq mark-even-if-inactive nil)
 
   ;;; mac default shortkey fullscreen
   (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
@@ -79,7 +80,7 @@
   "Setup prog mode."
   (display-line-numbers-mode +1)
   (show-paren-mode t)
-  (flymake-mode +1)
+  ;; (flymake-mode +1)
   )
 
 ;; line number
