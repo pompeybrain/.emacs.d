@@ -17,12 +17,12 @@
    1. 高亮括号，参考show-paren
 3. 结构化跳转：针对结构化的mode，可跳到父级结构，可针对不同mode调用不同mode的方法
    1. 比如 org，二级跳一级，列表跳标题等等
-** TODO auto-install use-package
-** TODO use hydra
-   1. 设置一些跳转的hydra，针对常用的major-mode: org js ts elisp
 ** TODO scheme config
 ** TODO add colorful face in typescript 
    emacs官方没有提供，需要自己定义，参考js2-mode
+** DONE auto-install use-package
+** DONE use hydra
+   1. 设置一些跳转的hydra，针对常用的major-mode: org js ts elisp
 ** DONE 可在当前文件夹内按文件名搜索文件
 ** DONE a good query-replace
 builtin query replace ok, if can change direction is good

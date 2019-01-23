@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
- rename-buffer
- eval-last-sexp
- eval-buffer
- counsel-grep
- swiper
- delete-file
- counsel-find-file
+ forward-symbol
+ org-insert-item
+ org-up-element
+ load-theme
+ projectile-switch-project
+ iorg-hydra/body
+ info
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 20)
- (customize-group . 15)
- (query-replace . 1)
+ (eval-buffer . 23)
+ (customize-group . 16)
+ (query-replace . 2)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 13)
+ (package-install . 14)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -34,9 +34,9 @@
  (counsel-projectile-find-file . 1)
  (projectile-project-info . 2)
  (counsel-projectile-rg . 1)
- (projectile-switch-project . 2)
+ (projectile-switch-project . 3)
  (projectile-add-known-project . 4)
- (load-theme . 3)
+ (load-theme . 5)
  (pkg-info-package-version . 2)
  (package-refresh-contents . 3)
  (js2-mode . 2)
@@ -44,12 +44,12 @@
  (list-buffers . 1)
  (ace-window . 1)
  (indent-region . 1)
- (org-goto . 1)
- (org-next-block . 1)
- (org-next-item . 1)
- (org-next-visible-heading . 1)
+ (org-goto . 2)
+ (org-next-block . 2)
+ (org-next-item . 2)
+ (org-next-visible-heading . 3)
  (org-previous-visible-heading . 1)
- (counsel-find-file . 5)
+ (counsel-find-file . 6)
  (rename-file . 1)
  (rename-buffer . 2)
  (vue-mode . 2)
@@ -76,9 +76,20 @@
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 2)
+ (eval-last-sexp . 12)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
  (swiper . 1)
+ (package-list-packages . 1)
+ (helpful-callable . 1)
+ (ivy-avy . 1)
+ (swiper-avy . 3)
+ (avy-isearch . 1)
+ (avy-goto-line . 1)
+ (info . 1)
+ (iorg-hydra/body . 1)
+ (org-insert-item . 2)
+ (org-up-element . 1)
+ (forward-symbol . 1)
 )

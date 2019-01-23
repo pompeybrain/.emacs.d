@@ -33,11 +33,28 @@
     ("s" #'swiper :exit t)
     ("q" nil))
 
+   (defhydra iorg-hydra (:hint nil :foreign-keys warn)
+    "
+  	\t_h_ : org next heading
+  	\t_H_ : org prev heading
+  	\t_tab_ : org folded <> open <> subtree
+    	\t_j_ : ace jump
+  	\t_s_ : swiper search
+        \t_q_ : quit
+  "
+    ("h" #'org-next-visible-heading)
+    ("H" #'org-previous-visible-heading)
+    ("tab" #'org-cycle)
+    ("j" #'ace-jump-mode :exit t)
+    ("s" #'swiper :exit t)
+    ("q" nil))
+   
   (bind-keys :prefix-map i-hydra-map
 	     :prefix "M-h"
 	     ("j" . ijump-hydra/body)
-	     ("e" . ierror-hydra/body))
-  )
+	     ("e" . ierror-hydra/body)
+	     ("o" . iorg-hydra/body)
+	     ))
 
 (bind-key "M-q" #'save-buffers-kill-terminal)
 ;;; C-x 
@@ -49,7 +66,16 @@
 	   ("o" . other-window)
 	   ("b" . ivy-switch-buffer))
 
-(bind-key "M-c" #'kill-ring-save)
+;;;###autoload
+(defun icopy ()
+  (interactive)
+  "Smart copy region or current line"
+  (if (equal mark-active nil)
+      (kill-ring-save (line-beginning-position) (line-end-position))
+    (kill-ring-save (point) (mark))))
+
+(bind-key "M-c" #'icopy)
+(bind-key "M-y" #'yank)
 (bind-key "M-n" #'next-line)
 (bind-key "M-p" #'previous-line)
 (bind-key "M-s" #'save-buffer)

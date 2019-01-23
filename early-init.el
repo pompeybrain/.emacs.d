@@ -49,9 +49,9 @@
 
 ;; (require 'package)
 (setq package-archives
-     '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-             ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-         ("org"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+      '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+       ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+       ("org"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 (provide 'early-init)
 ;;; early-init.el ends here
