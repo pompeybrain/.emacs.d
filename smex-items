@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
- forward-symbol
- org-insert-item
- org-up-element
- load-theme
- projectile-switch-project
- iorg-hydra/body
- info
+ ivy-alt-done
+ eval-buffer
+ hs-show-block
+ hs-hide-block
+ hs-show-all
+ hs-hide-all
+ hs-minor-mode
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 23)
- (customize-group . 16)
+ (eval-buffer . 25)
+ (customize-group . 18)
  (query-replace . 2)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 14)
+ (package-install . 17)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -34,11 +34,11 @@
  (counsel-projectile-find-file . 1)
  (projectile-project-info . 2)
  (counsel-projectile-rg . 1)
- (projectile-switch-project . 3)
- (projectile-add-known-project . 4)
+ (projectile-switch-project . 5)
+ (projectile-add-known-project . 6)
  (load-theme . 5)
  (pkg-info-package-version . 2)
- (package-refresh-contents . 3)
+ (package-refresh-contents . 4)
  (js2-mode . 2)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -53,7 +53,7 @@
  (rename-file . 1)
  (rename-buffer . 2)
  (vue-mode . 2)
- (web-mode . 1)
+ (web-mode . 2)
  (html-mode . 1)
  (multi-web-mode . 2)
  (editorconfig-mode . 2)
@@ -71,7 +71,7 @@
  (tooltip-mode . 2)
  (rainbow-mode . 7)
  (tab-to-tab-stop . 4)
- (flycheck-mode . 1)
+ (flycheck-mode . 3)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
@@ -92,4 +92,18 @@
  (org-insert-item . 2)
  (org-up-element . 1)
  (forward-symbol . 1)
+ (vue-html-mode . 1)
+ (magit-clone . 1)
+ (list-processes . 1)
+ (org-toggle-checkbox . 2)
+ (org-metaleft . 3)
+ (org-metaright . 1)
+ (markdown-mode . 1)
+ (hs-minor-mode . 1)
+ (hide-body . 1)
+ (hs-hide-all . 1)
+ (hs-show-all . 1)
+ (hs-hide-block . 1)
+ (hs-show-block . 1)
+ (ivy-alt-done . 1)
 )

@@ -179,7 +179,10 @@
   :diminish
   :init
   (setq ivy-initial-inputs-alist nil)
-  (add-hook 'after-init-hook (ivy-mode 1)))
+  (add-hook 'after-init-hook (ivy-mode 1))
+  :bind
+  (:map ivy-mode-map
+	("RET" . #'ivy-alt-done)))
 
 (use-package swiper
   :ensure t
@@ -250,6 +253,7 @@
   :ensure t
   :init
   (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-enable-current-element-highlight t)
   :mode "\\.html\\'")
 
 (use-package emmet-mode
@@ -322,6 +326,17 @@
   ("C-h v" . helpful-variable)
   ("C-h k" . helpful-key)
   ("C-h C" . helpful-command))
+
+;; web-mode highlight bug
+(use-package vue-html-mode
+  :ensure t
+  :defer t)
+
+(use-package markdown-mode
+  :ensure t
+  :defer t
+  :mode
+  ("\\.md\\'"))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

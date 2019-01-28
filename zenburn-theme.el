@@ -1487,6 +1487,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(web-mode-symbol-face ((t (:inherit font-lock-constant-face))))
    `(web-mode-warning-face ((t (:inherit font-lock-warning-face))))
    `(web-mode-whitespaces-face ((t (:background ,zenburn-red))))
+   '(web-mode-current-element-highlight-face ((t (:background "#4F4F4F" :foreground "#93E0E3"))))
+   
 ;;;;; whitespace-mode
    `(whitespace-space ((t (:background ,zenburn-bg+1 :foreground ,zenburn-bg+1))))
    `(whitespace-hspace ((t (:background ,zenburn-bg+1 :foreground ,zenburn-bg+1))))

@@ -5,7 +5,6 @@
    2. use M-* to replace some C-* command key
    3. use hydra to simulate some state
    4. 无名指代替小指
-** TODO better html for vue template .html and .vue
 ** TODO add plugin for prettyhtml
 ** TODO 感知当前cursor的元素
 1. word: 自动或按键触发高亮当前buffer内相同word； 触发搜索时自动复制到搜索文本
