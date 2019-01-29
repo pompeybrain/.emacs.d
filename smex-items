@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- ivy-alt-done
- eval-buffer
- hs-show-block
+ org-todo
+ org-toggle-checkbox
+ org-metaright
  hs-hide-block
- hs-show-all
- hs-hide-all
+ eval-last-sexp
  hs-minor-mode
+ diff-backup
 )
 
 ;; ----- smex-data -----
@@ -76,7 +76,7 @@
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 12)
+ (eval-last-sexp . 15)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
@@ -95,15 +95,17 @@
  (vue-html-mode . 1)
  (magit-clone . 1)
  (list-processes . 1)
- (org-toggle-checkbox . 2)
+ (org-toggle-checkbox . 6)
  (org-metaleft . 3)
- (org-metaright . 1)
+ (org-metaright . 2)
  (markdown-mode . 1)
- (hs-minor-mode . 1)
+ (hs-minor-mode . 5)
  (hide-body . 1)
  (hs-hide-all . 1)
  (hs-show-all . 1)
- (hs-hide-block . 1)
+ (hs-hide-block . 2)
  (hs-show-block . 1)
  (ivy-alt-done . 1)
+ (diff-backup . 1)
+ (org-todo . 2)
 )

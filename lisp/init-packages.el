@@ -11,7 +11,8 @@
 	    (lambda ()
 	      (diminish 'visual-line-mode)
 	      (diminish 'eldoc-mode)
-	      (diminish 'flymake-mode))))
+	      (diminish 'flymake-mode)))
+  (add-hook 'hs-minor-mode-hook (lambda () (diminish 'hs-minor-mode))))
 
 (use-package auto-package-update
   :ensure t
@@ -180,9 +181,8 @@
   :init
   (setq ivy-initial-inputs-alist nil)
   (add-hook 'after-init-hook (ivy-mode 1))
-  :bind
-  (:map ivy-mode-map
-	("RET" . #'ivy-alt-done)))
+  :bind (:map ivy-minibuffer-map
+	("RET" . ivy-alt-done)))
 
 (use-package swiper
   :ensure t
