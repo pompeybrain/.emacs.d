@@ -15,7 +15,7 @@
 (add-to-list 'default-frame-alist '(ns-appearance . light))
 
 ;; set font
-(set-face-attribute 'default nil :family "Source Code Pro")
+;; (set-face-attribute 'default nil :family "DejaVu Sans Mono")
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 (setq-default line-spacing 3)
@@ -47,7 +47,6 @@
 ;;; defaults write org.gnu.Emacs Top 150
 ;;; defaults write org.gnu.Emacs Left 400
 
-;; (require 'package)
 (setq package-archives
       '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
        ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")

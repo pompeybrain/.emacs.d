@@ -44,7 +44,7 @@
                    ("atom-one-dark-cyan"     . "#56B6C2")
                    ("atom-one-dark-blue"     . "#61AFEF")
                    ("atom-one-dark-purple"   . "#C678DD")
-                   ("atom-one-dark-green"    . "#98C379")
+                   ("atom-one-dark-green"    . "#8FAC75")
                    ("atom-one-dark-red-1"    . "#E06C75")
                    ("atom-one-dark-red-2"    . "#BE5046")
                    ("atom-one-dark-orange-1" . "#D19A66")
@@ -99,7 +99,9 @@
   `(font-lock-warning-face ((t (:foreground ,atom-one-dark-mono-3 :bold t))))
 
   ;; mode-line
-  `(mode-line ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-silver :box (:color ,atom-one-dark-border :line-width 1)))))
+  `(mode-line ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-silver
+			       ;; :box (:color ,atom-one-dark-border :line-width 1)
+			       ))))
   `(mode-line-buffer-id ((t (:weight bold))))
   `(mode-line-emphasis ((t (:weight bold))))
   `(mode-line-inactive ((t (:background ,atom-one-dark-border :foreground ,atom-one-dark-gray :box (:color ,atom-one-dark-border :line-width 1)))))
@@ -410,7 +412,7 @@
   `(powerline-inactive2 ((,class (:background ,atom-one-dark-bg :foreground ,atom-one-dark-fg))))
 
   ;; rainbow-delimiters
-  `(rainbow-delimiters-depth-1-face ((t (:foreground ,atom-one-dark-blue))))
+  `(rainbow-delimiters-depth-1-face ((t (:foreground ,atom-one-dark-fg))))
   `(rainbow-delimiters-depth-2-face ((t (:foreground ,atom-one-dark-green))))
   `(rainbow-delimiters-depth-3-face ((t (:foreground ,atom-one-dark-orange-1))))
   `(rainbow-delimiters-depth-4-face ((t (:foreground ,atom-one-dark-cyan))))
@@ -431,6 +433,10 @@
   `(elixir-atom-face ((t (:foreground ,atom-one-dark-cyan))))
   `(elixir-attribute-face ((t (:foreground ,atom-one-dark-red-1))))
 
+  ;;show-paren
+   `(show-paren-mismatch ((t (:foreground ,atom-one-dark-red-1 :background ,atom-one-dark-gray :weight bold))))
+   `(show-paren-match ((t (:background ,atom-one-dark-gutter :weight bold))))
+  
   ;; smartparens
   `(sp-show-pair-mismatch-face ((t (:foreground ,atom-one-dark-red-1 :background ,atom-one-dark-gray :weight bold))))
   `(sp-show-pair-match-face ((t (:background ,atom-one-dark-gray :weight bold))))

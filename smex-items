@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
- org-todo
- org-toggle-checkbox
- org-metaright
- hs-hide-block
  eval-last-sexp
- hs-minor-mode
- diff-backup
+ load-theme
+ rainbow-mode
+ customize-group
+ package-install
+ switch-theme
+ eval-buffer
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 25)
- (customize-group . 18)
+ (eval-buffer . 27)
+ (customize-group . 20)
  (query-replace . 2)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 17)
+ (package-install . 18)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -34,9 +34,9 @@
  (counsel-projectile-find-file . 1)
  (projectile-project-info . 2)
  (counsel-projectile-rg . 1)
- (projectile-switch-project . 5)
+ (projectile-switch-project . 6)
  (projectile-add-known-project . 6)
- (load-theme . 5)
+ (load-theme . 52)
  (pkg-info-package-version . 2)
  (package-refresh-contents . 4)
  (js2-mode . 2)
@@ -69,14 +69,14 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 2)
- (rainbow-mode . 7)
+ (rainbow-mode . 17)
  (tab-to-tab-stop . 4)
  (flycheck-mode . 3)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 15)
+ (eval-last-sexp . 43)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
@@ -108,4 +108,6 @@
  (ivy-alt-done . 1)
  (diff-backup . 1)
  (org-todo . 2)
+ (eshell . 2)
+ (switch-theme . 3)
 )

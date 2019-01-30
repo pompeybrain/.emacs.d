@@ -96,5 +96,11 @@
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
 
+;;;###autoload
+(defun switch-theme ()
+  "Switch light theme for read."
+  (interactive)
+  (load-theme 'leuven))
+
 (provide 'init-settings)
 ;;; init-settings.el ends here
