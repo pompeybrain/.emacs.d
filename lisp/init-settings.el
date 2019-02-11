@@ -78,7 +78,7 @@
 ;;;###autoload
 (defun setup-prog-mode ()
   "Setup prog mode."
-  (display-line-numbers-mode +1)
+  ;; (display-line-numbers-mode +1)
   (show-paren-mode t)
   (hs-minor-mode +1)
   ;; (flymake-mode +1)
