@@ -2,19 +2,19 @@
 ;; ----- smex-history -----
 (
  eval-last-sexp
+ find-file
+ font-lock-mode
+ customize-group
  load-theme
  rainbow-mode
- customize-group
  package-install
- switch-theme
- eval-buffer
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 27)
- (customize-group . 20)
+ (customize-group . 23)
  (query-replace . 2)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
@@ -76,7 +76,7 @@
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 43)
+ (eval-last-sexp . 106)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
@@ -110,4 +110,6 @@
  (org-todo . 2)
  (eshell . 2)
  (switch-theme . 3)
+ (font-lock-mode . 9)
+ (find-file . 1)
 )

@@ -1,5 +1,16 @@
 * Target for my emacs config files
 
+** TODO add icon font (or svg)display in emacs colorful scalable 
+font-lock-mode disabled: (insert (propertize (string #xE001)  'face '(:family "seti")))
+字体的缺点是只能是单色
+svg ImageMagick，暂不知是否能修改svg的显示效果类似于css
+** TODO prettify mode-line
+   1. file modified inspect(colorful)
+   2. git branch
+   3. file name
+   4. major mode
+   5. encoding
+   6. point percent
 ** TODO improve my painful pinky
    1. use M-* prefix key to replace some frequently prefix like C-c C-x
    2. use M-* to replace some C-* command key
@@ -17,6 +28,9 @@
 3. 结构化跳转：针对结构化的mode，可跳到父级结构，可针对不同mode调用不同mode的方法
    1. 比如 org，二级跳一级，列表跳标题等等
 ** TODO scheme config
+   1. runtime
+   2. eval last expresion
+   3. eval region
 ** TODO add colorful face in typescript 
    emacs官方没有提供，需要自己定义，参考js2-mode
 ** DONE auto-install use-package
