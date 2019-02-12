@@ -14,7 +14,9 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" emacs-d) t)
 
+;; (load-theme 'leuven)
 (load-theme 'atom-one-dark)
+;; (load-theme 'zenburn)
 
 (require 'init-packages)
 (require 'init-settings)

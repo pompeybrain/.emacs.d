@@ -33,7 +33,8 @@
 (defvar atom-one-dark-colors-alist
   (let* ((256color  (eq (display-color-cells (selected-frame)) 256))
          (colors `(("atom-one-dark-accent"   . "#528BFF")
-                   ("atom-one-dark-fg"       . (if ,256color "color-248" "#ABB2BF"))
+                   ("atom-one-dark-fg"       . (if ,256color "color-248" "#C4C9D2"))
+		   ;; ("atom-one-dark-fg"       . (if ,256color "color-248" "#ABB2BF"))
                    ("atom-one-dark-bg"       . (if ,256color "color-235" "#282C34"))
                    ("atom-one-dark-bg-1"     . (if ,256color "color-234" "#121417"))
                    ("atom-one-dark-bg-hl"    . (if ,256color "color-236" "#2C323C"))
@@ -86,7 +87,7 @@
   `(minibuffer-prompt ((t (:foreground ,atom-one-dark-silver))))
 
   `(font-lock-builtin-face ((t (:foreground ,atom-one-dark-cyan))))
-  `(font-lock-comment-face ((t (:foreground ,atom-one-dark-mono-3))))
+  `(font-lock-comment-face ((t (:foreground ,atom-one-dark-mono-2))))
   `(font-lock-comment-delimiter-face ((default (:inherit (font-lock-comment-face)))))
   `(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
   `(font-lock-function-name-face ((t (:foreground ,atom-one-dark-blue))))

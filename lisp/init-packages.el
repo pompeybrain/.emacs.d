@@ -48,9 +48,9 @@
   (setq company-show-numbers t)
   (global-company-mode)
   ;; :bind (:map company-active-map
-	      ;; ("C-n" . 'company-select-next-or-abort)
-	      ;; ("C-p" . 'company-select-previous-or-abort)
-	      ;; )
+  ;; ("C-n" . 'company-select-next-or-abort)
+  ;; ("C-p" . 'company-select-previous-or-abort)
+  ;; )
   )
 
 (use-package all-the-icons
@@ -182,7 +182,7 @@
   (setq ivy-initial-inputs-alist nil)
   (add-hook 'after-init-hook (ivy-mode 1))
   :bind (:map ivy-minibuffer-map
-	("RET" . ivy-alt-done)))
+	      ("RET" . ivy-alt-done)))
 
 (use-package swiper
   :ensure t
@@ -337,6 +337,13 @@
   :defer t
   :mode
   ("\\.md\\'"))
+
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :init
+  (setq doom-modeline-major-mode-icon nil)
+  :hook (after-init . doom-modeline-init))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

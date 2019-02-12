@@ -15,7 +15,7 @@
 (add-to-list 'default-frame-alist '(ns-appearance . light))
 
 ;; set font
-;; (set-face-attribute 'default nil :family "DejaVu Sans Mono")
+;; (set-face-attribute 'default nil :family "")
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 (setq-default line-spacing 3)

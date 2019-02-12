@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
+ customize-group
  eval-last-sexp
- display-line-numbers-mode
- typescript-mode
- js2-mode
  rainbow-mode
- find-file
- font-lock-mode
+ ffap-read-only
+ eval-buffer
+ doom-modeline-mode
+ all-the-icons-install-fonts
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 27)
- (customize-group . 23)
+ (eval-buffer . 33)
+ (customize-group . 25)
  (query-replace . 2)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 18)
+ (package-install . 21)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -36,9 +36,9 @@
  (counsel-projectile-rg . 1)
  (projectile-switch-project . 6)
  (projectile-add-known-project . 6)
- (load-theme . 52)
+ (load-theme . 53)
  (pkg-info-package-version . 2)
- (package-refresh-contents . 4)
+ (package-refresh-contents . 6)
  (js2-mode . 3)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -69,14 +69,14 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 2)
- (rainbow-mode . 18)
+ (rainbow-mode . 22)
  (tab-to-tab-stop . 4)
  (flycheck-mode . 3)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 130)
+ (eval-last-sexp . 140)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
@@ -97,7 +97,7 @@
  (list-processes . 1)
  (org-toggle-checkbox . 6)
  (org-metaleft . 3)
- (org-metaright . 2)
+ (org-metaright . 3)
  (markdown-mode . 1)
  (hs-minor-mode . 5)
  (hide-body . 1)
@@ -114,4 +114,9 @@
  (find-file . 1)
  (typescript-mode . 1)
  (display-line-numbers-mode . 3)
+ (cnfonts-edit-profile . 7)
+ (cnfonts-enable . 1)
+ (doom-modeline-mode . 2)
+ (all-the-icons-install-fonts . 2)
+ (ffap-read-only . 1)
 )
