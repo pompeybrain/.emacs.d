@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- customize-group
  eval-last-sexp
+ eww
+ customize-group
  rainbow-mode
  ffap-read-only
+ load-theme
  eval-buffer
- doom-modeline-mode
- all-the-icons-install-fonts
 )
 
 ;; ----- smex-data -----
@@ -76,7 +76,7 @@
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 140)
+ (eval-last-sexp . 163)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
@@ -119,4 +119,7 @@
  (doom-modeline-mode . 2)
  (all-the-icons-install-fonts . 2)
  (ffap-read-only . 1)
+ (eww . 2)
+ (eww-history-browse . 1)
+ (eww-history-mode . 1)
 )

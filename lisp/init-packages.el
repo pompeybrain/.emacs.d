@@ -46,12 +46,7 @@
   :config
   (setq company-dabbrev-downcase nil)
   (setq company-show-numbers t)
-  (global-company-mode)
-  ;; :bind (:map company-active-map
-  ;; ("C-n" . 'company-select-next-or-abort)
-  ;; ("C-p" . 'company-select-previous-or-abort)
-  ;; )
-  )
+  (global-company-mode))
 
 (use-package all-the-icons
   :defer t
@@ -230,12 +225,6 @@
   :ensure t
   :diminish
   :config
-  ;; debug
-  ;; (add-hook 'editorconfig-after-apply-functions
-  ;; 	    (lambda (props)
-  ;; 	      (message "editorconfig applied\n")
-  ;; 	      (maphash (lambda (key value)
-  ;; 			 (message "%s : %s"  key value)) props)))
   (editorconfig-mode +1))
 
 (use-package rainbow-mode
@@ -342,6 +331,7 @@
   :ensure t
   :defer t
   :init
+  (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-major-mode-icon nil)
   :hook (after-init . doom-modeline-init))
 
