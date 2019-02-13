@@ -39,7 +39,7 @@
 (scroll-bar-mode -1)
 
 ;; set cursor
-(setq-default cursor-type '(bar . 2))
+;; (setq-default cursor-type '(bar . 2))
 
 ;;; how to set frame size and position in mac os very early
 ;;; defaults write org.gnu.Emacs Width 150

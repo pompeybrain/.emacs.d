@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- eww
- package-refresh-contents
- xah-fly-keys
- package-install
  eval-last-sexp
- customize-group
- rainbow-mode
+ forward-char
+ counsel-find-file
+ eww
+ ivy-recentf
+ package-install
+ package-refresh-contents
 )
 
 ;; ----- smex-data -----
@@ -20,7 +20,7 @@
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 23)
+ (package-install . 24)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -38,7 +38,7 @@
  (projectile-add-known-project . 6)
  (load-theme . 53)
  (pkg-info-package-version . 2)
- (package-refresh-contents . 8)
+ (package-refresh-contents . 9)
  (js2-mode . 3)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -49,7 +49,7 @@
  (org-next-item . 2)
  (org-next-visible-heading . 3)
  (org-previous-visible-heading . 1)
- (counsel-find-file . 6)
+ (counsel-find-file . 7)
  (rename-file . 1)
  (rename-buffer . 2)
  (vue-mode . 2)
@@ -76,7 +76,7 @@
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 234)
+ (eval-last-sexp . 240)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
@@ -119,8 +119,10 @@
  (doom-modeline-mode . 2)
  (all-the-icons-install-fonts . 2)
  (ffap-read-only . 1)
- (eww . 6)
+ (eww . 8)
  (eww-history-browse . 1)
  (eww-history-mode . 1)
  (xah-fly-keys . 3)
+ (ivy-recentf . 1)
+ (forward-char . 3)
 )
