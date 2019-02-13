@@ -69,9 +69,18 @@
 ;;;###autoload
 (defun icopy ()
   (interactive)
-  "Smart copy region or current line"
+  "Smart copy region or current line."
   (if (equal mark-active nil)
       (kill-ring-save (line-beginning-position) (line-end-position))
+    (kill-ring-save (point) (mark))))
+
+;;;TODO cut only when region is active
+;;;###autoload
+(defun icut ()
+  (interactive)
+  "Smart cut region or nothing."
+  (if (equal mark-active nil)
+      ()
     (kill-ring-save (point) (mark))))
 
 (bind-key "M-c" #'icopy)
@@ -79,5 +88,10 @@
 (bind-key "M-n" #'next-line)
 (bind-key "M-p" #'previous-line)
 (bind-key "M-s" #'save-buffer)
+(setq xah-fly-use-control-key nil)
+(require 'xah-fly-keys)
+(xah-fly-keys-set-layout "qwerty")
+(xah-fly-keys 1)
+
 (provide 'init-keybinds)
 ;;; init-keybinds.el ends here
