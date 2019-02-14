@@ -456,7 +456,7 @@
   `(web-mode-html-tag-bracket-face ((t (:inherit default))))
   `(web-mode-html-tag-face ((t (:foreground ,atom-one-dark-red-1))))
   `(web-mode-symbol-face ((t (:foreground ,atom-one-dark-orange-1))))
-
+  `(web-mode-current-element-highlight-face ((t (:background ,atom-one-dark-gutter :foreground ,atom-one-dark-red-1))))
   ;; flx-ido
   `(flx-highlight-face ((t (:inherit (link) :weight bold))))
 

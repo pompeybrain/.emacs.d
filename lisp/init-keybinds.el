@@ -88,9 +88,9 @@
 (bind-key "M-n" #'next-line)
 (bind-key "M-p" #'previous-line)
 (bind-key "M-s" #'save-buffer)
-(setq xah-fly-use-control-key nil)
-(require 'xah-fly-keys)
-(xah-fly-keys-set-layout "qwerty")
+;; (setq xah-fly-use-control-key nil)
+(require 'fly-keys)
+;; (xah-fly-keys-set-layout "qwerty")
 (xah-fly-keys 1)
 
 (provide 'init-keybinds)

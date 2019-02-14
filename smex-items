@@ -1,19 +1,19 @@
 
 ;; ----- smex-history -----
 (
+ which-key-show-keymap
+ eval-buffer
  eval-last-sexp
- forward-char
- counsel-find-file
- eww
- ivy-recentf
- package-install
- package-refresh-contents
+ tide-format
+ indent-region
+ typescript-mode
+ load-theme
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 33)
+ (eval-buffer . 68)
  (customize-group . 25)
  (query-replace . 2)
  (query-replace-regexp . 1)
@@ -36,14 +36,14 @@
  (counsel-projectile-rg . 1)
  (projectile-switch-project . 6)
  (projectile-add-known-project . 6)
- (load-theme . 53)
+ (load-theme . 56)
  (pkg-info-package-version . 2)
  (package-refresh-contents . 9)
  (js2-mode . 3)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
  (ace-window . 1)
- (indent-region . 1)
+ (indent-region . 2)
  (org-goto . 2)
  (org-next-block . 2)
  (org-next-item . 2)
@@ -69,14 +69,14 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 2)
- (rainbow-mode . 22)
+ (rainbow-mode . 25)
  (tab-to-tab-stop . 4)
  (flycheck-mode . 3)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
  (ijump-hydra/body . 1)
- (eval-last-sexp . 240)
+ (eval-last-sexp . 242)
  (diff-hl-mode . 4)
  (delete-file . 3)
  (counsel-grep . 4)
@@ -112,7 +112,7 @@
  (switch-theme . 3)
  (font-lock-mode . 9)
  (find-file . 1)
- (typescript-mode . 1)
+ (typescript-mode . 2)
  (display-line-numbers-mode . 3)
  (cnfonts-edit-profile . 7)
  (cnfonts-enable . 1)
@@ -125,4 +125,8 @@
  (xah-fly-keys . 3)
  (ivy-recentf . 1)
  (forward-char . 3)
+ (isearch-forward . 1)
+ (xah-cycle-hyphen-underscore-space . 7)
+ (which-key-show-keymap . 3)
+ (tide-format . 4)
 )

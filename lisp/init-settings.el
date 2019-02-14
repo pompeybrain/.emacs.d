@@ -28,6 +28,7 @@
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier 'none))
 
+  (setq recentf-max-saved-items 30)
   (recentf-mode t)
   
   (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
