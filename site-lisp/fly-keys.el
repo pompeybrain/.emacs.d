@@ -3140,7 +3140,8 @@ Version 2019-02-12"
    ("v" . xah-paste-or-paste-previous)
    ("p" . recenter-top-bottom)
    ;; ("l" . dired-jump)
-   ("l" . xah-fly-n-keymap)
+   ("l" . recenter-top-bottom)
+   ;; ("l" . xah-fly-n-keymap)
    ("s" . exchange-point-and-mark)
    ("r" . query-replace)
    ("x" . xah-cut-all-or-region)
@@ -3300,8 +3301,6 @@ Version 2019-02-12"
 ;; setting keys
 
 (progn
-  ;; set control meta, etc keys
-
   (progn
     (define-key xah-fly-key-map (kbd "<home>") 'xah-fly-command-mode-activate)
     (define-key xah-fly-key-map (kbd "<menu>") 'xah-fly-command-mode-activate)
@@ -3327,6 +3326,8 @@ Version 2019-02-12"
     (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer)
     ;;
     )
+
+  
   ;;
   ;; (when xah-fly-use-control-key
   ;;   (progn
@@ -3384,10 +3385,11 @@ Version 2019-02-12"
 
   ;;     ;;
   ;;     ))
+  (define-key xah-fly-key-map (kbd "M-RET") 'fly-newline-insert-no-open)
+  (define-key xah-fly-key-map (kbd "C-<return>") 'fly-newline-command-no-open)
 
-  (progn
-    (when xah-fly-use-meta-key
-      (define-key xah-fly-key-map (kbd "M-SPC") 'xah-fly-command-mode-activate-no-hook))))
+  (define-key xah-fly-key-map (kbd "M-SPC") 'xah-fly-command-mode-activate-no-hook))
+
 
 
 
@@ -3403,26 +3405,23 @@ Version 2017-01-21"
    '(
      ("~" . nil)
      (":" . nil)
-     ("RET" . xah-fly-insert-mode-activate-newline)
+     ("RET" . fly-newline-insert)
+     ;; ("RET" . xah-fly-insert-mode-activate-newline)
      ("SPC" . xah-fly-leader-key-map)
      ;; ("DEL" . xah-fly-leader-key-map)
 
      ("'" . xah-reformat-lines)
-     ("w" . xah-shrink-whitespaces)
      ("'" . eval-last-sexp)
      ;; ("-" . xah-cycle-hyphen-underscore-space)
-     ("d" . xah-backward-kill-word)
-     ("z" . xah-comment-dwim)
      ("[" . hippie-expand)
      ("\\" . nil)
      ;; ("=" . xah-forward-equal-sign)
      ("-" . xah-backward-punct )
      ("=" . xah-forward-punct)
      ("`" . other-frame)
-
+     (";" . xah-end-of-line-or-block)
      ;; ("#" . xah-backward-quote)
      ;; ("$" . xah-forward-punct)
-
      ("1" . xah-extend-selection)
      ("2" . xah-select-line)
      ("3" . delete-other-windows)
@@ -3433,37 +3432,35 @@ Version 2017-01-21"
      ("8" . xah-extend-selection)
      ("9" . xah-select-text-in-quote)
      ("0" . xah-pop-local-mark-ring)
-
      ("a" . execute-extended-command)
-     ("n" . fly-next-20-lines)
-     ;; ("n" . isearch-forward)
-     ("i" . previous-line)
-     ("h" . xah-beginning-of-line-or-block)
-     ("d" . delete-char)
-     ;; ("d" . xah-delete-backward-char-or-bracket-text)
-     ("y" . undo)
-     ("u" . backward-word)
-     ("j" . backward-char)
-     ("g" . xah-delete-current-text-block)
+     ("b" . xah-toggle-letter-case)
+     ;; ("b" . xah-toggle-letter-case)	
      ("c" . xah-copy-line-or-region)
-     ("v" . xah-paste-or-paste-previous)
-     ("p" . fly-prev-20-lines)
-     ;; ("p" . xah-fly-insert-mode-activate-space-before)
-     ;; ("p" . (scroll-down-command 20))
-     ("m" . xah-backward-left-bracket)
-     ("l" . forward-char)
-     ("s" . xah-extend-selection)
-     ;; ("s" . open-line)
-     ("r" . xah-kill-word)
-     ("x" . xah-cut-line-or-region)
-     ("o" . forward-word)
-     (";" . xah-end-of-line-or-block)
-     ("k" . next-line)
+     ("d" . delete-char)
+     ("e" . xah-backward-kill-word)
      ("f" . xah-fly-insert-mode-activate)
+     ("g" . fly-swiper-current-selection)
+     ("h" . xah-beginning-of-line-or-block)
+     ("i" . previous-line)
+     ("j" . backward-char)
+     ("k" . next-line)
+     ("l" . forward-char)
+     ("m" . xah-backward-left-bracket)
+     ("n" . fly-next-20-lines)
+     ("o" . forward-word)
+     ("p" . fly-prev-20-lines)	    
+     ("q" . save-buffer)
+     ("r" . xah-kill-word)
+     ("s" . xah-extend-selection)
+     ("t" . set-mark-command)
+     ("u" . backward-word)
+     ("v" . xah-paste-or-paste-previous)
+     ("w" . xah-shrink-whitespaces)
+     ("x" . xah-cut-line-or-region)
+     ("y" . undo)
      ("." . xah-forward-right-bracket)
      ("," . xah-next-window-or-frame)
-     ("b" . xah-toggle-letter-case)
-     ("t" . set-mark-command)
+     ("z" . xah-comment-dwim)
      ("/" . xah-goto-matching-bracket)))
 
   (define-key xah-fly-key-map (kbd (xah-fly--key-char "a"))
@@ -3654,6 +3651,43 @@ Version 2017-07-07"
   (interactive)
   (scroll-down-command 20))
 
+(defun fly-newline (insert open)
+  "Insert new line INSERT control active insert-mode, OPEN control open current line or move the end of current line ."
+  (interactive)
+  (unless open
+    (move-end-of-line 1))
+  (newline-and-indent)
+  (when insert
+    (xah-fly-insert-mode-activate)))
+
+(defun fly-newline-insert ()
+  "Activate insertion mode, insert newline below."
+  (interactive)
+  (fly-newline t t))
+
+(defun fly-newline-insert-no-open ()
+  "Doesn't break current line insert newline below."
+  (interactive)
+  (fly-newline t nil))
+
+(defun fly-newline-command ()
+  "Doesn't break current line insert newline below."
+  (interactive)				
+  (fly-newline nil t))
+
+(defun fly-newline-command-no-open ()
+  "Doesn't break current line insert newline below."
+  (interactive)
+  (fly-newline nil nil))
+
+(defun fly-swiper-current-selection ()
+  "Swiper if current region use current region."
+  (interactive)
+  (if (region-active-p)
+      (let ((str (buffer-substring (region-beginning) (region-end))))
+	(deactivate-mark)
+	(swiper str))
+    (swiper)))
 
 
 

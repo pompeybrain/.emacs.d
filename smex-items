@@ -1,21 +1,21 @@
 
 ;; ----- smex-history -----
 (
- which-key-show-keymap
  eval-buffer
+ sort-lines
+ open-line
+ find-file
+ query-replace
  eval-last-sexp
- tide-format
- indent-region
- typescript-mode
  load-theme
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 68)
+ (eval-buffer . 101)
  (customize-group . 25)
- (query-replace . 2)
+ (query-replace . 8)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
@@ -111,7 +111,7 @@
  (eshell . 2)
  (switch-theme . 3)
  (font-lock-mode . 9)
- (find-file . 1)
+ (find-file . 4)
  (typescript-mode . 2)
  (display-line-numbers-mode . 3)
  (cnfonts-edit-profile . 7)
@@ -129,4 +129,10 @@
  (xah-cycle-hyphen-underscore-space . 7)
  (which-key-show-keymap . 3)
  (tide-format . 4)
+ (kmacro-start-macro . 2)
+ (kmacro-end-macro . 24)
+ (fly-command-enter . 1)
+ (open-line . 1)
+ (fly-open-line . 3)
+ (sort-lines . 2)
 )

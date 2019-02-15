@@ -74,7 +74,8 @@
 (add-hook 'after-init-hook
           (lambda ()
 	    (column-number-mode t)
-	    (global-hl-line-mode t)))
+	    ;; (global-hl-line-mode t)
+	    ))
 
 ;;;###autoload
 (defun setup-prog-mode ()
