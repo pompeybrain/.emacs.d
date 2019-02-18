@@ -9,4 +9,6 @@
   :config
   (add-hook 'flymake-mode-hook #'flymake-diagnostic-at-point-mode))
 
+(require 'color-rg)
+
 (provide 'init-site-lisp)

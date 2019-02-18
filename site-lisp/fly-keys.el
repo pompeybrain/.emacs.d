@@ -2737,66 +2737,6 @@ Version 2017-01-29"
   (describe-function major-mode))
 
 
-;; key maps for conversion
-
-(defvar xah--dvorak-to-qwerty-kmap
-  '(("." . "e")
-    ("," . "w")
-    ("'" . "q")
-    (";" . "z")
-    ("/" . "[")
-    ("[" . "-")
-    ("]" . "=")
-    ("=" . "]")
-    ("-" . "'")
-    ("a" . "a")
-    ("b" . "n")
-    ("c" . "i")
-    ("d" . "h")
-    ("e" . "d")
-    ("f" . "y")
-    ("g" . "u")
-    ("h" . "j")
-    ("i" . "g")
-    ("j" . "c")
-    ("k" . "v")
-    ("l" . "p")
-    ("m" . "m")
-    ("n" . "l")
-    ("o" . "s")
-    ("p" . "r")
-    ("q" . "x")
-    ("r" . "o")
-    ("s" . ";")
-    ("t" . "k")
-    ("u" . "f")
-    ("v" . ".")
-    ("w" . ",")
-    ("x" . "b")
-    ("y" . "t")
-    ("z" . "/"))
-  "A alist, each element is of the form(\"e\" . \"d\"). First char is Dvorak, second is corresponding QWERTY. Not all chars are in the list, such as digits. When not in this alist, they are assumed to be the same.")
-
-(defvar xah-fly-key--current-layout nil
-  "The current keyboard layout. Use `xah-fly-keys-set-layout' to set the layout.
-If the value is nil, it's automatically set to \"dvorak\"."
-  )
-(if xah-fly-key--current-layout nil (setq xah-fly-key--current-layout "dvorak"))
-
-(defvar xah-fly--current-layout-kmap nil
-  "The current keyboard layout key map. Value is a alist. e.g. the value of `xah--dvorak-to-qwerty-kmap'.
-Value is automatically set from value of `xah-fly-key--current-layout'. Do not manually set this variable. Version 2019-02-12."
-  )
-;; (setq xah-fly--current-layout-kmap (eval (intern (concat "xah--dvorak-to-" xah-fly-key--current-layout "-kmap"))))
-(defun xah-fly--key-char (@charstr)
-  "Return the corresponding char @charstr according to xah-fly--current-layout-kmap.
-@charstr must be a string of single char.
-Version 2019-02-12"
-  (interactive)
-  (if (> (length @charstr) 1)
-      @charstr
-    (let (($result (assoc @charstr xah-fly--current-layout-kmap)))
-      (if $result (cdr $result) @charstr ))))
 
 ;;; modified only for qwerty
 (defun xah-fly--define-keys (@keymap-name @key-cmd-alist)
@@ -2849,6 +2789,7 @@ Version 2019-02-12"
  '(
    ("TAB" . indent-for-tab-command)
 
+   ("b" . fly-indent-buffer)
    ("i" . complete-symbol)
    ("g" . indent-rigidly)
    ("r" . indent-region)
@@ -2894,8 +2835,6 @@ Version 2019-02-12"
  '(
    ("RET" . insert-char)
    ("SPC" . xah-insert-unicode)
-
-   ("W" . xah-insert-double-angle-bracket《》)
    ("b" . xah-insert-black-lenticular-bracket【】)
    ("c" . xah-insert-ascii-single-quote)
    ("d" . xah-insert-double-curly-quote“”)
@@ -2913,8 +2852,17 @@ Version 2019-02-12"
    ("u" . xah-insert-date)
    ("w" . xah-insert-angle-bracket〈〉)
    ("y" . xah-insert-double-angle-quote«»)
+   ("W" . xah-insert-double-angle-bracket《》)
    ;;
 
+   ))
+
+(xah-fly--define-keys
+ (define-prefix-command 'fly-e-keymap)
+ '(
+   ("b" . eval-buffer)
+   ("r" . eval-region)
+   ("l" . eval-last-sexp)
    ))
 
 (xah-fly--define-keys
@@ -3115,48 +3063,51 @@ Version 2019-02-12"
 
    ;; 1
    ;; 2
+
+   ("," . xah-fly-w-keymap)
    ("2" . split-window-below)
    ("3" . delete-other-windows)
    ("4" . split-window-right)
    ("5" . balance-windows)
    ("6" . xah-upcase-sentence)
+   ("9" . ispell-word)
+   (";" . fly-format)
+   ("a" . mark-whole-buffer)
+   ("b" . switch-to-buffer)
+   ("c" . nil)
+   ("d" . xah-fly-e-keymap)
+   ("e" . fly-e-keymap)
+   ("f" . find-file)
+   ("g" . ace-jump-mode)
+   ("h" . beginning-of-buffer)
+   ("i" . xah-fly-c-keymap)
+   ("j" . xah-fly-h-keymap)
+   ("k" . show-fly-keymap)
+   ("l" . recenter-top-bottom)
+   ("m" . counsel-imenu)
+   ("n" . end-of-buffer)
+   ("o" . xah-fly-r-keymap)
+   ("p" . counsel-projectile-find-file)
+   ("r" . counsel-recentf)
+   ;; ("r" . query-replace)
+   ("s" . exchange-point-and-mark)
+   ("t" . xah-show-kill-ring)
+   ("u" . isearch-forward)
+   ("v" . xah-paste-or-paste-previous)
+   ("x" . xah-cut-all-or-region)
+   ("y" . xah-search-current-word)
+   ;; ("c" . xah-copy-all-or-region)
+   ;; ("g" . kill-line)
+   ;; ("k" . xah-fly-t-keymap)
+   ;; ("l" . dired-jump)
+   ;; ("l" . xah-fly-n-keymap)
+   ;; ("s" . save-buffer)
+   ;; ("u" . switch-to-buffer)
+   ;; ("x" . xah-toggle-previous-letter-case)
+   ;; 0
    ;; 7
    ;; 8
-   ("9" . ispell-word)
-   ;; 0
-
-   ("a" . mark-whole-buffer)
-   ("n" . end-of-buffer)
-   ("i" . xah-fly-c-keymap)
-   ("h" . beginning-of-buffer)
-   ("d" . xah-fly-e-keymap)
-   ("y" . xah-search-current-word)
-   ("u" . isearch-forward)
-   ("j" . xah-fly-h-keymap)
-   ("g" . ace-jump-mode)
-   ;; ("g" . kill-line)
-   ("c" . nil)
-   ;; ("c" . xah-copy-all-or-region)
-   ("v" . xah-paste-or-paste-previous)
-   ("p" . recenter-top-bottom)
-   ;; ("l" . dired-jump)
-   ("l" . recenter-top-bottom)
-   ;; ("l" . xah-fly-n-keymap)
-   ("s" . exchange-point-and-mark)
-   ("r" . query-replace)
-   ("x" . xah-cut-all-or-region)
-   ("o" . xah-fly-r-keymap)
-   (";" . fly-format)
-   ;; ("s" . save-buffer)
-   ;; ("k" . xah-fly-t-keymap)
-   ("k" . show-fly-keymap)
-   ("f" . counsel-projectile-find-file)
-   ;; ("u" . switch-to-buffer)
    ;; v
-   ("," . xah-fly-w-keymap)
-   ("b" . switch-to-buffer)
-   ;; ("x" . xah-toggle-previous-letter-case)
-   ("t" . xah-show-kill-ring)
    ;; z
    ;;
    ))
@@ -3385,7 +3336,7 @@ Version 2019-02-12"
 
   ;;     ;;
   ;;     ))
-  (define-key xah-fly-key-map (kbd "M-RET") 'fly-newline-insert-no-open)
+  (define-key xah-fly-key-map (kbd "M-RET") 'fly-newline-insert)
   (define-key xah-fly-key-map (kbd "C-<return>") 'fly-newline-command-no-open)
 
   (define-key xah-fly-key-map (kbd "M-SPC") 'xah-fly-command-mode-activate-no-hook))
@@ -3405,16 +3356,12 @@ Version 2017-01-21"
    '(
      ("~" . nil)
      (":" . nil)
-     ("RET" . fly-newline-insert)
-     ;; ("RET" . xah-fly-insert-mode-activate-newline)
+     ("RET" . fly-newline-command)
      ("SPC" . xah-fly-leader-key-map)
-     ;; ("DEL" . xah-fly-leader-key-map)
-
-     ("'" . xah-reformat-lines)
+     ;; ("'" . xah-reformat-lines)
      ("'" . eval-last-sexp)
      ;; ("-" . xah-cycle-hyphen-underscore-space)
      ("[" . hippie-expand)
-     ("\\" . nil)
      ;; ("=" . xah-forward-equal-sign)
      ("-" . xah-backward-punct )
      ("=" . xah-forward-punct)
@@ -3432,7 +3379,7 @@ Version 2017-01-21"
      ("8" . xah-extend-selection)
      ("9" . xah-select-text-in-quote)
      ("0" . xah-pop-local-mark-ring)
-     ("a" . execute-extended-command)
+     ("a" . counsel-M-x)
      ("b" . xah-toggle-letter-case)
      ;; ("b" . xah-toggle-letter-case)	
      ("c" . xah-copy-line-or-region)
@@ -3462,9 +3409,6 @@ Version 2017-01-21"
      ("," . xah-next-window-or-frame)
      ("z" . xah-comment-dwim)
      ("/" . xah-goto-matching-bracket)))
-
-  (define-key xah-fly-key-map (kbd (xah-fly--key-char "a"))
-    (if (fboundp 'counsel-M-x) 'counsel-M-x 'execute-extended-command))
 
   ;; (when xah-fly-swapped-1-8-and-2-7-p
   ;;     (xah-fly--define-keys
@@ -3684,11 +3628,15 @@ Version 2017-07-07"
   "Swiper if current region use current region."
   (interactive)
   (if (region-active-p)
-      (let ((str (buffer-substring (region-beginning) (region-end))))
+      (let ((str (buffer-substring-no-properties (region-beginning) (region-end))))
 	(deactivate-mark)
 	(swiper str))
     (swiper)))
 
+(defun fly-indent-buffer ()
+  "Indent current buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
 
 
 

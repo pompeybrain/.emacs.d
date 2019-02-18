@@ -11,11 +11,6 @@ svg ImageMagick，暂不知是否能修改svg的显示效果类似于css
    4. major mode
    5. encoding
    6. point percent
-** TODO improve my painful pinky
-   1. use M-* prefix key to replace some frequently prefix like C-c C-x
-   2. use M-* to replace some C-* command key
-   3. use hydra to simulate some state
-   4. 无名指代替小指
 ** TODO add plugin for prettyhtml
 ** TODO 感知当前cursor的元素
 1. word: 自动或按键触发高亮当前buffer内相同word； 触发搜索时自动复制到搜索文本
@@ -33,6 +28,12 @@ svg ImageMagick，暂不知是否能修改svg的显示效果类似于css
    3. eval region
 ** TODO add colorful face in typescript 
    emacs官方没有提供，需要自己定义，参考js2-mode
+** DONE improve my painful pinky
+   1. use xah-fly-keys to modal edit
+   2. use M-* prefix key to replace some frequently prefix like C-c C-x
+   3. use M-* to replace some C-* command key
+   4. use hydra to simulate some state
+   5. 无名指代替小指
 ** DONE auto-install use-package
 ** DONE use hydra
    1. 设置一些跳转的hydra，针对常用的major-mode: org js ts elisp

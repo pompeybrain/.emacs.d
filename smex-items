@@ -1,21 +1,21 @@
 
 ;; ----- smex-history -----
 (
- eval-buffer
- sort-lines
- open-line
- find-file
  query-replace
+ text-scale-increase
+ color-rg-search-input
+ imenu
+ counsel-imenu
+ eval-buffer
  eval-last-sexp
- load-theme
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 101)
+ (eval-buffer . 103)
  (customize-group . 25)
- (query-replace . 8)
+ (query-replace . 9)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
@@ -46,7 +46,7 @@
  (indent-region . 2)
  (org-goto . 2)
  (org-next-block . 2)
- (org-next-item . 2)
+ (org-next-item . 3)
  (org-next-visible-heading . 3)
  (org-previous-visible-heading . 1)
  (counsel-find-file . 7)
@@ -107,11 +107,11 @@
  (hs-show-block . 1)
  (ivy-alt-done . 1)
  (diff-backup . 1)
- (org-todo . 2)
+ (org-todo . 3)
  (eshell . 2)
  (switch-theme . 3)
  (font-lock-mode . 9)
- (find-file . 4)
+ (find-file . 5)
  (typescript-mode . 2)
  (display-line-numbers-mode . 3)
  (cnfonts-edit-profile . 7)
@@ -119,7 +119,7 @@
  (doom-modeline-mode . 2)
  (all-the-icons-install-fonts . 2)
  (ffap-read-only . 1)
- (eww . 8)
+ (eww . 9)
  (eww-history-browse . 1)
  (eww-history-mode . 1)
  (xah-fly-keys . 3)
@@ -134,5 +134,15 @@
  (fly-command-enter . 1)
  (open-line . 1)
  (fly-open-line . 3)
- (sort-lines . 2)
+ (sort-lines . 4)
+ (text-scale-increase . 3)
+ (xah-toggle-read-novel-mode . 1)
+ (xah-comment-dwim . 1)
+ (xah-insert-date . 1)
+ (xah-describe-major-mode . 1)
+ (smex-where-is . 1)
+ (counsel-imenu . 1)
+ (org-meta-return . 1)
+ (imenu . 1)
+ (color-rg-search-input . 1)
 )
