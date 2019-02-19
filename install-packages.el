@@ -17,4 +17,4 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
-
+(load (expand-file-name "lisp/init-packages" emacs-d))

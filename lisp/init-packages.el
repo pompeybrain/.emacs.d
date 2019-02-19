@@ -189,11 +189,12 @@
   :init
   ;; (setq counsel-grep-base-command
   ;; 	"rg -i -M 120 --no-heading --line-number --color never '%s' %s")
-  :bind(("C-s" . counsel-grep-or-swiper)
+  :bind(
+	;; ("C-s" . counsel-grep-or-swiper)
         ("M-x" . counsel-M-x)
-        ("C-c f" . counsel-find-file)
-        ("M-r" . counsel-recentf)
-        ("C-c s" . counsel-rg))
+        ;; ("C-c f" . counsel-find-file)
+        ;; ("M-r" . counsel-recentf)
+	)
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
@@ -212,7 +213,7 @@
   :init
   (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  :bind("C-x g" . #'magit-status))
+  :bind("C-x g" . magit-status))
 
 (use-package which-key
   :ensure t
