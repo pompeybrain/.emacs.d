@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ recentf-edit-list
+ recentf-cleanup
  query-replace
  text-scale-increase
  color-rg-search-input
  imenu
  counsel-imenu
- eval-buffer
- eval-last-sexp
 )
 
 ;; ----- smex-data -----
@@ -145,4 +145,6 @@
  (org-meta-return . 1)
  (imenu . 1)
  (color-rg-search-input . 1)
+ (recentf-cleanup . 1)
+ (recentf-edit-list . 1)
 )

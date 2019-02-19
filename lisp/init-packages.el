@@ -166,8 +166,7 @@
 
 (use-package ace-jump-mode
   :ensure t
-  :defer t
-  :bind ("M-SPC". ace-jump-mode))
+  :defer t)
 
 (use-package ivy
   :ensure t
@@ -278,7 +277,8 @@
   :config
   (counsel-projectile-mode +1)
   :bind-keymap ("C-x p" . projectile-command-map)
-  :bind ("C-x f" . #'counsel-projectile-find-file))
+  ;; :bind ("C-x f" . #'counsel-projectile-find-file)
+  )
 
 (use-package hydra
   :ensure t
