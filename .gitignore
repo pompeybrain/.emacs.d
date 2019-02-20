@@ -5,3 +5,4 @@ url
 .cache/*
 eshell/*
 .last-package-update-day
+transient/*
