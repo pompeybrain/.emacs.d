@@ -336,5 +336,11 @@
   (setq doom-modeline-major-mode-icon nil)
   :hook (after-init . doom-modeline-init))
 
+(use-package yasnippet
+  :ensure t
+  :defer 1
+  :config
+  (yas-global-mode 1))
+
 (provide 'init-packages)
 ;;; init-packages.el ends here

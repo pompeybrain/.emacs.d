@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
- recentf-edit-list
- recentf-cleanup
- query-replace
- text-scale-increase
- color-rg-search-input
- imenu
- counsel-imenu
+ company-yasnippet
+ yas-new-snippet
+ customize-variable
+ customize-group
+ hippie-expand
+ package-install
+ yas-global-mode
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 103)
- (customize-group . 25)
- (query-replace . 9)
+ (customize-group . 26)
+ (query-replace . 10)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 24)
+ (package-install . 26)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -38,7 +38,7 @@
  (projectile-add-known-project . 6)
  (load-theme . 56)
  (pkg-info-package-version . 2)
- (package-refresh-contents . 9)
+ (package-refresh-contents . 10)
  (js2-mode . 3)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -59,7 +59,7 @@
  (editorconfig-mode . 2)
  (editorconfig-format-buffer . 2)
  (editorconfig-apply . 3)
- (describe-key . 1)
+ (describe-key . 2)
  (emacs-lisp-macroexpand . 1)
  (yaml-mode . 1)
  (eglot . 2)
@@ -134,7 +134,7 @@
  (fly-command-enter . 1)
  (open-line . 1)
  (fly-open-line . 3)
- (sort-lines . 4)
+ (sort-lines . 5)
  (text-scale-increase . 3)
  (xah-toggle-read-novel-mode . 1)
  (xah-comment-dwim . 1)
@@ -147,4 +147,21 @@
  (color-rg-search-input . 1)
  (recentf-cleanup . 1)
  (recentf-edit-list . 1)
+ (xah-open-in-terminal . 2)
+ (xah-open-in-external-app . 1)
+ (xah-show-in-desktop . 2)
+ (xah-search-current-word . 1)
+ (xah-open-file-fast . 1)
+ (xah-open-last-closed . 1)
+ (xah-open-file-at-cursor . 1)
+ (dired . 1)
+ (describe-bindings . 1)
+ (Helper-describe-bindings . 1)
+ (which-key-show-major-mode . 1)
+ (which-key-show-full-keymap . 1)
+ (yas-global-mode . 1)
+ (yas-new-snippet . 3)
+ (hippie-expand . 1)
+ (customize-variable . 1)
+ (company-yasnippet . 3)
 )

@@ -8,7 +8,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes t)
  '(package-selected-packages
-   '(projectile counsel swiper ivy typescript-mode flycheck xah-fly-keys doom-modeline cnfonts yaml-mode which-key web-mode vue-html-mode use-package treemacs tide smex rainbow-mode rainbow-delimiters popup markdown-mode magit js2-mode hl-todo helpful geiser flycheck-pos-tip exec-path-from-shell emmet-mode eglot editorconfig diminish diff-hl dart-mode counsel-projectile company auto-package-update all-the-icons ace-jump-mode)))
+   '(yasnippet projectile counsel swiper ivy typescript-mode flycheck xah-fly-keys doom-modeline cnfonts yaml-mode which-key web-mode vue-html-mode use-package treemacs tide smex rainbow-mode rainbow-delimiters popup markdown-mode magit js2-mode hl-todo helpful geiser flycheck-pos-tip exec-path-from-shell emmet-mode eglot editorconfig diminish diff-hl dart-mode counsel-projectile company auto-package-update all-the-icons ace-jump-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,9 +1,7 @@
 * Target for my emacs config files
 
-** TODO add icon font (or svg)display in emacs colorful scalable 
-font-lock-mode disabled: (insert (propertize (string #xE001)  'face '(:family "seti")))
-字体的缺点是只能是单色
-svg ImageMagick，暂不知是否能修改svg的显示效果类似于css
+** TODO add yasnippet
+   work with company like vscode
 ** TODO prettify mode-line
    1. file modified inspect(colorful)
    2. git branch
@@ -11,23 +9,15 @@ svg ImageMagick，暂不知是否能修改svg的显示效果类似于css
    4. major mode
    5. encoding
    6. point percent
+** TODO add icon font (or svg)display in emacs colorful scalable 
+   font-lock-mode disabled: (insert (propertize (string #xE001)  'face '(:family "seti")))
+   字体的缺点是只能是单色
+   svg ImageMagick，暂不知是否能修改svg的显示效果类似于css
 ** TODO add plugin for prettyhtml
-** TODO 感知当前cursor的元素
-1. word: 自动或按键触发高亮当前buffer内相同word； 触发搜索时自动复制到搜索文本
-   1. 要智能设置region，设置为当前region，有type，并高亮
-   2. 支持复制到剪切板，参考tide的自动高亮variable，和thing edit的功能
-   3. 触发搜索时自动补充到搜索框内
-   4. 参考C-h v 能自动获取到symbol并匹配
-2. bracket: 可直接跳转到对应括号；括号前后都高亮对应括号
-   1. 高亮括号，参考show-paren
-3. 结构化跳转：针对结构化的mode，可跳到父级结构，可针对不同mode调用不同mode的方法
-   1. 比如 org，二级跳一级，列表跳标题等等
 ** TODO scheme config
    1. runtime
    2. eval last expresion
    3. eval region
-** TODO add colorful face in typescript 
-   emacs官方没有提供，需要自己定义，参考js2-mode
 ** DONE improve my painful pinky
    1. use xah-fly-keys to modal edit
    2. use M-* prefix key to replace some frequently prefix like C-c C-x

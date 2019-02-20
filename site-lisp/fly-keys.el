@@ -2695,6 +2695,10 @@ Version 2019-01-18"
          (lambda ($fpath) (let ((process-connection-type nil))
                             (start-process "" nil "xdg-open" $fpath))) $file-list))))))
 
+(setq terminal-app (if (file-exists-p "/Applications/iTerm.app/Contents/MacOS/iTerm2")
+		       "/Applications/iTerm.app/Contents/MacOS/iTerm2"
+		     "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal"))
+
 (defun xah-open-in-terminal ()
   "Open the current dir in a new terminal window.
 URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
@@ -2705,7 +2709,7 @@ Version 2017-10-09"
     (message "Microsoft Windows not supported. File a bug report or pull request."))
    ((string-equal system-type "darwin")
     (let ((process-connection-type nil))
-      (start-process "" nil "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal" default-directory)))
+      (start-process "" nil terminal-app default-directory)))
    ((string-equal system-type "gnu/linux")
     (let ((process-connection-type nil))
       (start-process "" nil "x-terminal-emulator"
@@ -3054,28 +3058,25 @@ Version 2019-02-12"
    ("'" . xah-fill-or-unfill)
    ("," . xah-fly-comma-keymap)
    ("-" . xah-show-formfeed-as-line)
-   ;; /
-   ;; ;
-   ;; =
-   ;; [
    ("\\" . toggle-input-method)
-   ;; `
-
-   ;; 1
-   ;; 2
 
    ("," . xah-fly-w-keymap)
+   ("0" . delete-window)
+   ("1" . delete-other-windows)
    ("2" . split-window-below)
-   ("3" . delete-other-windows)
+   ("3" . nil)
    ("4" . split-window-right)
    ("5" . balance-windows)
    ("6" . xah-upcase-sentence)
+   ("7" . nil)
+   ("8" . nil)
    ("9" . ispell-word)
    (";" . fly-format)
    ("a" . mark-whole-buffer)
    ("b" . switch-to-buffer)
    ("c" . nil)
-   ("d" . xah-fly-e-keymap)
+   ("d" . treemacs)
+   ;; ("d" . xah-fly-e-keymap)
    ("e" . fly-e-keymap)
    ("f" . find-file)
    ("g" . ace-jump-mode)
@@ -3088,28 +3089,17 @@ Version 2019-02-12"
    ("n" . end-of-buffer)
    ("o" . xah-fly-r-keymap)
    ("p" . counsel-projectile-find-file)
+   ("q" . nil)
    ("r" . counsel-recentf)
    ;; ("r" . query-replace)
    ("s" . counsel-rg)
    ("t" . xah-show-kill-ring)
    ("u" . isearch-forward)
    ("v" . magit-status)
+   ("w" . nil)
    ("x" . xah-cut-all-or-region)
    ("y" . xah-search-current-word)
-   ;; ("c" . xah-copy-all-or-region)
-   ;; ("g" . kill-line)
-   ;; ("k" . xah-fly-t-keymap)
-   ;; ("l" . dired-jump)
-   ;; ("l" . xah-fly-n-keymap)
-   ;; ("s" . save-buffer)
-   ;; ("u" . switch-to-buffer)
-   ;; ("x" . xah-toggle-previous-letter-case)
-   ;; 0
-   ;; 7
-   ;; 8
-   ;; v
-   ;; z
-   ;;
+   ("z" . nil)
    ))
 
 
@@ -3369,19 +3359,18 @@ Version 2017-01-21"
      (";" . xah-end-of-line-or-block)
      ;; ("#" . xah-backward-quote)
      ;; ("$" . xah-forward-punct)
-     ("1" . xah-extend-selection)
-     ("2" . xah-select-line)
-     ("3" . delete-other-windows)
-     ("4" . split-window-below)
+     ("0" . balance-windows)
+     ("1" . delete-other-windows)
+     ("2" . split-window-below)
+     ("3" . delete-window)
+     ("4" . split-window-right)
      ("5" . delete-char)
      ("6" . xah-select-block)
      ("7" . xah-select-line)
      ("8" . xah-extend-selection)
      ("9" . xah-select-text-in-quote)
-     ("0" . xah-pop-local-mark-ring)
      ("a" . counsel-M-x)
      ("b" . xah-toggle-letter-case)
-     ;; ("b" . xah-toggle-letter-case)	
      ("c" . xah-copy-line-or-region)
      ("d" . delete-char)
      ("e" . xah-backward-kill-word)
@@ -3410,23 +3399,12 @@ Version 2017-01-21"
      ("z" . xah-comment-dwim)
      ("/" . xah-goto-matching-bracket)))
 
-  ;; (when xah-fly-swapped-1-8-and-2-7-p
-  ;;     (xah-fly--define-keys
-  ;;      xah-fly-key-map
-  ;;      '(
-  ;;        ("8" . pop-global-mark)
-  ;;        ("7" . xah-pop-local-mark-ring)
-  ;;        ("2" . xah-select-line)
-  ;;        ("1" . xah-extend-selection))))
-
   (progn
     (setq xah-fly-insert-state-q nil )
     (modify-all-frames-parameters (list (cons 'cursor-type 'box))))
 
   (setq mode-line-front-space "C")
   (force-mode-line-update)
-
-  ;;
   )
 
 (defun xah-fly-space-key ()
@@ -3441,15 +3419,11 @@ Version 2018-05-07"
 (defun xah-fly-insert-mode-init ()
   "Set insertion mode keys"
   (interactive)
-  ;; (setq xah-fly-key-map (make-sparse-keymap))
-  ;; (setq xah-fly-key-map (make-keymap))
-
   (xah-fly--define-keys
    xah-fly-key-map
    '(
      ("RET" . nil)
      ("SPC" . nil)
-     ;; ("SPC" . xah-fly-space-key)
      ("DEL" . nil)
 
      ("'" . nil)
@@ -3464,9 +3438,6 @@ Version 2018-05-07"
      ("]" . nil)
      ("`" . nil)
      ("~" . nil)
-
-     ;; ("#" . nil)
-     ;; ("$" . nil)
 
      ("1" . nil)
      ("2" . nil)

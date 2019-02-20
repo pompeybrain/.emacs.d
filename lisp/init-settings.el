@@ -11,6 +11,8 @@
 ;;;###autoload
 (defun setting-after-init ()
   "Config something don't need early."
+  ;; close debug on error
+  (setq debug-on-error nil)
   ;; 自动保存到文件，而不是另外的
   (setq auto-save-default nil)
 
