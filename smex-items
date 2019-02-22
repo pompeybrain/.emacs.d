@@ -1,20 +1,20 @@
 
 ;; ----- smex-history -----
 (
+ load-theme
+ rainbow-mode
+ xref-find-references
  company-yasnippet
  yas-new-snippet
- customize-variable
  customize-group
- hippie-expand
- package-install
- yas-global-mode
+ auto-save-visited-mode
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 103)
- (customize-group . 26)
+ (customize-group . 27)
  (query-replace . 10)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
@@ -36,7 +36,7 @@
  (counsel-projectile-rg . 1)
  (projectile-switch-project . 6)
  (projectile-add-known-project . 6)
- (load-theme . 56)
+ (load-theme . 58)
  (pkg-info-package-version . 2)
  (package-refresh-contents . 10)
  (js2-mode . 3)
@@ -69,7 +69,7 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 2)
- (rainbow-mode . 25)
+ (rainbow-mode . 32)
  (tab-to-tab-stop . 4)
  (flycheck-mode . 3)
  (fringe-mode . 1)
@@ -160,8 +160,11 @@
  (which-key-show-major-mode . 1)
  (which-key-show-full-keymap . 1)
  (yas-global-mode . 1)
- (yas-new-snippet . 3)
+ (yas-new-snippet . 4)
  (hippie-expand . 1)
  (customize-variable . 1)
- (company-yasnippet . 3)
+ (company-yasnippet . 6)
+ (magit-push-to-remote . 1)
+ (auto-save-visited-mode . 2)
+ (xref-find-references . 2)
 )

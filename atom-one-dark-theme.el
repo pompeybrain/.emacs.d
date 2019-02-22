@@ -37,6 +37,7 @@
 		   ;; ("atom-one-dark-fg"       . (if ,256color "color-248" "#ABB2BF"))
                    ("atom-one-dark-bg"       . (if ,256color "color-235" "#282C34"))
                    ("atom-one-dark-bg-1"     . (if ,256color "color-234" "#121417"))
+                   ("atom-one-dark-bg-focus" . (if ,256color "color-234" "#454545"))
                    ("atom-one-dark-bg-hl"    . (if ,256color "color-236" "#2C323C"))
                    ("atom-one-dark-gutter"   . (if ,256color "color-239" "#4B5363"))
                    ("atom-one-dark-mono-1"   . (if ,256color "color-248" "#ABB2BF"))
@@ -456,7 +457,7 @@
   `(web-mode-html-tag-bracket-face ((t (:inherit default))))
   `(web-mode-html-tag-face ((t (:foreground ,atom-one-dark-red-1))))
   `(web-mode-symbol-face ((t (:foreground ,atom-one-dark-orange-1))))
-  `(web-mode-current-element-highlight-face ((t (:background ,atom-one-dark-gutter :foreground ,atom-one-dark-red-1))))
+  `(web-mode-current-element-highlight-face ((t (:background ,atom-one-dark-bg-focus :foreground ,atom-one-dark-red-1))))
   ;; flx-ido
   `(flx-highlight-face ((t (:inherit (link) :weight bold))))
 

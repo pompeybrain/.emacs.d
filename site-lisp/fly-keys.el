@@ -3069,8 +3069,8 @@ Version 2019-02-12"
    ("5" . balance-windows)
    ("6" . xah-upcase-sentence)
    ("7" . nil)
-   ("8" . nil)
-   ("9" . ispell-word)
+   ("8" . ispell-word)
+   ("9" . auto-save-visited-mode)
    (";" . fly-format)
    ("a" . mark-whole-buffer)
    ("b" . switch-to-buffer)
@@ -3089,7 +3089,7 @@ Version 2019-02-12"
    ("n" . end-of-buffer)
    ("o" . xah-fly-r-keymap)
    ("p" . counsel-projectile-find-file)
-   ("q" . nil)
+   ("q" . fly-save-all-buffer)
    ("r" . counsel-recentf)
    ;; ("r" . query-replace)
    ("s" . counsel-rg)
@@ -3608,6 +3608,14 @@ Version 2017-07-07"
   "Indent current buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
+
+(defun fly-save-all-buffer ()
+  (interactive)
+  (save-some-buffers t))
+
+(defun fly-highlight-lookup ()
+  "Highlight current word and active lookup."
+  )
 
 
 
