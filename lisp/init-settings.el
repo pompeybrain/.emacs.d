@@ -40,7 +40,7 @@
 
   (global-set-key (kbd "C-c g") 'goto-line)
 
-  (global-set-key (kbd "M-;") 'comment-line)
+  ;; (global-set-key (kbd "M-;") 'comment-line)
 
   (global-set-key (kbd "M-j") 'delete-indentation)
 

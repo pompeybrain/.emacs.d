@@ -3364,7 +3364,7 @@ Version 2017-01-21"
      ("2" . split-window-below)
      ("3" . delete-window)
      ("4" . split-window-right)
-     ("5" . delete-char)
+     ("5" . fly-format)
      ("6" . xah-select-block)
      ("7" . xah-select-line)
      ("8" . xah-extend-selection)
@@ -3397,7 +3397,7 @@ Version 2017-01-21"
      ("." . xah-forward-right-bracket)
      ("," . xah-next-window-or-frame)
      ("z" . xah-comment-dwim)
-     ("/" . xah-goto-matching-bracket)))
+     ("/" . xah-goto-matching-bracket))) 
 
   (progn
     (setq xah-fly-insert-state-q nil )

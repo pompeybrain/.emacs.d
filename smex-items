@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
- load-theme
+ tooltip-mode
+ flycheck-mode
+ highlight-symbol-at-point
  rainbow-mode
- xref-find-references
- company-yasnippet
- yas-new-snippet
  customize-group
- auto-save-visited-mode
+ package-install
+ eval-last-sexp
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 103)
- (customize-group . 27)
+ (customize-group . 29)
  (query-replace . 10)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 26)
+ (package-install . 28)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -38,7 +38,7 @@
  (projectile-add-known-project . 6)
  (load-theme . 58)
  (pkg-info-package-version . 2)
- (package-refresh-contents . 10)
+ (package-refresh-contents . 11)
  (js2-mode . 3)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -68,10 +68,10 @@
  (hydra-ivy/body . 1)
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
- (tooltip-mode . 2)
- (rainbow-mode . 32)
+ (tooltip-mode . 3)
+ (rainbow-mode . 34)
  (tab-to-tab-stop . 4)
- (flycheck-mode . 3)
+ (flycheck-mode . 20)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
@@ -167,4 +167,8 @@
  (magit-push-to-remote . 1)
  (auto-save-visited-mode . 2)
  (xref-find-references . 2)
+ (butterfly . 1)
+ (flycheck-next-error . 2)
+ (flycheck-popup-tip-mode . 1)
+ (highlight-symbol-at-point . 2)
 )

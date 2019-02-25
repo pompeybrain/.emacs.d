@@ -34,7 +34,7 @@
   (let* ((256color  (eq (display-color-cells (selected-frame)) 256))
          (colors `(("atom-one-dark-accent"   . "#528BFF")
                    ("atom-one-dark-fg"       . (if ,256color "color-248" "#C4C9D2"))
-		   ;; ("atom-one-dark-fg"       . (if ,256color "color-248" "#ABB2BF"))
+		   ("atom-one-dark-fg-1"       . (if ,256color "color-248" "#ABB2BF"))
                    ("atom-one-dark-bg"       . (if ,256color "color-235" "#282C34"))
                    ("atom-one-dark-bg-1"     . (if ,256color "color-234" "#121417"))
                    ("atom-one-dark-bg-focus" . (if ,256color "color-234" "#454545"))
@@ -141,7 +141,7 @@
   `(flymake-warning ((t (:underline (:color ,atom-one-dark-orange-1 :style wave)))))
 
   ;; popup
-  `(popup-tip-face ((t (:foreground ,atom-one-dark-orange-2 :background ,atom-one-dark-gray))))
+  `(popup-tip-face ((t (:foreground ,atom-one-dark-fg-1 :background ,atom-one-dark-black))))
  
     ;; flycheck
   `(flycheck-error ((t (:underline (:color ,atom-one-dark-red-1 :style wave)))))

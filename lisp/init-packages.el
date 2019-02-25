@@ -26,18 +26,11 @@
   :ensure t
   :defer t
   :diminish
+  ;; :hook (flycheck-mode . flycheck-popup-tip-mode)
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  ;; (global-flycheck-mode +1)
-  (flycheck-pos-tip-mode +1))
-
-(use-package flycheck-pos-tip
-  :ensure t
-  :defer t
-  :after flycheck
-  :config
-  (setq flycheck-pos-tip-timeout 10
-        flycheck-display-errors-delay 0.5))
+  ;; (flycheck-popup-tip-mode +1)		
+  )
 
 (use-package company
   :ensure t
@@ -341,6 +334,12 @@
   :defer 1
   :config
   (yas-global-mode 1))
+
+;; popup
+;; mac childframe bug need more test on macport or use code from lazycat
+(use-package posframe
+  :ensure t
+  :defer t)
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
