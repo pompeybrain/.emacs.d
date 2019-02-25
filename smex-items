@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ esup
+ package-install
  flycheck-mode
  customize-group
  tooltip-mode
  highlight-symbol-at-point
  rainbow-mode
- package-install
- eval-last-sexp
 )
 
 ;; ----- smex-data -----
@@ -20,7 +20,7 @@
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 28)
+ (package-install . 29)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -171,4 +171,5 @@
  (flycheck-next-error . 2)
  (flycheck-popup-tip-mode . 1)
  (highlight-symbol-at-point . 2)
+ (esup . 1)
 )

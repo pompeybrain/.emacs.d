@@ -51,8 +51,8 @@
 
 (setq package-archives
       '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-       ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-       ("org"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+	("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+	("org"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 (package-initialize)
 ;; prevent auto-save-list dir
 (setq auto-save-list-file-prefix nil)
