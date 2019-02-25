@@ -1,11 +1,11 @@
 
 ;; ----- smex-history -----
 (
- tooltip-mode
  flycheck-mode
+ customize-group
+ tooltip-mode
  highlight-symbol-at-point
  rainbow-mode
- customize-group
  package-install
  eval-last-sexp
 )
@@ -14,7 +14,7 @@
 (
  (smex . 1)
  (eval-buffer . 103)
- (customize-group . 29)
+ (customize-group . 31)
  (query-replace . 10)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
@@ -71,7 +71,7 @@
  (tooltip-mode . 3)
  (rainbow-mode . 34)
  (tab-to-tab-stop . 4)
- (flycheck-mode . 20)
+ (flycheck-mode . 29)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)

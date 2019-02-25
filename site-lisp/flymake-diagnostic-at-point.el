@@ -34,8 +34,8 @@
 ;;; Code:
 
 (require 'flymake)
-(require 'popup)
-;; (require 'posframe)
+;; (require 'popup)
+(require 'posframe)
 
 (defcustom flymake-diagnostic-at-point-timer-delay 0.5
   "Delay in seconds before displaying errors at point."
@@ -68,9 +68,9 @@
 
 (defun flymake-diagnostic-at-point-display-popup (text)
   "Display the flymake diagnostic TEXT inside a popup."
-  ;; (posframe-show "flymake-error" :string (concat flymake-diagnostic-at-point-error-prefix text) :left-fringe 10 :internal-border-width 1) FIXME: mac fullscreen bug
+  (posframe-show " *flymake-error*" :string (concat flymake-diagnostic-at-point-error-prefix text) :internal-border-width 5)
   ;; (popup-tip (concat flymake-diagnostic-at-point-error-prefix text) :margin-left 1 :margin-right 1)
-  (popup-tip (concat flymake-diagnostic-at-point-error-prefix text))
+  ;; (popup-tip (concat flymake-diagnostic-at-point-error-prefix text))
   )
 
 (defun flymake-diagnostic-at-point-display-minibuffer (text)

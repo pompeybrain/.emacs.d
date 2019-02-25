@@ -2,15 +2,12 @@
 
 ;; (require 'thing-edit)
 
-;; (use-package flymake-diagnostic-at-point
-;;   :after flymake
-;;   :init
-;;   (setq flymake-diagnostic-at-point-error-prefix "Error: ")
-;;   :config
-;;   (add-hook 'flymake-mode-hook #'flymake-diagnostic-at-point-mode))
+(use-package flymake-diagnostic-at-point
+  :after flymake
+  :config
+  (add-hook 'flymake-mode-hook #'flymake-diagnostic-at-point-mode))
 
-;; (require 'flycheck-popup-tip)		
-
+(require 'flycheck-posframe)
 ;; (with-eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 

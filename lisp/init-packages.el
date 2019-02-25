@@ -26,7 +26,7 @@
   :ensure t
   :defer t
   :diminish
-  ;; :hook (flycheck-mode . flycheck-popup-tip-mode)
+  :hook (flycheck-mode . flycheck-posframe-mode)
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   ;; (flycheck-popup-tip-mode +1)		
@@ -297,9 +297,9 @@
   :bind
   ("M-i" . eglot-help-at-point))
 
-(use-package popup
-  :ensure t
-  :defer t)
+;; (use-package popup
+;;   :ensure t
+;;   :defer t)
 
 (use-package helpful
   :ensure t

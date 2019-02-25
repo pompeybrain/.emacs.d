@@ -20,7 +20,8 @@
 
 ;;;自动加载更改过的文件
   (global-auto-revert-mode 1)
-
+;;; disabled tooltip
+  (tooltip-mode -1)
 ;;;别名
   (fset 'yes-or-no-p 'y-or-n-p)
 

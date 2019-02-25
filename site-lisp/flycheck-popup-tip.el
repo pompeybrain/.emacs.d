@@ -49,6 +49,7 @@
 
 (require 'flycheck)
 (require 'popup)
+(require 'posframe)
 
 (defgroup flycheck-popup-tip nil
   "Display Flycheck errors in tooltips using popup.el."

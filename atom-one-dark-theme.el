@@ -140,8 +140,8 @@
   `(flymake-note ((t (:underline (:color ,atom-one-dark-green :style wave)))))
   `(flymake-warning ((t (:underline (:color ,atom-one-dark-orange-1 :style wave)))))
 
-  ;; popup
-  `(popup-tip-face ((t (:foreground ,atom-one-dark-fg-1 :background ,atom-one-dark-black))))
+  ;; posframe
+  `(flycheck-posframe-background-face ((t (:foreground ,atom-one-dark-fg-1 :background ,atom-one-dark-black))))
  
     ;; flycheck
   `(flycheck-error ((t (:underline (:color ,atom-one-dark-red-1 :style wave)))))
@@ -584,8 +584,7 @@ The reason this is required is because some modes (html-mode, jyaml-mode, ...)
 do not provide the necessary faces to do theming without conflicting with other
 modes.
 Current modes, and their faces, impacted by this variable:
-* js2-mode: font-lock-constant-face, font-lock-doc-face, font-lock-variable-name-face
-")
+* js2-mode: `font-lock-constant-face', `font-lock-doc-face', `font-lock-variable-name-face'")
 
 ;; Many modes in Emacs do not define their own faces and instead use standard Emacs faces when it comes to theming.
 ;; That being said, to have a real "Atom One Dark Theme" for Emacs, we need to work around this so that these themes look
