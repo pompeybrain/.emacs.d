@@ -1,5 +1,8 @@
 * Target for my emacs config files
-
+** TODO dashboard
+   recentf file list use some simple key to quick open them.
+   1. variable recentf-list  the file list find-file can open
+   2. init dashboard buffer like doom-dashboard
 ** TODO symbol lookup
    1. when active get current symbol, like hydra buffer, show some key help
    2. use i k to navigate in current buffer where symbol appear

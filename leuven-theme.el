@@ -144,7 +144,7 @@ more...")
       (xml-attribute '(:foreground "#F36335"))
       (xml-tag '(:foreground "#AE1B9A"))
       (highlight-current-tag '(:background "#E8E8FF")) ; #EEF3F6 or #FFEB26
-  )
+      )
 
   (custom-theme-set-faces
    'leuven
@@ -650,9 +650,9 @@ more...")
    `(light-symbol-face ((,class (:background "#FFFFA0"))))
    `(linum ((,class (:foreground "#9A9A9A" :background "#EDEDED"))))
 
-     ;; native line numbers (emacs version >=26)
-  `(line-number ((,class (:foreground "#CCCCCC" :background "#FFFFFF"))))
-  `(line-number-current-line ((,class (:foreground "#9A9A9A" :background "#FFFFFF"))))
+   ;; native line numbers (emacs version >=26)
+   `(line-number ((,class (:foreground "#CCCCCC" :background "#FFFFFF"))))
+   `(line-number-current-line ((,class (:foreground "#9A9A9A" :background "#FFFFFF"))))
 
    
    `(log-view-file ((,class (:foreground "#0000CC" :background "#EAF2F5"))))
@@ -1030,16 +1030,16 @@ more...")
 
 (custom-theme-set-variables 'leuven
 
-  ;; highlight-sexp-mode.
-  '(hl-sexp-background-color "#efebe9")
+			    ;; highlight-sexp-mode.
+			    '(hl-sexp-background-color "#efebe9")
 
-  '(ansi-color-faces-vector
-    [default default default italic underline success warning error])
+			    '(ansi-color-faces-vector
+			      [default default default italic underline success warning error])
 
-  ;; Colors used in Shell mode.
-  '(ansi-color-names-vector
-    ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
- )
+			    ;; Colors used in Shell mode.
+			    '(ansi-color-names-vector
+			      ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+			    )
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path)

@@ -3323,9 +3323,8 @@ Version 2019-02-12"
 
   ;;     (define-key xah-fly-key-map (kbd "C-d") 'pop-global-mark)
   ;;     (define-key xah-fly-key-map (kbd "C-t") 'xah-pop-local-mark-ring)
-
-  ;;     ;;
   ;;     ))
+  
   (define-key xah-fly-key-map (kbd "M-RET") 'fly-newline-insert)
   (define-key xah-fly-key-map (kbd "C-<return>") 'fly-newline-command-no-open)
 
@@ -3617,12 +3616,8 @@ Version 2017-07-07"
   "Highlight current word and active lookup."
   )
 
-
-
 ;; ;; when in shell mode, switch to insertion mode.
 ;; (add-hook 'dired-mode-hook 'xah-fly-keys-off)
-
-
 
 ;; experimental. auto switch back to command mode after some sec of idle time
 ;; (setq xah-fly-timer-id (run-with-idle-timer 20 t 'xah-fly-command-mode-activate))

@@ -8,7 +8,7 @@
 (let ((normal-gc-cons-threshold (* 32 1024 1024))
       (init-gc-cons-threshold (* 256 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
+  (add-hook 'emacs-setup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -19,6 +19,11 @@
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 (setq-default line-spacing 3)
+
+(setq custom-safe-themes t)
+;; (load-theme 'leuven)
+(load-theme 'aod)			
+;; (load-theme 'zenburn)
 
 ;; 左右边界
 (fringe-mode '(8 . 0))
@@ -65,16 +70,12 @@
 (load custom-file)
 
 (add-to-list 'load-path (expand-file-name "lisp" emacs-d) t)
-
-;; (load-theme 'leuven)		      
-(load-theme 'atom-one-dark)	
-;; (load-theme 'zenburn)
+(add-to-list 'load-path (expand-file-name "site-lisp/" emacs-d) t)
 
 (require 'init-packages)
 (require 'init-settings)
-(add-to-list 'load-path (expand-file-name "site-lisp/" emacs-d) t)
 (require 'init-site-lisp)
 (require 'init-keybinds)
-
+(require 'init-dashboard)
 (provide 'init)
 ;;; init.el ends here

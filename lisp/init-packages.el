@@ -37,6 +37,7 @@
   :defer 1
   :diminish
   :config
+  (setq company-minimum-prefix-length 2)
   (setq company-dabbrev-downcase nil)
   (setq company-show-numbers t)
   (global-company-mode))
@@ -203,6 +204,7 @@
   :ensure t
   :defer t
   :init
+  (setq transient-history-file "~/.emacs.d/.cache/transient-history.el")
   (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :bind("C-x g" . magit-status))
@@ -296,10 +298,6 @@
   (add-hook 'dart-mode-hook 'eglot-ensure)
   :bind
   ("M-i" . eglot-help-at-point))
-
-;; (use-package popup
-;;   :ensure t
-;;   :defer t)
 
 (use-package helpful
   :ensure t

@@ -1,20 +1,20 @@
 
 ;; ----- smex-history -----
 (
- esup
- package-install
- flycheck-mode
  customize-group
- tooltip-mode
- highlight-symbol-at-point
+ sort-lines
+ load-theme
+ flycheck-mode
  rainbow-mode
+ magit-dispatch
+ avy-isearch
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 103)
- (customize-group . 31)
+ (customize-group . 39)
  (query-replace . 10)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
@@ -36,7 +36,7 @@
  (counsel-projectile-rg . 1)
  (projectile-switch-project . 6)
  (projectile-add-known-project . 6)
- (load-theme . 58)
+ (load-theme . 59)
  (pkg-info-package-version . 2)
  (package-refresh-contents . 11)
  (js2-mode . 3)
@@ -69,9 +69,9 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 3)
- (rainbow-mode . 34)
+ (rainbow-mode . 36)
  (tab-to-tab-stop . 4)
- (flycheck-mode . 29)
+ (flycheck-mode . 32)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
@@ -81,11 +81,11 @@
  (delete-file . 3)
  (counsel-grep . 4)
  (swiper . 1)
- (package-list-packages . 1)
+ (package-list-packages . 2)
  (helpful-callable . 1)
  (ivy-avy . 1)
  (swiper-avy . 3)
- (avy-isearch . 1)
+ (avy-isearch . 3)
  (avy-goto-line . 1)
  (info . 1)
  (iorg-hydra/body . 1)
@@ -134,7 +134,7 @@
  (fly-command-enter . 1)
  (open-line . 1)
  (fly-open-line . 3)
- (sort-lines . 5)
+ (sort-lines . 10)
  (text-scale-increase . 3)
  (xah-toggle-read-novel-mode . 1)
  (xah-comment-dwim . 1)
@@ -172,4 +172,5 @@
  (flycheck-popup-tip-mode . 1)
  (highlight-symbol-at-point . 2)
  (esup . 1)
+ (magit-dispatch . 5)
 )

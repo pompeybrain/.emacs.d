@@ -2,9 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq make-backup-files nil)
-;; audio
-(setq ring-bell-function 'ignore)
 
 (setq inhibit-startup-screen t)
 
@@ -20,8 +17,10 @@
 
 ;;;自动加载更改过的文件
   (global-auto-revert-mode 1)
+
 ;;; disabled tooltip
   (tooltip-mode -1)
+
 ;;;别名
   (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -39,7 +38,7 @@
 
   (global-set-key (kbd "C-c C-k") 'kill-current-buffer)
 
-  (global-set-key (kbd "C-c g") 'goto-line)
+  ;; (global-set-key (kbd "C-c g") 'goto-line)
 
   ;; (global-set-key (kbd "M-;") 'comment-line)
 
@@ -55,7 +54,8 @@
 
   (global-set-key (kbd "C-r") 'query-replace)
 
-  (global-set-key (kbd "C-c c") 'ispell-buffer))
+  ;; (global-set-key (kbd "C-c c") 'ispell-buffer)
+  )
 
 (add-hook 'after-init-hook #'setting-after-init)
 
@@ -77,7 +77,6 @@
 (add-hook 'after-init-hook
           (lambda ()
 	    (column-number-mode t)
-	    ;; (global-hl-line-mode t)
 	    ))
 
 ;;;###autoload
@@ -89,17 +88,21 @@
   ;; (flymake-mode +1)
   )
 
+(setq make-backup-files nil)
+;; audio
+(setq ring-bell-function 'ignore)
+
 ;; line number
 (add-hook 'prog-mode-hook #'setup-prog-mode)
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "Emacs ready in %s with %d garbage collections."
-                     (format "%.2f seconds"
-                             (float-time
-                              (time-subtract after-init-time before-init-time)))
-                     gcs-done)))
+;; (add-hook 'emacs-startup-hook
+;;           (lambda ()
+;;             (message "Emacs ready in %s with %d garbage collections."
+;;                      (format "%.2f seconds"
+;;                              (float-time
+;;                               (time-subtract after-init-time before-init-time)))
+;;                      gcs-done)))
 
 ;;;###autoload
 (defun switch-theme ()

@@ -33,7 +33,7 @@
     ("s" #'swiper :exit t)
     ("q" nil))
 
-   (defhydra iorg-hydra (:hint nil :foreign-keys warn)
+  (defhydra iorg-hydra (:hint nil :foreign-keys warn)
     "
   	\t_h_ : org next heading
   	\t_H_ : org prev heading
@@ -48,7 +48,7 @@
     ("j" #'ace-jump-mode :exit t)
     ("s" #'swiper :exit t)
     ("q" nil))
-   
+  
   (bind-keys :prefix-map i-hydra-map
 	     :prefix "M-h"
 	     ("j" . ijump-hydra/body)
