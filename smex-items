@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ rename-buffer
+ describe-face
+ package-list-packages
  customize-group
  sort-lines
  load-theme
  flycheck-mode
- rainbow-mode
- magit-dispatch
- avy-isearch
 )
 
 ;; ----- smex-data -----
@@ -51,7 +51,7 @@
  (org-previous-visible-heading . 1)
  (counsel-find-file . 7)
  (rename-file . 1)
- (rename-buffer . 2)
+ (rename-buffer . 4)
  (vue-mode . 2)
  (web-mode . 2)
  (html-mode . 1)
@@ -81,7 +81,7 @@
  (delete-file . 3)
  (counsel-grep . 4)
  (swiper . 1)
- (package-list-packages . 2)
+ (package-list-packages . 3)
  (helpful-callable . 1)
  (ivy-avy . 1)
  (swiper-avy . 3)
@@ -173,4 +173,5 @@
  (highlight-symbol-at-point . 2)
  (esup . 1)
  (magit-dispatch . 5)
+ (describe-face . 2)
 )

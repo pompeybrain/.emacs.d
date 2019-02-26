@@ -1,0 +1,3 @@
+[submodule "git-lisp/company-posframe"]
+	path = git-lisp/company-posframe
+	url = https://github.com/tumashu/company-posframe.git

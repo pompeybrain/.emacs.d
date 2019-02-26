@@ -71,11 +71,19 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" emacs-d) t)
 (add-to-list 'load-path (expand-file-name "site-lisp/" emacs-d) t)
+;; (defun add-subdirs-to-load-path (dir)
+;;   "Recursive add directories to `load-path'."
+;;   (let ((default-directory (file-name-as-directory dir)))
+;;     (add-to-list 'load-path dir)
+;;     (normal-top-level-add-subdirs-to-load-path)))
+;; (add-subdirs-to-load-path (expand-file-name "git-lisp/" emacs-d))
 
+;; (add-to-list 'load-path (expand-file-name "git-lisp/" emacs-d) t) 
 (require 'init-packages)
 (require 'init-settings)
 (require 'init-site-lisp)
 (require 'init-keybinds)
 (require 'init-dashboard)
+(require 'init-git-lisp)
 (provide 'init)
 ;;; init.el ends here
