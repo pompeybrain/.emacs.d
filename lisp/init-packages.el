@@ -40,7 +40,9 @@
   (setq company-minimum-prefix-length 2)
   (setq company-dabbrev-downcase nil)
   (setq company-show-numbers t)
-  (global-company-mode))
+  (global-company-mode 1)
+  ;; (company-quickhelp-mode 1)
+  )
 
 (use-package all-the-icons
   :defer t

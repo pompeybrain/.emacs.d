@@ -1,4 +1,4 @@
-;;; package -- Summary ;; -*- lexical-binding: t -*-
+;;; package--Summary ;; -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -17,10 +17,7 @@
 ;; set font
 (set-face-attribute 'default nil :family "Fira Code")
 ;; (set-face-attribute 'default nil :family "Menlo")
-(if (< (x-display-pixel-height) 1400)
-    (set-face-attribute 'default nil :height 140)
-  (set-face-attribute 'default nil :height 160))
-;; (set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 (mac-auto-operator-composition-mode)	;macport for fira code
 (setq-default line-spacing 3)
@@ -73,16 +70,14 @@
 (setq custom-file (expand-file-name "custom.el" emacs-d))
 (load custom-file)
 
-(add-to-list 'load-path (expand-file-name "lisp" emacs-d) t)
+(add-to-list 'load-path (expand-file-name "lisp/" emacs-d) t)
 (add-to-list 'load-path (expand-file-name "site-lisp/" emacs-d) t)
-;; (defun add-subdirs-to-load-path (dir)
-;;   "Recursive add directories to `load-path'."
-;;   (let ((default-directory (file-name-as-directory dir)))
-;;     (add-to-list 'load-path dir)
-;;     (normal-top-level-add-subdirs-to-load-path)))
-;; (add-subdirs-to-load-path (expand-file-name "git-lisp/" emacs-d))
 
-;; (add-to-list 'load-path (expand-file-name "git-lisp/" emacs-d) t)
+(add-to-list 'load-path (expand-file-name "git-lisp/" emacs-d) t)
+
+(let ((default-directory (expand-file-name "git-lisp/" emacs-d)))
+  (normal-top-level-add-subdirs-to-load-path))
+
 (require 'init-packages)
 (require 'init-settings)
 (require 'init-site-lisp)

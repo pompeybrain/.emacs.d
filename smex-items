@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ transient-mark-mode
+ vc-region-history
+ ediff
+ smerge-mode
  hs-hide-block
  switch-theme
- package-install
- delete-trailing-whitespace
- customize-group
- rename-buffer
- describe-face
+ eval-last-sexp
 )
 
 ;; ----- smex-data -----
@@ -38,7 +38,7 @@
  (projectile-add-known-project . 6)
  (load-theme . 59)
  (pkg-info-package-version . 2)
- (package-refresh-contents . 11)
+ (package-refresh-contents . 12)
  (js2-mode . 3)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
@@ -174,5 +174,19 @@
  (esup . 1)
  (magit-dispatch . 5)
  (describe-face . 2)
+ <<<<<<<
+ Updated
+ upstream
  (delete-trailing-whitespace . 1)
+ =======
+ (company-quickhelp-mode . 1)
+ >>>>>>>
+ Stashed
+ changes
+ (smerge-mode . 2)
+ (ediff . 1)
+ (vc-region-history . 1)
+ (hello-world . 4)
+ (switch-major-mode . 2)
+ (transient-mark-mode . 2)
 )

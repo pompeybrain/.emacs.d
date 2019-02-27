@@ -82,10 +82,11 @@
    `(font-lock-warning-face ((t (:foreground ,aod-warn :bold t))))
    `(font-lock-builtin-face ((t (:foreground ,aod-builtin))))
    ;; mode-line
-   `(mode-line ((t (:background ,aod-bg-2 :foreground ,aod-fg-1))))
+   `(mode-line ((t (:background ,aod-bg-1 :foreground ,aod-fg-1))))
    `(mode-line-buffer-id ((t (:weight bold))))
    `(mode-line-emphasis ((t (:weight bold))))
    `(mode-line-inactive ((t (:foreground ,aod-bg-hl))))
+
    ;; doom-mode-line
    `(doom-modeline-bar ((t nil)))
    `(doom-modeline-inactive-bar ((t nil)))
@@ -528,6 +529,9 @@
    `(undo-tree-visualizer-register-face ((t (:foreground ,aod-warn))))
    `(undo-tree-visualizer-unmodified-face ((t (:foreground ,aod-builtin))))
    ))
+
+(setq company-quickhelp-color-background "#121417")
+(setq company-quickhelp-color-foreground "#9dA5B4")
 
 (aod-with-color-variables
   (custom-theme-set-variables

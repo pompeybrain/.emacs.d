@@ -1,5 +1,6 @@
 * Target for my emacs config files
 
+** TODO add icon for treemacs use vscode meterial-icons
 ** TODO symbol lookup
    1. when active get current symbol, like hydra buffer, show some key help
    2. use i k to navigate in current buffer where symbol appear
