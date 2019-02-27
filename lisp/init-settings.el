@@ -5,6 +5,8 @@
 
 (setq inhibit-startup-screen t)
 
+(global-visual-line-mode 1)
+
 ;;;###autoload
 (defun setting-after-init ()
   "Config something don't need early."
@@ -43,8 +45,6 @@
   ;; (global-set-key (kbd "M-;") 'comment-line)
 
   (global-set-key (kbd "M-j") 'delete-indentation)
-
-  (global-visual-line-mode 1)
 
   ;; prevent some operation for region like C-w
   ;; (setq mark-even-if-inactive nil)

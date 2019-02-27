@@ -20,6 +20,7 @@
     ("aod-bg-hl"    . "#3E4451")
     ("aod-builtin"  . "#56B6C2")
     ("aod-error"    . "#E06C75")
+    ("aod-error-1"  . "#93262d")
     ("aod-fg+1"     . "#e3e6ea")
     ("aod-fg"       . "#C4C9D2")
     ("aod-fg-1"     . "#9DA5B4")
@@ -30,7 +31,9 @@
     ("aod-mono-2"   . "#828997")
     ("aod-mono-3"   . "#5C6370")
     ("aod-primary"  . "#61AFEF")
+    ("aod-primary-1". "#447eaa")
     ("aod-success"  . "#8FAC75")
+    ("aod-success-1". "#768964")
     ("aod-type"     . "#E5C07B")
     ("aod-warn"     . "#D19A66")
     ("aod-cursor"   . "#528BFF")
@@ -141,9 +144,9 @@
 
    
    ;; diff-hl (https://github.com/dgutov/diff-hl)
-   `(diff-hl-change ((t (:foreground ,aod-bg :background ,aod-primary))))
-   `(diff-hl-delete ((t (:foreground ,aod-bg :background ,aod-error))))
-   `(diff-hl-insert ((t (:foreground ,aod-bg :background ,aod-success))))
+   `(diff-hl-change ((t (:foreground ,aod-bg :background ,aod-primary-1))))
+   `(diff-hl-delete ((t (:foreground ,aod-bg :background ,aod-error-1))))
+   `(diff-hl-insert ((t (:foreground ,aod-bg :background ,aod-success-1))))
    
    ;; dired-mode
    `(dired-directory ((t (:inherit font-lock-keyword-face))))

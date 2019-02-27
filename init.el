@@ -30,10 +30,9 @@
 (setq overflow-newline-into-fringe nil)
 (setq indicate-empty-lines nil)
 
-(setq ns-use-proxy-icon nil)
-
-
 ;; set title
+;;;defaults write org.gnu.Emacs HideDocumentIcon YES for macport version
+;; (setq ns-use-proxy-icon nil)		;for 26
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name))
@@ -84,6 +83,6 @@
 (require 'init-site-lisp)
 (require 'init-keybinds)
 (require 'init-dashboard)
-(require 'init-git-lisp)
+;; (require 'init-git-lisp)
 (provide 'init)
 ;;; init.el ends here
