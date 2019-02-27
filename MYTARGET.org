@@ -1,8 +1,5 @@
 * Target for my emacs config files
-** TODO dashboard
-   recentf file list use some simple key to quick open them.
-   1. variable recentf-list  the file list find-file can open
-   2. init dashboard buffer like doom-dashboard
+
 ** TODO symbol lookup
    1. when active get current symbol, like hydra buffer, show some key help
    2. use i k to navigate in current buffer where symbol appear
@@ -18,7 +15,7 @@
    4. major mode
    5. encoding
    6. point percent
-** TODO add icon font (or svg)display in emacs colorful scalable 
+** TODO add icon font (or svg)display in emacs colorful scalable
    font-lock-mode disabled: (insert (propertize (string #xE001)  'face '(:family "seti")))
    字体的缺点是只能是单色
    svg ImageMagick，暂不知是否能修改svg的显示效果类似于css
@@ -27,6 +24,10 @@
    1. runtime
    2. eval last expresion
    3. eval region
+** DONE dashboard
+   recentf file list use some simple key to quick open them.
+   1. variable recentf-list  the file list find-file can open
+   2. init dashboard buffer like doom-dashboard
 ** DONE improve my painful pinky
    1. use xah-fly-keys to modal edit
    2. use M-* prefix key to replace some frequently prefix like C-c C-x
@@ -38,7 +39,7 @@
    1. 设置一些跳转的hydra，针对常用的major-mode: org js ts elisp
 ** DONE 可在当前文件夹内按文件名搜索文件
 ** DONE a good query-replace
-builtin query replace ok, if can change direction is good
+   builtin query replace ok, if can change direction is good
 
 ** DONE benchmark start time
 ** DONE editorconfig support
@@ -46,7 +47,6 @@ builtin query replace ok, if can change direction is good
 ** DONE treemacs with icons
 ** DONE intelligent auto save
 ** DONE replace helm with ivy-counsel-swiper
-** DONE which-key support 
+** DONE which-key support
 ** DONE highlight todo
 ** DONE web-mode profile
-

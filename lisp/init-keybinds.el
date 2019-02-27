@@ -15,7 +15,7 @@
     ("n" #'flymake-goto-next-error)
     ("p" #'flymake-goto-prev-error)
     ("q" nil))
-  
+
   (defhydra ijump-hydra (:hint nil :foreign-keys warn)
     "
   	\t jump and page scroll:
@@ -48,7 +48,7 @@
     ("j" #'ace-jump-mode :exit t)
     ("s" #'swiper :exit t)
     ("q" nil))
-  
+
   (bind-keys :prefix-map i-hydra-map
 	     :prefix "M-h"
 	     ("j" . ijump-hydra/body)
@@ -57,7 +57,7 @@
 	     ))
 
 (bind-key "M-q" #'save-buffers-kill-terminal)
-;;; C-x 
+;;; C-x
 (bind-keys :prefix-map window-map
 	   :prefix "M-w"
 	   ("1" . delete-other-windows)
@@ -88,9 +88,15 @@
 (bind-key "M-n" #'next-line)
 (bind-key "M-p" #'previous-line)
 (bind-key "M-s" #'save-buffer)
-;; (setq xah-fly-use-control-key nil)
+(bind-key "M-j" 'delete-indentation)
+(bind-key "C-r" #'query-replace)
+(bind-key "C-M-f" 'toggle-frame-fullscreen)
+(bind-key "C-c C-k" 'kill-current-buffer)
+
+(global-set-key (kbd "<swipe-left>") nil)
+(global-set-key (kbd "<swipe-right>") nil)
+
 (require 'fly-keys)
-;; (xah-fly-keys-set-layout "qwerty")
 (xah-fly-keys 1)
 
 (provide 'init-keybinds)

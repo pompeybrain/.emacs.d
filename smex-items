@@ -1,26 +1,26 @@
 
 ;; ----- smex-history -----
 (
+ hs-hide-block
+ switch-theme
+ package-install
+ delete-trailing-whitespace
+ customize-group
  rename-buffer
  describe-face
- package-list-packages
- customize-group
- sort-lines
- load-theme
- flycheck-mode
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 103)
- (customize-group . 39)
+ (customize-group . 40)
  (query-replace . 10)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 29)
+ (package-install . 30)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -103,19 +103,19 @@
  (hide-body . 1)
  (hs-hide-all . 1)
  (hs-show-all . 1)
- (hs-hide-block . 2)
+ (hs-hide-block . 3)
  (hs-show-block . 1)
  (ivy-alt-done . 1)
  (diff-backup . 1)
  (org-todo . 3)
  (eshell . 2)
- (switch-theme . 3)
+ (switch-theme . 4)
  (font-lock-mode . 9)
  (find-file . 5)
  (typescript-mode . 2)
  (display-line-numbers-mode . 3)
- (cnfonts-edit-profile . 7)
- (cnfonts-enable . 1)
+ (cnfonts-edit-profile . 9)
+ (cnfonts-enable . 2)
  (doom-modeline-mode . 2)
  (all-the-icons-install-fonts . 2)
  (ffap-read-only . 1)
@@ -174,4 +174,5 @@
  (esup . 1)
  (magit-dispatch . 5)
  (describe-face . 2)
+ (delete-trailing-whitespace . 1)
 )

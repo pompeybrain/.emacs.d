@@ -80,7 +80,7 @@
    `(font-lock-type-face ((t (:foreground ,aod-type))))
    `(font-lock-variable-name-face ((t (:foreground ,aod-error))))
    `(font-lock-warning-face ((t (:foreground ,aod-warn :bold t))))
-   `(font-lock-builtin-face ((t (:foreground ,aod-builtin)))) 
+   `(font-lock-builtin-face ((t (:foreground ,aod-builtin))))
    ;; mode-line
    `(mode-line ((t (:background ,aod-bg-2 :foreground ,aod-fg-1))))
    `(mode-line-buffer-id ((t (:weight bold))))
@@ -89,7 +89,7 @@
    ;; doom-mode-line
    `(doom-modeline-bar ((t nil)))
    `(doom-modeline-inactive-bar ((t nil)))
-   
+
    ;; window-divider
    `(window-divider ((t (:foreground ,aod-bg-2))))
    `(window-divider-first-pixel ((t (:foreground ,aod-bg-2))))
@@ -116,7 +116,7 @@
    `(company-preview-common ((t (:foreground ,aod-primary :background ,aod-bg))))
    `(company-scrollbar-fg ((t (:background ,aod-fg-2))))
    `(company-scrollbar-bg ((t (:background ,aod-bg-2))))
-   
+
    ;; flymake
    `(flymake-error ((t (:underline (:color ,aod-error :style wave)))))
    `(flymake-note ((t (:underline (:color ,aod-success :style wave)))))
@@ -124,7 +124,7 @@
 
    ;; posframe
    `(flycheck-posframe-background-face ((t (:foreground ,aod-fg :background ,aod-bg-2))))
-   
+
    ;; flycheck
    `(flycheck-error ((t (:underline (:color ,aod-error :style wave)))))
    `(flycheck-info ((t (:underline (:color ,aod-success :style wave)))))
@@ -142,12 +142,12 @@
    `(isearch-fail ((t (:foreground ,aod-error :background nil))))
    `(lazy-highlight ((t (:foreground ,aod-keyword :background ,aod-bg-2 :underline ,aod-keyword))))
 
-   
+
    ;; diff-hl (https://github.com/dgutov/diff-hl)
    `(diff-hl-change ((t (:foreground ,aod-bg :background ,aod-primary-1))))
    `(diff-hl-delete ((t (:foreground ,aod-bg :background ,aod-error-1))))
    `(diff-hl-insert ((t (:foreground ,aod-bg :background ,aod-success-1))))
-   
+
    ;; dired-mode
    `(dired-directory ((t (:inherit font-lock-keyword-face))))
    `(dired-flagged ((t (:inherit diff-hl-delete))))
@@ -194,7 +194,7 @@
    `(helm-grep-lineno ((t (:foreground ,aod-mono-2))))
    `(helm-grep-finish ((t (:foreground ,aod-error))))
    `(helm-grep-match ((t (:foreground nil :background nil :inherit helm-match))))
-   `(helm-swoop-target-line-block-face ((t (:background ,aod-mono-3 :foreground ,aod-bg-1)))) 
+   `(helm-swoop-target-line-block-face ((t (:background ,aod-mono-3 :foreground ,aod-bg-1))))
    `(helm-swoop-target-line-face ((t (:background ,aod-mono-3 :foreground ,aod-bg-1))))
    `(helm-swoop-target-word-face ((t (:background ,aod-keyword :foreground ,aod-fg))))
    `(helm-locate-finish ((t (:foreground ,aod-success))))
@@ -202,16 +202,17 @@
 
    ;; ivy
    `(ivy-confirm-face ((t (:inherit minibuffer-prompt :foreground ,aod-success))))
-   `(ivy-current-match ((t (:background ,aod-bg-hl :weight normal))))
+   `(ivy-current-match ((t (:background ,aod-bg-focus :weight normal))))
    `(ivy-highlight-face ((t (:inherit font-lock-builtin-face))))
    `(ivy-match-required-face ((t (:inherit minibuffer-prompt :foreground ,aod-error))))
-   `(ivy-minibuffer-match-face-1 ((t (:background ,aod-bg-hl))))
+   `(ivy-minibuffer-match-face-1 ((t (:background ,aod-bg))))
    `(ivy-minibuffer-match-face-2 ((t (:inherit ivy-minibuffer-match-face-1 :foreground ,aod-primary))))
-   `(ivy-minibuffer-match-face-3 ((t (:inherit ivy-minibuffer-match-face-2 :background ,aod-bg-1
+
+   `(ivy-minibuffer-match-face-3 ((t (:inherit ivy-minibuffer-match-face-2
 					       :foreground ,aod-success :weight semi-bold))))
-   `(ivy-minibuffer-match-face-4 ((t (:inherit ivy-minibuffer-match-face-2 :background ,aod-bg-1
+   `(ivy-minibuffer-match-face-4 ((t (:inherit ivy-minibuffer-match-face-2
 					       :foreground ,aod-type :weight semi-bold))))
-   `(ivy-minibuffer-match-highlight ((t (:foreground ,aod-primary))))
+   `(ivy-minibuffer-match-highlight ((t (:foreground ,aod-primary :background ,aod-bg))))
    `(ivy-modified-buffer ((t (:inherit default :foreground ,aod-warn))))
    `(ivy-virtual ((t (:inherit font-lock-builtin-face :slant italic))))
 
@@ -423,7 +424,7 @@
    ;;show-paren
    `(show-paren-mismatch ((t (:foreground ,aod-error :background ,aod-bg-hl :weight bold))))
    `(show-paren-match ((t (:background ,aod-gutter :weight bold))))
-   
+
    ;; smartparens
    `(sp-show-pair-mismatch-face ((t (:foreground ,aod-error :background ,aod-bg-hl :weight bold))))
    `(sp-show-pair-match-face ((t (:background ,aod-bg-hl :weight bold))))
@@ -443,7 +444,7 @@
    `(web-mode-html-tag-face ((t (:foreground ,aod-error))))
    `(web-mode-symbol-face ((t (:foreground ,aod-warn))))
    `(web-mode-current-element-highlight-face ((t (:background ,aod-bg-focus :foreground ,aod-error))))
-   
+
    ;; flx-ido
    `(flx-highlight-face ((t (:inherit (link) :weight bold))))
 

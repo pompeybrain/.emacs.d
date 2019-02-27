@@ -15,14 +15,19 @@
 (add-to-list 'default-frame-alist '(ns-appearance . light))
 
 ;; set font
-(set-face-attribute 'default nil :family "Menlo")
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :family "Fira Code")
+;; (set-face-attribute 'default nil :family "Menlo")
+(if (< (x-display-pixel-height) 1400)
+    (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'default nil :height 160))
+;; (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
+(mac-auto-operator-composition-mode)	;macport for fira code
 (setq-default line-spacing 3)
 
 (setq custom-safe-themes t)
 ;; (load-theme 'leuven)
-(load-theme 'aod)			
+(load-theme 'aod)
 ;; (load-theme 'zenburn)
 
 ;; 左右边界
@@ -77,7 +82,7 @@
 ;;     (normal-top-level-add-subdirs-to-load-path)))
 ;; (add-subdirs-to-load-path (expand-file-name "git-lisp/" emacs-d))
 
-;; (add-to-list 'load-path (expand-file-name "git-lisp/" emacs-d) t) 
+;; (add-to-list 'load-path (expand-file-name "git-lisp/" emacs-d) t)
 (require 'init-packages)
 (require 'init-settings)
 (require 'init-site-lisp)

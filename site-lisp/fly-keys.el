@@ -124,7 +124,6 @@
 
 ;; If you like this project, Buy Xah Emacs Tutorial http://ergoemacs.org/emacs/buy_xah_emacs_tutorial.html or make a donation. Thanks.
 
-
 ;;; Code:
 
 (require 'dired) ; in emacs
@@ -3074,7 +3073,7 @@ Version 2019-02-12"
    (";" . fly-format)
    ("a" . mark-whole-buffer)
    ("b" . switch-to-buffer)
-   ("c" . nil)
+   ("c" . hs-toggle-hiding)
    ("d" . treemacs)
    ;; ("d" . xah-fly-e-keymap)
    ("e" . fly-e-keymap)
@@ -3268,7 +3267,7 @@ Version 2019-02-12"
     ;;
     )
 
-  
+
   ;;
   ;; (when xah-fly-use-control-key
   ;;   (progn
@@ -3324,7 +3323,7 @@ Version 2019-02-12"
   ;;     (define-key xah-fly-key-map (kbd "C-d") 'pop-global-mark)
   ;;     (define-key xah-fly-key-map (kbd "C-t") 'xah-pop-local-mark-ring)
   ;;     ))
-  
+
   (define-key xah-fly-key-map (kbd "M-RET") 'fly-newline-insert)
   (define-key xah-fly-key-map (kbd "C-<return>") 'fly-newline-command-no-open)
 
@@ -3383,7 +3382,7 @@ Version 2017-01-21"
      ("m" . xah-backward-left-bracket)
      ("n" . fly-next-20-lines)
      ("o" . forward-word)
-     ("p" . fly-prev-20-lines)	    
+     ("p" . fly-prev-20-lines)
      ("q" . save-buffer)
      ("r" . xah-kill-word)
      ("s" . xah-extend-selection)
@@ -3396,7 +3395,7 @@ Version 2017-01-21"
      ("." . xah-forward-right-bracket)
      ("," . xah-next-window-or-frame)
      ("z" . xah-comment-dwim)
-     ("/" . xah-goto-matching-bracket))) 
+     ("/" . xah-goto-matching-bracket)))
 
   (progn
     (setq xah-fly-insert-state-q nil )
@@ -3586,7 +3585,7 @@ Version 2017-07-07"
 
 (defun fly-newline-command ()
   "Doesn't break current line insert newline below."
-  (interactive)				
+  (interactive)
   (fly-newline nil t))
 
 (defun fly-newline-command-no-open ()

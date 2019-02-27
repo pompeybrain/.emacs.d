@@ -67,7 +67,10 @@
 (defun dashboard-open-file-fun (filename)
   "Open key associate file."
   (interactive)
-  (function (lambda () (interactive) (find-file filename))))
+  (function (lambda ()
+	      (interactive)
+	      (find-file filename)
+	      (xah-fly-command-mode-activate))))
 
 (defun dashboard-init-mode ()
   "Initial dashboard-mode keybind."
