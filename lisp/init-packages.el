@@ -7,11 +7,12 @@
 (use-package diminish
   :ensure t
   :init
-  (add-hook 'after-init-hook
-	    (lambda ()
-	      (diminish 'visual-line-mode)
-	      (diminish 'eldoc-mode)
-	      (diminish 'flymake-mode)))
+  (add-hook
+   'after-init-hook
+   (lambda ()
+     (diminish 'visual-line-mode)
+     (diminish 'eldoc-mode)
+     (diminish 'flymake-mode)))
   (add-hook 'hs-minor-mode-hook (lambda () (diminish 'hs-minor-mode))))
 
 (use-package auto-package-update
@@ -28,9 +29,11 @@
   :diminish
   :hook (flycheck-mode . flycheck-posframe-mode)
   :config
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  ;; (flycheck-popup-tip-mode +1)		
-  )
+  (setq flycheck-check-syntax-automatically '(save mode-enabled)))
+
+(use-package company-quickhelp
+  :ensure t
+  :defer t)
 
 (use-package company
   :ensure t
@@ -41,7 +44,7 @@
   (setq company-dabbrev-downcase nil)
   (setq company-show-numbers t)
   (global-company-mode 1)
-  ;; (company-quickhelp-mode 1)
+  (company-quickhelp-mode 1)
   )
 
 (use-package all-the-icons
@@ -49,19 +52,19 @@
   :ensure t)
 
 ;;;###autoload
-(defun iopen-dir-tree ()
-  "Smart open dir tree, use treemacs."
-  (interactive)
-  (pcase (treemacs-current-visibility)
-    ('visible (if
-		  t
-		  (treemacs--select-visible-window)
-		()
-		))
-    ('exists  (treemacs--select-not-visible-window))
-    ('none    (treemacs--init)))
-  ;; TODO: need read treemacs src to know how to get treemacs status
-  )
+;; (defun iopen-dir-tree ()
+;;   "Smart open dir tree, use treemacs."
+;;   (interactive)
+;;   (pcase (treemacs-current-visibility)
+;;     ('visible (if
+;;                   t
+;;                   (treemacs--select-visible-window)
+;;                 ()
+;;                 ))
+;;     ('exists  (treemacs--select-not-visible-window))
+;;     ('none    (treemacs--init)))
+;;   ;; TODO: need read treemacs src to know how to get treemacs status
+;;   )
 
 (use-package treemacs
   :ensure t
@@ -94,16 +97,15 @@
         ("C-x d"     . treemacs)
         ("M-0"       . treemacs-select-window))
   (:map treemacs-mode-map
-	("C" . treemacs-create-file)
-	("RET" . treemacs-visit-node-no-split)
-	))
+        ("C" . treemacs-create-file)
+        ("RET" . treemacs-visit-node-no-split)
+        ))
 
 (use-package js2-mode
   :ensure t
   :defer t
   :mode "\\.js\\'"
   :config
-  (setq js-indent-level 2)
   (setq js2-strict-missing-semi-warning nil))
 
 (use-package typescript-mode
@@ -172,7 +174,7 @@
   (setq ivy-initial-inputs-alist nil)
   (add-hook 'after-init-hook (ivy-mode 1))
   :bind (:map ivy-minibuffer-map
-	      ("RET" . ivy-alt-done)))
+              ("RET" . ivy-alt-done)))
 
 (use-package swiper
   :ensure t
@@ -185,11 +187,11 @@
   ;; (setq counsel-grep-base-command
   ;; 	"rg -i -M 120 --no-heading --line-number --color never '%s' %s")
   :bind(
-	;; ("C-s" . counsel-grep-or-swiper)
+        ;; ("C-s" . counsel-grep-or-swiper)
         ("M-x" . counsel-M-x)
         ;; ("C-c f" . counsel-find-file)
         ;; ("M-r" . counsel-recentf)
-	)
+        )
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
@@ -274,7 +276,6 @@
   :config
   (counsel-projectile-mode +1)
   :bind-keymap ("C-x p" . projectile-command-map)
-  ;; :bind ("C-x f" . #'counsel-projectile-find-file)
   )
 
 (use-package hydra
@@ -340,6 +341,18 @@
 (use-package posframe
   :ensure t
   :defer t)
+
+(defun init-json-mode ()
+  "Init json mode config."
+  ;; (setq tab-width 2)
+  )
+
+(use-package json-mode
+  :ensure t
+  :defer t
+  :mode
+  ("\\.json\\'")
+  :hook (json-mode . init-json-mode))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

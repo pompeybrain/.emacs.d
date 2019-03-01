@@ -2864,6 +2864,7 @@ Version 2019-02-12"
  (define-prefix-command 'fly-e-keymap)
  '(
    ("b" . eval-buffer)
+   ("d" . fly-js-dev)
    ("r" . eval-region)
    ("l" . eval-last-sexp)
    ))
@@ -3547,6 +3548,7 @@ Version 2017-07-07"
   "Format current buffer, use different function according to major mode "
   (interactive)
   (cond ((eq major-mode 'typescript-mode) (tide-format))
+	((eq major-mode 'js2-mode) (tide-format))
 	(t (indent-region (point-min) (point-max)))))
 
 (defun show-fly-keymap ()
@@ -3614,6 +3616,31 @@ Version 2017-07-07"
 (defun fly-highlight-lookup ()
   "Highlight current word and active lookup."
   )
+
+(defvar shell-output-buffer "*shell-output*" "shell command output buffer")
+
+(defun fly-shellcommand-filter (proc output)
+  "Filter shellcommand output to shellcommand buffer."
+  (with-current-buffer shell-output-buffer
+    (insert (replace-regexp-in-string "\^M" "" output))))
+
+(defun fly-shellcommand-sentinel (proc event)
+  "Filter shellcommand output to shellcommand buffer."
+  (display-buffer shell-output-buffer))
+
+(defun fly-shellcommand (command &optional proc-name)
+  "Excute shell command and output for specific buffer."
+  (let ((output-buffer (get-buffer-create shell-output-buffer)))
+    (with-current-buffer output-buffer
+      (erase-buffer))
+    (let ((proc (start-process-shell-command (or proc-name "shellcommand-process") nil command)))
+      (set-process-filter proc 'fly-shellcommand-filter)
+      (set-process-sentinel proc 'fly-shellcommand-sentinel))))
+
+(defun fly-js-dev ()
+  "In current directory excute shell command : yarn dev"
+  (interactive)
+  (fly-shellcommand "yarn dev" "js-dev"))
 
 ;; ;; when in shell mode, switch to insertion mode.
 ;; (add-hook 'dired-mode-hook 'xah-fly-keys-off)

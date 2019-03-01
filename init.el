@@ -36,9 +36,10 @@
 ;;;defaults write org.gnu.Emacs HideDocumentIcon YES for macport version
 ;; (setq ns-use-proxy-icon nil)		;for 26
 (setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
+      '((:eval
+         (if (buffer-file-name)
+             (abbreviate-file-name (buffer-file-name))
+           "%b"))))
 
 ;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
 (tool-bar-mode -1)
@@ -57,8 +58,8 @@
 
 (setq package-archives
       '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-	("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-	("org"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+        ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("org"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 (package-initialize)
 ;; prevent auto-save-list dir
 (setq auto-save-list-file-prefix nil)

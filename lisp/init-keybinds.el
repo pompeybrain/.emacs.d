@@ -50,21 +50,21 @@
     ("q" nil))
 
   (bind-keys :prefix-map i-hydra-map
-	     :prefix "M-h"
-	     ("j" . ijump-hydra/body)
-	     ("e" . ierror-hydra/body)
-	     ("o" . iorg-hydra/body)
-	     ))
+             :prefix "M-h"
+             ("j" . ijump-hydra/body)
+             ("e" . ierror-hydra/body)
+             ("o" . iorg-hydra/body)
+             ))
 
 (bind-key "M-q" #'save-buffers-kill-terminal)
 ;;; C-x
 (bind-keys :prefix-map window-map
-	   :prefix "M-w"
-	   ("1" . delete-other-windows)
-	   ("2" . split-windows-below)
-	   ("3" . split-window-right)
-	   ("o" . other-window)
-	   ("b" . ivy-switch-buffer))
+           :prefix "M-w"
+           ("1" . delete-other-windows)
+           ("2" . split-windows-below)
+           ("3" . split-window-right)
+           ("o" . other-window)
+           ("b" . ivy-switch-buffer))
 
 ;;;###autoload
 (defun icopy ()

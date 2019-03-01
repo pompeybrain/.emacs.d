@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
 (setq inhibit-startup-screen t)
 
 (global-visual-line-mode 1)
@@ -54,22 +53,18 @@
   (kill-buffer (current-buffer))
   (switch-to-buffer (previous-buffer)))
 
-;; set for some specify lang
-;; (setq-default tab-width 2)
-;; (setq-default indent-tabs-mode nil)
+;; indentation config
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq js-indent-level 2)
 
-(add-hook 'minibuffer-setup-hook
-          (lambda ()
-	    (visual-line-mode -1)))
+(add-hook 'minibuffer-setup-hook (lambda () (visual-line-mode -1)))
 
 ;;;###autoload
 (defun setup-prog-mode ()
   "Setup prog mode."
-  ;; (display-line-numbers-mode +1)
   (show-paren-mode t)
-  (hs-minor-mode +1)
-  ;; (flymake-mode +1)
-  )
+  (hs-minor-mode +1))
 
 (setq make-backup-files nil)
 ;; audio

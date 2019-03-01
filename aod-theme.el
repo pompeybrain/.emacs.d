@@ -82,10 +82,10 @@
    `(font-lock-warning-face ((t (:foreground ,aod-warn :bold t))))
    `(font-lock-builtin-face ((t (:foreground ,aod-builtin))))
    ;; mode-line
-   `(mode-line ((t (:background ,aod-bg-1 :foreground ,aod-fg-1))))
+   `(mode-line ((t (:background ,aod-bg-1 :foreground ,aod-fg-2))))
    `(mode-line-buffer-id ((t (:weight bold))))
    `(mode-line-emphasis ((t (:weight bold))))
-   `(mode-line-inactive ((t (:foreground ,aod-bg-hl))))
+   `(mode-line-inactive ((t (:background ,aod-bg-1 :foreground ,aod-bg-1))))
 
    ;; doom-mode-line
    `(doom-modeline-bar ((t nil)))
@@ -141,8 +141,7 @@
    ;; isearch
    `(isearch ((t (:foreground ,aod-bg :background ,aod-keyword))))
    `(isearch-fail ((t (:foreground ,aod-error :background nil))))
-   `(lazy-highlight ((t (:foreground ,aod-keyword :background ,aod-bg-2 :underline ,aod-keyword))))
-
+   `(lazy-highlight ((t (:foreground ,aod-keyword :underline ,aod-keyword))))
 
    ;; diff-hl (https://github.com/dgutov/diff-hl)
    `(diff-hl-change ((t (:foreground ,aod-bg :background ,aod-primary-1))))
