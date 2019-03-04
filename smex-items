@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- whitespace-mode
  dired
+ web-mode
+ whitespace-mode
  treemacs-create-file
  customize-group
  xah-open-in-terminal
  json-mode
- eval-last-sexp
 )
 
 ;; ----- smex-data -----
@@ -53,7 +53,7 @@
  (rename-file . 2)
  (rename-buffer . 6)
  (vue-mode . 2)
- (web-mode . 6)
+ (web-mode . 7)
  (html-mode . 1)
  (multi-web-mode . 2)
  (editorconfig-mode . 2)
@@ -154,7 +154,7 @@
  (xah-open-file-fast . 1)
  (xah-open-last-closed . 1)
  (xah-open-file-at-cursor . 1)
- (dired . 4)
+ (dired . 5)
  (describe-bindings . 1)
  (Helper-describe-bindings . 1)
  (which-key-show-major-mode . 1)

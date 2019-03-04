@@ -126,7 +126,7 @@
   (setq company-tooltip-align-annotations t)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (tide-hl-identifier-mode +1)
-  ;; (add-hook 'before-save-hook 'tide-format-before-save);; TODO: work with tide
+  (add-hook 'before-save-hook 'tide-format-before-save)
   ;; (setq-default tide-format-options
   ;; 		'(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t))
   )
