@@ -1,0 +1,13 @@
+{
+  "website": "爱下电子书",
+  "host": "https://www.ixdzs.com",
+  "searchPrefix": "https://www.ixdzs.com/bsearch?q=",
+  "searchList": ".box_k ul li",
+  "searchListRow": {
+    "title": ".list_info .b_name",
+    "author": ".l1 a",
+    "size": ".l2",
+    "status": ".l3 i",
+    "catalog": ".b_down .b_r a@href"
+  }
+}

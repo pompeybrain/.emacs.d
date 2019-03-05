@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- dired
- web-mode
- whitespace-mode
- treemacs-create-file
- customize-group
- xah-open-in-terminal
- json-mode
+ ierror-hydra/body
+ rename-file
+ rename-buffer
+ flycheck-mode
+ indent-region
+ tide-format
+ prettier-format
 )
 
 ;; ----- smex-data -----
@@ -43,15 +43,15 @@
  (thing-copy-symbol . 1)
  (list-buffers . 1)
  (ace-window . 1)
- (indent-region . 2)
+ (indent-region . 3)
  (org-goto . 2)
  (org-next-block . 2)
  (org-next-item . 3)
  (org-next-visible-heading . 3)
  (org-previous-visible-heading . 1)
  (counsel-find-file . 7)
- (rename-file . 2)
- (rename-buffer . 6)
+ (rename-file . 3)
+ (rename-buffer . 8)
  (vue-mode . 2)
  (web-mode . 7)
  (html-mode . 1)
@@ -71,7 +71,7 @@
  (tooltip-mode . 3)
  (rainbow-mode . 36)
  (tab-to-tab-stop . 4)
- (flycheck-mode . 32)
+ (flycheck-mode . 33)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
@@ -128,7 +128,7 @@
  (isearch-forward . 1)
  (xah-cycle-hyphen-underscore-space . 7)
  (which-key-show-keymap . 3)
- (tide-format . 7)
+ (tide-format . 8)
  (kmacro-start-macro . 2)
  (kmacro-end-macro . 24)
  (fly-command-enter . 1)
@@ -190,10 +190,12 @@
  (switch-major-mode . 2)
  (transient-mark-mode . 2)
  (fly-js-dev . 6)
- (shell . 3)
+ (shell . 4)
  (erase-buffer . 2)
  (re-builder . 1)
  (json-mode . 2)
  (treemacs-create-file . 1)
  (whitespace-mode . 5)
+ (prettier-format . 10)
+ (ierror-hydra/body . 1)
 )

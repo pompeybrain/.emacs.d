@@ -23,13 +23,17 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
+;; need global install eslint tslint
 (use-package flycheck
   :ensure t
-  :defer t
+  :defer 1
   :diminish
   :hook (flycheck-mode . flycheck-posframe-mode)
   :config
-  (setq flycheck-check-syntax-automatically '(save mode-enabled)))
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq flycheck-emacs-lisp-load-path 'inherit)
+  (setq flycheck-global-modes '(not emacs-lisp-mode))
+  (global-flycheck-mode +1))
 
 (use-package company-quickhelp
   :ensure t
@@ -41,7 +45,7 @@
   :diminish
   :config
   (setq company-minimum-prefix-length 2)
-  (setq company-dabbrev-downcase nil)
+  (setq-default company-dabbrev-downcase nil)
   (setq company-show-numbers t)
   (global-company-mode 1)
   (company-quickhelp-mode 1)
@@ -65,7 +69,7 @@
 ;;     ('none    (treemacs--init)))
 ;;   ;; TODO: need read treemacs src to know how to get treemacs status
 ;;   )
-
+(defvar winum-keymap)
 (use-package treemacs
   :ensure t
   :defer t
@@ -82,8 +86,8 @@
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
     (treemacs-git-mode 'simple)
-    (setq treemacs-icon-open-png   (propertize "⊖ " 'face 'treemacs-directory-face)
-          treemacs-icon-closed-png (propertize "⊕ " 'face 'treemacs-directory-face))
+    ;; (setq treemacs-icon-open-png   (propertize "⊖ " 'face 'treemacs-directory-face)
+    ;;       treemacs-icon-closed-png (propertize "⊕ " 'face 'treemacs-directory-face))
     ;; (add-to-list treemacs-ignored-file-predicates (lambda ())) TODO: add ignore dirs and files
     (pcase (cons (not (null (executable-find "git")))
                  (not (null (executable-find "python3"))))
@@ -126,7 +130,7 @@
   (setq company-tooltip-align-annotations t)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (tide-hl-identifier-mode +1)
-  (add-hook 'before-save-hook 'tide-format-before-save)
+  ;; (add-hook 'before-save-hook 'tide-format-before-save)
   ;; (setq-default tide-format-options
   ;; 		'(:indentSize 2 :tabSize: 2 :ConvertTabsToSpaces t))
   )
@@ -152,10 +156,10 @@
   :ensure t
   :defer t
   :config
-  (setq scheme-program-name "chez")
-  (setq geiser-chez-binary "chez")
-  (setq geiser-active-implementations '(chez))
-  (setq geiser-mode-start-repl-p t))
+  (setq-default scheme-program-name "chez")
+  (setq-default geiser-chez-binary "chez")
+  (setq-default geiser-active-implementations '(chez))
+  (setq-default geiser-mode-start-repl-p t))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -258,6 +262,8 @@
 (use-package smex
   :ensure t
   :defer 2)
+
+(defvar emacs-d)
 
 (use-package projectile
   :ensure t

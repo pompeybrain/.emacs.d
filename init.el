@@ -84,6 +84,7 @@
 (require 'init-site-lisp)
 (require 'init-keybinds)
 (require 'init-dashboard)
+(require 'init-prettier)
 ;; (require 'init-git-lisp)
 (provide 'init)
 ;;; init.el ends here

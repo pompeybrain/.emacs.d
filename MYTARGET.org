@@ -1,6 +1,10 @@
 * Target for my emacs config files
 
 ** TODO prettier support
+   1. support buffer format not file
+   2. support config file
+   3. support customize-group
+** TODO use posframe for company and quickhelp
 ** TODO a dict tool in emacs
    1. a cmd tool in mac os provide interface from dictionary app
    2. a dict.el file interact this tool and show context in posframe

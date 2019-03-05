@@ -25,98 +25,6 @@
 
 ;; It is a modal mode like vi, but key choices are based on statistics of command call frequency.
 
-;; --------------------------------------------------
-;; MANUAL INSTALL
-
-;; put the file xah-fly-keys.el in ~/.emacs.d/lisp/
-;; create the dir if doesn't exist.
-
-;; put the following in your emacs init file:
-
-;; (add-to-list 'load-path "~/.emacs.d/lisp/")
-;; (require 'xah-fly-keys)
-;; (xah-fly-keys-set-layout "qwerty") ; required
-
-;; possible layout values:
-
-;; "azerty"
-;; "azerty-be"
-;; "colemak"
-;; "colemak-mod-dh"
-;; "dvorak"
-;; "programer-dvorak"
-;; "qwerty"
-;; "qwerty-abnt"
-;; "qwertz"
-;; "workman"
-
-;; (xah-fly-keys 1)
-
-;; --------------------------------------------------
-;; HOW TO USE
-
-;; M-x xah-fly-keys to toggle the mode on/off.
-
-;; Important command/insert mode switch keys:
-
-;; xah-fly-command-mode-activate (press 【<home>】 or 【F8】 or 【Alt+Space】 or 【menu】)
-
-;; xah-fly-insert-mode-activate  (when in command mode, press qwerty letter key f. (Dvorak key u))
-
-;; When in command mode:
-;; 【f】 (or Dvorak 【u】) activates insertion mode.
-;; 【Space】 is a leader key. For example, 【SPACE r】 (Dvorak 【SPACE p】) calls query-replace. Press 【SPACE C-h】 to see the full list.
-;; 【Space Space】 also activates insertion mode.
-;; 【Space Enter】 calls execute-extended-command.
-;; 【a】 calls execute-extended-command or smex or helm (if they are installed).
-
-;; The leader key sequence basically replace ALL emacs commands that starts with C-x key.
-
-;; When using xah-fly-keys, you don't need to press Control or Meta, with the following exceptions:
-
-;; C-c for major mode commands.
-;; C-g for cancel.
-;; C-q for quoted-insert.
-;; C-h for getting a list of keys following a prefix/leader key.
-
-;; Leader key
-
-;; You NEVER need to press Ctrl+x
-
-;; Any emacs command that has a keybinding starting with C-x, has also a key sequence binding in xah-fly-keys. For example,
-;; 【C-x b】 switch-to-buffer is 【SPACE f】 (Dvorak 【SPACE u】)
-;; 【C-x C-f】 find-file is 【SPACE i e】 (Dvorak 【SPACE c .】)
-;; 【C-x n n】 narrow-to-region is 【SPACE l l】 (Dvorak 【SPACE n n】)
-;; The first key we call it leader key. In the above examples, the SPACE is the leader key.
-
-;; When in command mode, the 【SPACE】 is a leader key.
-
-;; globally, the leader key is the 【f9】 key. 【f9】 is leader key regardless it's in command mode or insert mode.
-
-;; the following standard keys with Control are supported:
-
-;; 【Ctrl+tab】 'xah-next-user-buffer
-;; 【Ctrl+shift+tab】 'xah-previous-user-buffer
-;; 【Ctrl+v】 paste
-;; 【Ctrl+w】 close
-;; 【Ctrl+z】 undo
-;; 【Ctrl+n】 new
-;; 【Ctrl+o】 open
-;; 【Ctrl+s】 save
-;; 【Ctrl+shift+s】 save as
-;; 【Ctrl+shift+t】 open last closed
-;; 【Ctrl++】 'text-scale-increase
-;; 【Ctrl+-】 'text-scale-decrease
-
-;; To disable both Control and Meta shortcut keys, add the following lines to you init.el before (require 'xah-fly-keys):
-;; (setq xah-fly-use-control-key nil)
-;; (setq xah-fly-use-meta-key nil)
-
-;; I highly recommend setting 【capslock】 to send 【Home】. So that it acts as `xah-fly-command-mode-activate'.
-;; see
-;; How to Make the CapsLock Key do Home Key
-;; http://ergoemacs.org/misc/capslock_do_home_key.html
-
 ;; If you have a bug, post on github.
 
 ;; For detail about design and other info, see home page at
@@ -2695,8 +2603,8 @@ Version 2019-01-18"
                             (start-process "" nil "xdg-open" $fpath))) $file-list))))))
 
 (setq terminal-app (if (file-exists-p "/Applications/iTerm.app/Contents/MacOS/iTerm2")
-		       "/Applications/iTerm.app/Contents/MacOS/iTerm2"
-		     "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal"))
+                       "/Applications/iTerm.app/Contents/MacOS/iTerm2"
+                     "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal"))
 
 (defun xah-open-in-terminal ()
   "Open the current dir in a new terminal window.
@@ -3547,9 +3455,9 @@ Version 2017-07-07"
 (defun fly-format ()
   "Format current buffer, use different function according to major mode "
   (interactive)
-  (cond ((eq major-mode 'typescript-mode) (tide-format))
-	((eq major-mode 'js2-mode) (tide-format))
-	(t (indent-region (point-min) (point-max)))))
+  (cond
+   ;; ((member major-mode prettier-support-modes) (prettier-format))
+   (t (indent-region (point-min) (point-max)))))
 
 (defun show-fly-keymap ()
   "Show fly-keys keymap use which-key."
@@ -3600,8 +3508,8 @@ Version 2017-07-07"
   (interactive)
   (if (region-active-p)
       (let ((str (buffer-substring-no-properties (region-beginning) (region-end))))
-	(deactivate-mark)
-	(swiper str))
+        (deactivate-mark)
+        (swiper str))
     (swiper)))
 
 (defun fly-indent-buffer ()
@@ -3679,5 +3587,4 @@ URL `http://ergoemacs.org/misc/ergoemacs_vi_mode.html'"
   (xah-fly-keys 0))
 
 (provide 'fly-keys)
-
 ;;; fly-keys.el ends here
