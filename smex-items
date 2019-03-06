@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- ierror-hydra/body
- rename-file
- rename-buffer
- flycheck-mode
- indent-region
- tide-format
  prettier-format
+ typescript-mode
+ js2-mode
+ rainbow-mode
+ load-theme
+ magit-submodule-add
+ package-list-packages
 )
 
 ;; ----- smex-data -----
@@ -36,10 +36,10 @@
  (counsel-projectile-rg . 1)
  (projectile-switch-project . 6)
  (projectile-add-known-project . 7)
- (load-theme . 59)
+ (load-theme . 61)
  (pkg-info-package-version . 2)
  (package-refresh-contents . 12)
- (js2-mode . 3)
+ (js2-mode . 4)
  (thing-copy-symbol . 1)
  (list-buffers . 1)
  (ace-window . 1)
@@ -69,9 +69,9 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 3)
- (rainbow-mode . 36)
+ (rainbow-mode . 40)
  (tab-to-tab-stop . 4)
- (flycheck-mode . 33)
+ (flycheck-mode . 35)
  (fringe-mode . 1)
  (describe-prefix-bindings . 1)
  (ace-jump-mode . 2)
@@ -81,7 +81,7 @@
  (delete-file . 3)
  (counsel-grep . 4)
  (swiper . 1)
- (package-list-packages . 3)
+ (package-list-packages . 4)
  (helpful-callable . 1)
  (ivy-avy . 1)
  (swiper-avy . 3)
@@ -112,7 +112,7 @@
  (switch-theme . 4)
  (font-lock-mode . 9)
  (find-file . 5)
- (typescript-mode . 2)
+ (typescript-mode . 3)
  (display-line-numbers-mode . 3)
  (cnfonts-edit-profile . 9)
  (cnfonts-enable . 2)
@@ -147,7 +147,7 @@
  (color-rg-search-input . 1)
  (recentf-cleanup . 1)
  (recentf-edit-list . 1)
- (xah-open-in-terminal . 3)
+ (xah-open-in-terminal . 4)
  (xah-open-in-external-app . 1)
  (xah-show-in-desktop . 2)
  (xah-search-current-word . 1)
@@ -168,12 +168,12 @@
  (auto-save-visited-mode . 2)
  (xref-find-references . 2)
  (butterfly . 1)
- (flycheck-next-error . 2)
+ (flycheck-next-error . 3)
  (flycheck-popup-tip-mode . 1)
  (highlight-symbol-at-point . 2)
  (esup . 1)
  (magit-dispatch . 5)
- (describe-face . 4)
+ (describe-face . 5)
  <<<<<<<
  Updated
  upstream
@@ -196,6 +196,11 @@
  (json-mode . 2)
  (treemacs-create-file . 1)
  (whitespace-mode . 5)
- (prettier-format . 10)
+ (prettier-format . 18)
  (ierror-hydra/body . 1)
+ (flycheck-verify-setup . 1)
+ (revert-buffer . 2)
+ (flycheck-compile . 1)
+ (flycheck-display-error-at-point . 1)
+ (magit-submodule-add . 1)
 )

@@ -80,14 +80,12 @@
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
           treemacs-show-hidden-files          t
-          treemacs-width                      30)
+          treemacs-width                      40)
     (treemacs-resize-icons 14)
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
     (treemacs-git-mode 'simple)
-    ;; (setq treemacs-icon-open-png   (propertize "⊖ " 'face 'treemacs-directory-face)
-    ;;       treemacs-icon-closed-png (propertize "⊕ " 'face 'treemacs-directory-face))
     ;; (add-to-list treemacs-ignored-file-predicates (lambda ())) TODO: add ignore dirs and files
     (pcase (cons (not (null (executable-find "git")))
                  (not (null (executable-find "python3"))))
@@ -141,6 +139,7 @@
   :diminish
   :defer t
   :init
+  (setq tide-hl-identifier-idle-time 10)
   (add-hook 'js2-mode-hook #'setup-tide-mode)
   (add-hook 'typescript-mode-hook #'setup-tide-mode))
 
@@ -230,9 +229,9 @@
   :config
   (editorconfig-mode +1))
 
-(use-package rainbow-mode
-  :ensure t
-  :defer t)
+;; (use-package rainbow-mode
+;;   :ensure t
+;;   :defer t)
 
 (use-package hl-todo
   :ensure t

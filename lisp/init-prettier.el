@@ -27,16 +27,20 @@
   "Use prettier format current buffer file, just support file buffer now."
   (interactive)
   (progn
-    (apply 'call-process (append (list  (prettier-command) nil "*prettier-output*" nil) prettier-default-options (list "--write" buffer-file-name)))
-    (revert-buffer t t t)))
-
+    ;; (apply 'call-process-region (append (list nil nil (prettier-command) nil "*prettier-output*" nil) prettier-default-options))
+    (apply 'call-process-region (append (list nil nil (prettier-command) nil "*prettier-output*" nil) prettier-default-options (list "--write" buffer-file-name)))
+    (revert-buffer t t t)
+    (when (member flycheck-mode minor-mode-list)
+      (flycheck-handle-save))))
+;; should call flycheck-handle-save more late
+;; (call-process-region nil nil (prettier-command) nil "*prettier-output*" nil)
 ;; add save hook format
-(defun add-save-format (mode)
-  (add-hook (intern  (concat (symbol-name mode) "-hook"))
-            (lambda ()
-              (add-hook 'after-save-hook 'prettier-format nil t))))
+;; (defun add-save-format (mode)
+;;   (add-hook (intern  (concat (symbol-name mode) "-hook"))
+;;             (lambda ()
+;;               (add-hook 'after-save-hook 'prettier-format t t))))
 
-(mapcar 'add-save-format prettier-support-modes)
+;; (mapcar 'add-save-format prettier-support-modes)
 
 (provide 'init-prettier)
 ;;; init-prettier.el ends here.

@@ -5,6 +5,11 @@
    2. support config file
    3. support customize-group
 ** TODO use posframe for company and quickhelp
+   1. suitable dimension
+   2. support tide
+   3. support eglot
+   4. support quickhelp
+   5. support company
 ** TODO a dict tool in emacs
    1. a cmd tool in mac os provide interface from dictionary app
    2. a dict.el file interact this tool and show context in posframe

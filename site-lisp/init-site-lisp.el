@@ -13,4 +13,6 @@
 
 (require 'color-rg)
 
+(require 'rainbow-mode)
+
 (provide 'init-site-lisp)

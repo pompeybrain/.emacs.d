@@ -47,6 +47,8 @@
 ;; 关闭文件滑动控件
 (scroll-bar-mode -1)
 
+(global-hl-line-mode +1)
+
 ;; set cursor
 ;; (setq-default cursor-type '(bar . 2))
 
