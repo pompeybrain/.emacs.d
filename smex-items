@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- rainbow-mode
+ prettier-js
+ prettier-js-mode
  prettier-format
+ kill-buffer
+ package-install
+ rainbow-mode
  typescript-mode
- js2-mode
- load-theme
- magit-submodule-add
- package-list-packages
 )
 
 ;; ----- smex-data -----
@@ -20,7 +20,7 @@
  (swiper-query-replace . 3)
  (isearch-query-replace . 2)
  (counsel-git-grep-query-replace . 1)
- (package-install . 31)
+ (package-install . 32)
  (anzu-query-replace . 2)
  (anzu-query-replace-at-cursor . 1)
  (global-anzu-mode . 1)
@@ -196,11 +196,15 @@
  (json-mode . 2)
  (treemacs-create-file . 1)
  (whitespace-mode . 5)
- (prettier-format . 18)
+ (prettier-format . 28)
  (ierror-hydra/body . 1)
  (flycheck-verify-setup . 1)
  (revert-buffer . 2)
  (flycheck-compile . 1)
  (flycheck-display-error-at-point . 1)
  (magit-submodule-add . 1)
+ (test-prettier . 28)
+ (kill-buffer . 1)
+ (prettier-js-mode . 1)
+ (prettier-js . 1)
 )

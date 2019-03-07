@@ -73,6 +73,7 @@
 (setq custom-file (expand-file-name "custom.el" emacs-d))
 (load custom-file)
 
+(add-to-list 'load-path (expand-file-name "lib/" emacs-d) t)
 (add-to-list 'load-path (expand-file-name "lisp/" emacs-d) t)
 (add-to-list 'load-path (expand-file-name "site-lisp/" emacs-d) t)
 
