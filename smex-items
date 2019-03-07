@@ -1,10 +1,10 @@
 
 ;; ----- smex-history -----
 (
+ rainbow-mode
  prettier-format
  typescript-mode
  js2-mode
- rainbow-mode
  load-theme
  magit-submodule-add
  package-list-packages
@@ -69,7 +69,7 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 3)
- (rainbow-mode . 40)
+ (rainbow-mode . 44)
  (tab-to-tab-stop . 4)
  (flycheck-mode . 35)
  (fringe-mode . 1)
