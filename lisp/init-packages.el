@@ -1,3 +1,4 @@
+;;; init-packages.el ;; -*- lexical-binding: t -*-
 ;;; package -- Summary
 ;;; Commentary:
 ;;; Code:
@@ -47,6 +48,7 @@
   (setq company-minimum-prefix-length 2)
   (setq-default company-dabbrev-downcase nil)
   (setq company-show-numbers t)
+  (setq company-require-match nil)
   (global-company-mode 1)
   (company-quickhelp-mode 1)
   )
@@ -163,7 +165,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :defer t
-  :hook (prog-mode . rainbow-delimiters-mode))
+  :hook (emacs-lisp-mode . rainbow-delimiters-mode))
 
 (use-package ace-jump-mode
   :ensure t

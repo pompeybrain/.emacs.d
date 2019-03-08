@@ -1,4 +1,4 @@
-;;; fly-keys.el modal keybinding minor mode. -*- coding: utf-8; lexical-binding: t; -*-
+;;; fly-keys.el -*- coding: utf-8; lexical-binding: t; -*-
 
 ;;; my version xah-fly-keys  renamed fly-keys
 

@@ -6,10 +6,16 @@
 
 ;;; set gc
 (let ((normal-gc-cons-threshold (* 32 1024 1024))
-      (init-gc-cons-threshold (* 256 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-setup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+      (init-gc-cons-threshold (* 512 1024 1024))
+      (default-file-name-handler-alist file-name-handler-alist)
+      (file-name-handler-alist nil))
+  (setq gc-cons-threshold init-gc-cons-threshold
+        gc-cons-percentage 0.6)
+  (add-hook 'emacs-startup-hook
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold
+                             gc-cons-percentage 0.1
+                             file-name-handler-alist
+                             default-file-name-handler-alist))))
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . light))

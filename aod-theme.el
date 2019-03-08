@@ -19,29 +19,24 @@
     ("aod-bg-hll"   . "#2C313A")
     ("aod-bg-hl"    . "#3E4451")
     ("aod-bg-focus" . "#454545")
-    ("aod-builtin"  . "#2bbac5")
-    ("aod-insert"   . "#00809B")
-    ("aod-error"    . "#ef596f")
-    ("aod-error-1"  . "#93262d")
-    ("aod-fg+1"     . "#e3e6ea")
-    ("aod-fg"       . "#bbbbbb")
-    ("aod-fg-1"     . "#9DA5B4")
-    ("aod-fg-2"     . "#74777a")
-    ("aod-comment"  . "#7f848e")
-    ("aod-gutter"   . "#4B5363")
-    ("aod-keyword"  . "#d55fde")
     ("aod-mono-1"   . "#ABB2BF")
     ("aod-mono-2"   . "#828997")
     ("aod-mono-3"   . "#5C6370")
+    ("aod-builtin"  . "#2bbac5")
+    ("aod-error"    . "#ef596f")
+    ("aod-fg+1"     . "#e3e6ea")
+    ("aod-fg"       . "#bbbbbb")
+    ("aod-fg-1"     . "#9DA5B4")
+    ("aod-comment"  . "#7f848e")
+    ("aod-keyword"  . "#d55fde")
     ("aod-primary"  . "#61AFEF")
-    ("aod-primary-1". "#447eaa")
     ("aod-string"   . "#89ca78")
-    ("aod-success"  . "#8FAC75")
-    ("aod-success-1". "#768964")
+    ("aod-success"  . "#7caa6f")
     ("aod-warn"     . "#E5C07B")
     ("aod-type"     . "#D19A66")
-    ("aod-cursor"   . "#528BFF")
-    )
+    ("aod-insert"   . "#587C0C")
+    ("aod-edit"     . "#0B7D9D")
+    ("aod-delete"   . "#94141A"))
   "List of Atom One Dark colors.")
 
 (defmacro aod-with-color-variables (&rest body)
@@ -63,7 +58,7 @@
    `(error ((t (:foreground ,aod-error :weight bold))))
    `(link ((t (:foreground ,aod-primary :underline t :weight bold))))
    `(link-visited ((t (:foreground ,aod-fg :underline t :weight normal))))
-   `(cursor ((t (:background ,aod-cursor))))
+   `(cursor ((t (:background ,aod-primary))))
    `(fringe ((t (:background ,aod-bg))))
    `(region ((t (:background ,aod-bg-hl))))
    `(highlight ((t (:background ,aod-bg-hl))))
@@ -86,7 +81,7 @@
    `(font-lock-warning-face ((t (:foreground ,aod-warn :bold t))))
    `(font-lock-builtin-face ((t (:foreground ,aod-builtin))))
    ;; mode-line
-   `(mode-line ((t (:background ,aod-bg-1 :foreground ,aod-fg-2))))
+   `(mode-line ((t (:background ,aod-bg-1 :foreground ,aod-comment))))
    `(mode-line-buffer-id ((t (:weight bold))))
    `(mode-line-emphasis ((t (:weight bold))))
    `(mode-line-inactive ((t (:background ,aod-bg-1 :foreground ,aod-bg-1))))
@@ -107,7 +102,7 @@
    `(ido-virtual ((t (:foreground ,aod-mono-3))))
 
    ;; ace-jump
-   `(ace-jump-face-background ((t (:foreground ,aod-fg-2 :inverse-video nil))))
+   `(ace-jump-face-background ((t (:foreground ,aod-comment :inverse-video nil))))
    `(ace-jump-face-foreground ((t (:foreground ,aod-primary :background ,aod-bg :inverse-video nil))))
 
    ;; company-mode
@@ -119,12 +114,12 @@
    `(company-tooltip-common-selection ((t (:foreground ,aod-primary :weight bold :background ,aod-bg-hl))))
    `(company-preview ((t (:background ,aod-bg))))
    `(company-preview-common ((t (:foreground ,aod-primary :background ,aod-bg))))
-   `(company-scrollbar-fg ((t (:background ,aod-fg-2))))
+   `(company-scrollbar-fg ((t (:background ,aod-comment))))
    `(company-scrollbar-bg ((t (:background ,aod-bg-2))))
 
    ;; flymake
    `(flymake-error ((t (:underline (:color ,aod-error :style wave)))))
-   `(flymake-note ((t (:underline (:color ,aod-success :style wave)))))
+   `(flymake-note ((t (:underline (:color ,aod-insert :style wave)))))
    `(flymake-warning ((t (:underline (:color ,aod-warn :style wave)))))
 
    ;; posframe
@@ -132,7 +127,7 @@
 
    ;; flycheck
    `(flycheck-error ((t (:underline (:color ,aod-error :style wave)))))
-   `(flycheck-info ((t (:underline (:color ,aod-success :style wave)))))
+   `(flycheck-info ((t (:underline (:color ,aod-insert :style wave)))))
    `(flycheck-warning ((t (:underline (:color ,aod-warn :style wave)))))
 
    ;; compilation
@@ -148,9 +143,9 @@
    `(lazy-highlight ((t (:foreground ,aod-keyword :underline ,aod-keyword))))
 
    ;; diff-hl (https://github.com/dgutov/diff-hl)
-   `(diff-hl-change ((t (:foreground ,aod-bg :background ,aod-primary-1))))
-   `(diff-hl-delete ((t (:foreground ,aod-bg :background ,aod-error-1))))
-   `(diff-hl-insert ((t (:foreground ,aod-bg :background ,aod-success-1))))
+   `(diff-hl-change ((t (:foreground ,aod-bg :background ,aod-edit))))
+   `(diff-hl-delete ((t (:foreground ,aod-bg :background ,aod-delete))))
+   `(diff-hl-insert ((t (:foreground ,aod-bg :background ,aod-insert))))
 
    ;; dired-mode
    `(dired-directory ((t (:inherit font-lock-keyword-face))))
@@ -170,20 +165,20 @@
    `(helm-selection ((t (:background ,aod-bg-hl))))
    `(helm-selection-line ((t (:background ,aod-bg-hl))))
    `(helm-visible-mark ((t (:background ,aod-bg :foreground ,aod-type))))
-   `(helm-candidate-number ((t (:foreground ,aod-success :background ,aod-bg-2))))
+   `(helm-candidate-number ((t (:foreground ,aod-insert :background ,aod-bg-2))))
    `(helm-separator ((t (:background ,aod-bg :foreground ,aod-error))))
    `(helm-M-x-key ((t (:foreground ,aod-warn))))
    `(helm-bookmark-addressbook ((t (:foreground ,aod-warn))))
    `(helm-bookmark-directory ((t (:foreground nil :background nil :inherit helm-ff-directory))))
    `(helm-bookmark-file ((t (:foreground nil :background nil :inherit helm-ff-file))))
    `(helm-bookmark-gnus ((t (:foreground ,aod-keyword))))
-   `(helm-bookmark-info ((t (:foreground ,aod-success))))
+   `(helm-bookmark-info ((t (:foreground ,aod-insert))))
    `(helm-bookmark-man ((t (:foreground ,aod-type))))
    `(helm-bookmark-w3m ((t (:foreground ,aod-keyword))))
    `(helm-match ((t (:foreground ,aod-type))))
    `(helm-ff-directory ((t (:foreground ,aod-builtin :background ,aod-bg :weight bold))))
    `(helm-ff-file ((t (:foreground ,aod-fg :background ,aod-bg :weight normal))))
-   `(helm-ff-executable ((t (:foreground ,aod-success :background ,aod-bg :weight normal))))
+   `(helm-ff-executable ((t (:foreground ,aod-insert :background ,aod-bg :weight normal))))
    `(helm-ff-invalid-symlink ((t (:foreground ,aod-error :background ,aod-bg :weight bold))))
    `(helm-ff-symlink ((t (:foreground ,aod-type :background ,aod-bg :weight bold))))
    `(helm-ff-prefix ((t (:foreground ,aod-bg :background ,aod-type :weight normal))))
@@ -194,26 +189,26 @@
    `(helm-buffer-directory ((t (:foreground ,aod-keyword))))
    `(helm-grep-cmd-line ((t (:foreground ,aod-builtin))))
    `(helm-grep-file ((t (:foreground ,aod-fg))))
-   `(helm-grep-finish ((t (:foreground ,aod-success))))
+   `(helm-grep-finish ((t (:foreground ,aod-insert))))
    `(helm-grep-lineno ((t (:foreground ,aod-mono-2))))
    `(helm-grep-finish ((t (:foreground ,aod-error))))
    `(helm-grep-match ((t (:foreground nil :background nil :inherit helm-match))))
    `(helm-swoop-target-line-block-face ((t (:background ,aod-mono-3 :foreground ,aod-bg-1))))
    `(helm-swoop-target-line-face ((t (:background ,aod-mono-3 :foreground ,aod-bg-1))))
    `(helm-swoop-target-word-face ((t (:background ,aod-keyword :foreground ,aod-fg))))
-   `(helm-locate-finish ((t (:foreground ,aod-success))))
+   `(helm-locate-finish ((t (:foreground ,aod-insert))))
    `(info-menu-star ((t (:foreground ,aod-error))))
 
    ;; ivy
-   `(ivy-confirm-face ((t (:inherit minibuffer-prompt :foreground ,aod-success))))
-   `(ivy-current-match ((t (:background ,aod-bg-focus :weight normal))))
+   `(ivy-confirm-face ((t (:inherit minibuffer-prompt :foreground ,aod-insert))))
+   `(ivy-current-match ((t (:background ,aod-bg-hl :weight normal))))
    `(ivy-highlight-face ((t (:inherit font-lock-builtin-face))))
    `(ivy-match-required-face ((t (:inherit minibuffer-prompt :foreground ,aod-error))))
    `(ivy-minibuffer-match-face-1 ((t (:background ,aod-bg))))
    `(ivy-minibuffer-match-face-2 ((t (:inherit ivy-minibuffer-match-face-1 :foreground ,aod-primary))))
 
    `(ivy-minibuffer-match-face-3 ((t (:inherit ivy-minibuffer-match-face-2
-                                               :foreground ,aod-success :weight semi-bold))))
+                                               :foreground ,aod-insert :weight semi-bold))))
    `(ivy-minibuffer-match-face-4 ((t (:inherit ivy-minibuffer-match-face-2
                                                :foreground ,aod-type :weight semi-bold))))
    `(ivy-minibuffer-match-highlight ((t (:foreground ,aod-primary :background ,aod-bg))))
@@ -230,12 +225,12 @@
    `(swiper-match-face-4 ((t (:inherit ivy-minibuffer-match-face-4))))
 
    ;; git-commit
-   `(git-commit-comment-action  ((t (:foreground ,aod-success :weight bold))))
+   `(git-commit-comment-action  ((t (:foreground ,aod-insert :weight bold))))
    `(git-commit-comment-branch  ((t (:foreground ,aod-primary :weight bold))))
    `(git-commit-comment-heading ((t (:foreground ,aod-type :weight bold))))
 
    ;; git-gutter
-   `(git-gutter:added ((t (:foreground ,aod-success :weight bold))))
+   `(git-gutter:added ((t (:foreground ,aod-insert :weight bold))))
    `(git-gutter:deleted ((t (:foreground ,aod-error :weight bold))))
    `(git-gutter:modified ((t (:foreground ,aod-warn :weight bold))))
 
@@ -253,7 +248,7 @@
    `(dictionary-word-entry-face ((t (:inherit font-lock-keyword-face :slant italic :weight bold))))
 
    ;; jabber
-   `(jabber-roster-user-online ((t (:foreground ,aod-success))))
+   `(jabber-roster-user-online ((t (:foreground ,aod-insert))))
    `(jabber-roster-user-away ((t (:foreground ,aod-error))))
    `(jabber-roster-user-xa ((t (:foreground ,aod-error))))
    `(jabber-roster-user-dnd ((t (:foreground ,aod-keyword))))
@@ -277,7 +272,7 @@
    `(eww-form-text ((t (:inherit widget-field :box (:line-width 1 :color ,aod-bg-2)))))
    `(eww-form-textarea ((t (:inherit eww-form-text))))
    `(eww-invalid-certificate ((t (:foreground ,aod-error))))
-   `(eww-valid-certificate ((t (:foreground ,aod-success))))
+   `(eww-valid-certificate ((t (:foreground ,aod-insert))))
 
    ;; js2-mode
    `(js2-error ((t (:underline (:color ,aod-error :style wave)))))
@@ -302,21 +297,21 @@
    `(magit-diff-hunk-heading-selection ((t (:foreground ,aod-keyword :background ,aod-mono-3))))
    `(magit-diff-context ((t (:foreground ,aod-fg))))
    `(magit-diff-context-highlight ((t (:background ,aod-bg-2 :foreground ,aod-fg))))
-   `(magit-diffstat-added ((t (:foreground ,aod-success))))
+   `(magit-diffstat-added ((t (:foreground ,aod-insert))))
    `(magit-diffstat-removed ((t (:foreground ,aod-error))))
-   `(magit-process-ok ((t (:foreground ,aod-success))))
+   `(magit-process-ok ((t (:foreground ,aod-insert))))
    `(magit-process-ng ((t (:foreground ,aod-error))))
    `(magit-log-author ((t (:foreground ,aod-type))))
    `(magit-log-date ((t (:foreground ,aod-mono-2))))
    `(magit-log-graph ((t (:foreground ,aod-fg-1))))
    `(magit-sequence-pick ((t (:foreground ,aod-type))))
-   `(magit-sequence-stop ((t (:foreground ,aod-success))))
+   `(magit-sequence-stop ((t (:foreground ,aod-insert))))
    `(magit-sequence-part ((t (:foreground ,aod-warn))))
    `(magit-sequence-head ((t (:foreground ,aod-primary))))
    `(magit-sequence-drop ((t (:foreground ,aod-error))))
    `(magit-sequence-done ((t (:foreground ,aod-mono-2))))
    `(magit-sequence-onto ((t (:foreground ,aod-mono-2))))
-   `(magit-bisect-good ((t (:foreground ,aod-success))))
+   `(magit-bisect-good ((t (:foreground ,aod-insert))))
    `(magit-bisect-skip ((t (:foreground ,aod-warn))))
    `(magit-bisect-bad ((t (:foreground ,aod-error))))
    `(magit-blame-heading ((t (:background ,aod-bg-2 :foreground ,aod-mono-2))))
@@ -327,30 +322,30 @@
    `(magit-dimmed ((t (:foreground ,aod-mono-2))))
    `(magit-hash ((t (:foreground ,aod-keyword))))
    `(magit-tag  ((t (:foreground ,aod-warn :weight bold))))
-   `(magit-branch-remote  ((t (:foreground ,aod-success :weight bold))))
+   `(magit-branch-remote  ((t (:foreground ,aod-insert :weight bold))))
    `(magit-branch-local   ((t (:foreground ,aod-primary :weight bold))))
    `(magit-branch-current ((t (:foreground ,aod-primary :weight bold :box t))))
    `(magit-head           ((t (:foreground ,aod-primary :weight bold))))
    `(magit-refname        ((t (:background ,aod-bg :foreground ,aod-fg :weight bold))))
    `(magit-refname-stash  ((t (:background ,aod-bg :foreground ,aod-fg :weight bold))))
    `(magit-refname-wip    ((t (:background ,aod-bg :foreground ,aod-fg :weight bold))))
-   `(magit-signature-good      ((t (:foreground ,aod-success))))
+   `(magit-signature-good      ((t (:foreground ,aod-insert))))
    `(magit-signature-bad       ((t (:foreground ,aod-error))))
    `(magit-signature-untrusted ((t (:foreground ,aod-warn))))
    `(magit-cherry-unmatched    ((t (:foreground ,aod-builtin))))
    `(magit-cherry-equivalent   ((t (:foreground ,aod-keyword))))
-   `(magit-reflog-commit       ((t (:foreground ,aod-success))))
+   `(magit-reflog-commit       ((t (:foreground ,aod-insert))))
    `(magit-reflog-amend        ((t (:foreground ,aod-keyword))))
-   `(magit-reflog-merge        ((t (:foreground ,aod-success))))
+   `(magit-reflog-merge        ((t (:foreground ,aod-insert))))
    `(magit-reflog-checkout     ((t (:foreground ,aod-primary))))
    `(magit-reflog-reset        ((t (:foreground ,aod-error))))
    `(magit-reflog-rebase       ((t (:foreground ,aod-keyword))))
-   `(magit-reflog-cherry-pick  ((t (:foreground ,aod-success))))
+   `(magit-reflog-cherry-pick  ((t (:foreground ,aod-insert))))
    `(magit-reflog-remote       ((t (:foreground ,aod-builtin))))
    `(magit-reflog-other        ((t (:foreground ,aod-builtin))))
 
    ;; message
-   `(message-cited-text ((t (:foreground ,aod-success))))
+   `(message-cited-text ((t (:foreground ,aod-insert))))
    `(message-header-cc ((t (:foreground ,aod-warn :weight bold))))
    `(message-header-name ((t (:foreground ,aod-keyword))))
    `(message-header-newsgroups ((t (:foreground ,aod-type :weight bold :slant italic))))
@@ -364,8 +359,8 @@
    ;; notmuch
    `(notmuch-crypto-decryption ((t (:foreground ,aod-keyword :background ,aod-bg-1))))
    `(notmuch-crypto-signature-bad ((t (:foreground ,aod-error :background ,aod-bg-1))))
-   `(notmuch-crypto-signature-good ((t (:foreground ,aod-success :background ,aod-bg-1))))
-   `(notmuch-crypto-signature-good-key ((t (:foreground ,aod-success :background ,aod-bg-1))))
+   `(notmuch-crypto-signature-good ((t (:foreground ,aod-insert :background ,aod-bg-1))))
+   `(notmuch-crypto-signature-good-key ((t (:foreground ,aod-insert :background ,aod-bg-1))))
    `(notmuch-crypto-signature-unknown ((t (:foreground ,aod-warn :background ,aod-bg-1))))
    `(notmuch-hello-logo-background ((t (:inherit default))))
    `(notmuch-message-summary-face ((t (:background ,aod-bg-1))))
@@ -373,9 +368,9 @@
    `(notmuch-search-date ((t (:inherit default :foreground ,aod-keyword))))
    `(notmuch-search-matching-authors ((t (:inherit default :foreground ,aod-type))))
    `(notmuch-search-non-matching-authors ((t (:inherit font-lock-comment-face :slant italic))))
-   `(notmuch-tag-added ((t (:underline ,aod-success))))
+   `(notmuch-tag-added ((t (:underline ,aod-insert))))
    `(notmuch-tag-deleted ((t (:strike-through ,aod-error))))
-   `(notmuch-tag-face ((t (:foreground ,aod-success))))
+   `(notmuch-tag-face ((t (:foreground ,aod-insert))))
    `(notmuch-tag-unread ((t (:foreground ,aod-error))))
    `(notmuch-tree-match-author-face ((t (:inherit notmuch-search-matching-authors))))
    `(notmuch-tree-match-date-face ((t (:inherit notmuch-search-date))))
@@ -384,13 +379,13 @@
    `(notmuch-tree-no-match-face ((t (:slant italic :weight light :inherit font-lock-comment-face))))
 
    ;; elfeed
-   `(elfeed-log-debug-level-face ((t (:background ,aod-bg-1 :foreground ,aod-success))))
+   `(elfeed-log-debug-level-face ((t (:background ,aod-bg-1 :foreground ,aod-insert))))
    `(elfeed-log-error-level-face ((t (:background ,aod-bg-1 :foreground ,aod-error))))
    `(elfeed-log-info-level-face ((t (:background ,aod-bg-1 :foreground ,aod-primary))))
    `(elfeed-log-warn-level-face ((t (:background ,aod-bg-1 :foreground ,aod-warn))))
    `(elfeed-search-date-face ((t (:foreground ,aod-keyword))))
    `(elfeed-search-feed-face ((t (:foreground ,aod-type))))
-   `(elfeed-search-tag-face ((t (:foreground ,aod-success))))
+   `(elfeed-search-tag-face ((t (:foreground ,aod-insert))))
    `(elfeed-search-title-face ((t (:foreground ,aod-mono-1))))
    `(elfeed-search-unread-count-face ((t (:foreground ,aod-fg-1))))
 
@@ -405,21 +400,21 @@
 
    ;; rainbow-delimiters
    `(rainbow-delimiters-depth-1-face ((t (:foreground ,aod-fg))))
-   `(rainbow-delimiters-depth-2-face ((t (:foreground ,aod-success))))
-   `(rainbow-delimiters-depth-3-face ((t (:foreground ,aod-warn))))
-   `(rainbow-delimiters-depth-4-face ((t (:foreground ,aod-builtin))))
-   `(rainbow-delimiters-depth-5-face ((t (:foreground ,aod-keyword))))
-   `(rainbow-delimiters-depth-6-face ((t (:foreground ,aod-type))))
+   `(rainbow-delimiters-depth-2-face ((t (:foreground ,aod-type))))
+   `(rainbow-delimiters-depth-3-face ((t (:foreground ,aod-builtin))))
+   `(rainbow-delimiters-depth-4-face ((t (:foreground ,aod-success))))
+   `(rainbow-delimiters-depth-5-face ((t (:foreground ,aod-warn))))
+   `(rainbow-delimiters-depth-6-face ((t (:foreground ,aod-keyword))))
    `(rainbow-delimiters-depth-7-face ((t (:foreground ,aod-primary))))
    `(rainbow-delimiters-depth-8-face ((t (:foreground ,aod-success))))
-   `(rainbow-delimiters-depth-9-face ((t (:foreground ,aod-warn))))
+   `(rainbow-delimiters-depth-9-face ((t (:foreground ,aod-type))))
    `(rainbow-delimiters-depth-10-face ((t (:foreground ,aod-builtin))))
-   `(rainbow-delimiters-depth-11-face ((t (:foreground ,aod-keyword))))
-   `(rainbow-delimiters-depth-12-face ((t (:foreground ,aod-type))))
+   `(rainbow-delimiters-depth-11-face ((t (:foreground ,aod-success))))
+   `(rainbow-delimiters-depth-12-face ((t (:foreground ,aod-primary))))
    `(rainbow-delimiters-unmatched-face ((t (:foreground ,aod-error :weight bold))))
 
    ;; rbenv
-   `(rbenv-active-ruby-face ((t (:foreground ,aod-success))))
+   `(rbenv-active-ruby-face ((t (:foreground ,aod-insert))))
 
    ;; elixir
    `(elixir-atom-face ((t (:foreground ,aod-builtin))))
@@ -427,7 +422,7 @@
 
    ;;show-paren
    `(show-paren-mismatch ((t (:foreground ,aod-error :background ,aod-bg-hl :weight bold))))
-   `(show-paren-match ((t (:background ,aod-gutter :weight bold))))
+   `(show-paren-match ((t (:background ,aod-bg-hl :weight bold))))
 
    ;; smartparens
    `(sp-show-pair-mismatch-face ((t (:foreground ,aod-error :background ,aod-bg-hl :weight bold))))
@@ -435,7 +430,7 @@
 
    ;; spaceline
    `(spaceline-flycheck-error  ((,class (:foreground ,aod-error))))
-   `(spaceline-flycheck-info   ((,class (:foreground ,aod-success))))
+   `(spaceline-flycheck-info   ((,class (:foreground ,aod-insert))))
    `(spaceline-flycheck-warning((,class (:foreground ,aod-warn))))
    `(spaceline-python-venv ((,class (:foreground ,aod-keyword))))
 
@@ -464,24 +459,24 @@
    `(rpm-spec-section-face ((t (:foreground ,aod-type))))
 
    ;; guix
-   `(guix-true ((t (:foreground ,aod-success :weight bold))))
+   `(guix-true ((t (:foreground ,aod-insert :weight bold))))
 
    ;; gomoku
    `(gomoku-O ((t (:foreground ,aod-error :weight bold))))
-   `(gomoku-X ((t (:foreground ,aod-success :weight bold))))
+   `(gomoku-X ((t (:foreground ,aod-insert :weight bold))))
 
    ;; linum
-   `(linum ((t (:foreground ,aod-gutter :background ,aod-bg))))
+   `(linum ((t (:foreground ,aod-comment :background ,aod-bg))))
    ;; hlinum
    `(linum-highlight-face ((t (:foreground ,aod-fg :background ,aod-bg))))
    ;; native line numbers (emacs version >=26)
-   `(line-number ((t (:foreground ,aod-gutter :background ,aod-bg))))
+   `(line-number ((t (:foreground ,aod-comment :background ,aod-bg))))
    `(line-number-current-line ((t (:foreground ,aod-fg :background ,aod-bg))))
 
    ;; regexp-builder
    `(reb-match-0 ((t (:background ,aod-bg-hl))))
    `(reb-match-1 ((t (:background ,aod-bg-1 :foreground ,aod-keyword :weight semi-bold))))
-   `(reb-match-2 ((t (:background ,aod-bg-1 :foreground ,aod-success :weight semi-bold))))
+   `(reb-match-2 ((t (:background ,aod-bg-1 :foreground ,aod-insert :weight semi-bold))))
    `(reb-match-3 ((t (:background ,aod-bg-1 :foreground ,aod-type :weight semi-bold))))
 
    ;; desktop-entry
@@ -498,8 +493,8 @@
    `(font-latex-sectioning-3-face ((t (:foreground ,aod-primary :height 1.0))))
    `(font-latex-sectioning-4-face ((t (:foreground ,aod-primary :height 1.0))))
    `(font-latex-sectioning-5-face ((t (:foreground ,aod-primary :height 1.0))))
-   `(font-latex-bold-face ((t (:foreground ,aod-success :weight bold))))
-   `(font-latex-italic-face ((t (:foreground ,aod-success))))
+   `(font-latex-bold-face ((t (:foreground ,aod-insert :weight bold))))
+   `(font-latex-italic-face ((t (:foreground ,aod-insert))))
    `(font-latex-warning-face ((t (:foreground ,aod-error))))
    `(font-latex-doctex-preprocessor-face ((t (:foreground ,aod-builtin))))
 
@@ -510,14 +505,14 @@
 
    ;; calendar
    `(diary ((t (:inherit warning))))
-   `(holiday ((t (:foreground ,aod-success))))
+   `(holiday ((t (:foreground ,aod-insert))))
 
    ;; gud
    `(breakpoint-disabled ((t (:foreground ,aod-warn))))
    `(breakpoint-enabled ((t (:foreground ,aod-error :weight bold))))
 
    ;; realgud
-   `(realgud-overlay-arrow1        ((t (:foreground ,aod-success))))
+   `(realgud-overlay-arrow1        ((t (:foreground ,aod-insert))))
    `(realgud-overlay-arrow3        ((t (:foreground ,aod-warn))   `(realgud-overlay-arrow2        ((t (:foreground ,aod-type))))
                                     ))
    `(realgud-bp-enabled-face       ((t (:inherit (error)))))
@@ -548,7 +543,7 @@
    ;; | J         | `aod-primary'     |
    ;; | L         | `aod-warn' |
    ;; | Z         | `aod-error'    |
-   ;; | S         | `aod-success'    |
+   ;; | S         | `aod-insert'    |
    ;; | T         | `aod-keyword'   |
    ;; | I         | `aod-builtin'     |
    '(tetris-x-colors
@@ -556,7 +551,7 @@
 
    ;; ansi-color
    `(ansi-color-names-vector
-     [,aod-bg-1 ,aod-error ,aod-success ,aod-type
+     [,aod-bg-1 ,aod-error ,aod-insert ,aod-type
                 ,aod-primary ,aod-keyword ,aod-builtin ,aod-fg])
    ))
 

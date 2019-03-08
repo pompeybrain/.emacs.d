@@ -4,6 +4,8 @@
    1. support buffer format not file
    2. support config file
    3. support customize-group
+** TODO compile and autoload my el file
+   1. refer to doom-emacs
 ** TODO use posframe for company and quickhelp
    1. suitable dimension
    2. support tide

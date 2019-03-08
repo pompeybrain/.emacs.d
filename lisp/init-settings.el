@@ -1,3 +1,4 @@
+;;; init-settings.el -*- lexical-binding: t -*-
 ;;; package -- summary
 ;;; Commentary:
 ;;; Code:
@@ -26,6 +27,9 @@
   (fset 'yes-or-no-p 'y-or-n-p)
 
   (electric-pair-mode t)
+
+  ;; subword
+  (global-subword-mode 1)
 
   (when (eq system-type 'darwin)
     (setq mac-command-modifier 'meta)
@@ -70,7 +74,6 @@
 ;; audio
 (setq ring-bell-function 'ignore)
 
-;; line number
 (add-hook 'prog-mode-hook #'setup-prog-mode)
 
 ;;;###autoload

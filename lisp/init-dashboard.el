@@ -1,4 +1,4 @@
-;;; init-dashboard -*- lexical-binding: t; -*-
+;;; init-dashboard.el -*- lexical-binding: t; -*-
 
 (defvar dashboard-buffer-name "*dashboard*" "dashboard buffer name")
 

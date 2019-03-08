@@ -1,3 +1,4 @@
+;;; init-site-lisp -*- lexical-binding: t -*-
 ;; init some el file in site-lisp
 
 ;; (require 'thing-edit)

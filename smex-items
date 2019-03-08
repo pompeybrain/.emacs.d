@@ -1,20 +1,20 @@
 
 ;; ----- smex-history -----
 (
- prettier-js
- prettier-js-mode
- prettier-format
- kill-buffer
- package-install
+ prettier-find-config
+ toggle-debug-on-error
+ customize-group
+ web-mode
  rainbow-mode
- typescript-mode
+ load-theme
+ eval-last-sexp
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 103)
- (customize-group . 47)
+ (customize-group . 52)
  (query-replace . 10)
  (query-replace-regexp . 1)
  (swiper-query-replace . 3)
@@ -36,7 +36,7 @@
  (counsel-projectile-rg . 1)
  (projectile-switch-project . 6)
  (projectile-add-known-project . 7)
- (load-theme . 61)
+ (load-theme . 62)
  (pkg-info-package-version . 2)
  (package-refresh-contents . 12)
  (js2-mode . 4)
@@ -53,7 +53,7 @@
  (rename-file . 3)
  (rename-buffer . 8)
  (vue-mode . 2)
- (web-mode . 7)
+ (web-mode . 8)
  (html-mode . 1)
  (multi-web-mode . 2)
  (editorconfig-mode . 2)
@@ -69,7 +69,7 @@
  (counsel-hydra-heads . 1)
  (flymake-mode . 5)
  (tooltip-mode . 3)
- (rainbow-mode . 44)
+ (rainbow-mode . 47)
  (tab-to-tab-stop . 4)
  (flycheck-mode . 35)
  (fringe-mode . 1)
@@ -160,7 +160,7 @@
  (which-key-show-major-mode . 1)
  (which-key-show-full-keymap . 1)
  (yas-global-mode . 1)
- (yas-new-snippet . 4)
+ (yas-new-snippet . 5)
  (hippie-expand . 1)
  (customize-variable . 1)
  (company-yasnippet . 6)
@@ -196,7 +196,7 @@
  (json-mode . 2)
  (treemacs-create-file . 1)
  (whitespace-mode . 5)
- (prettier-format . 28)
+ (prettier-format . 75)
  (ierror-hydra/body . 1)
  (flycheck-verify-setup . 1)
  (revert-buffer . 2)
@@ -205,6 +205,8 @@
  (magit-submodule-add . 1)
  (test-prettier . 28)
  (kill-buffer . 1)
- (prettier-js-mode . 1)
- (prettier-js . 1)
+ (prettier-js-mode . 2)
+ (prettier-js . 5)
+ (prettier-find-config . 10)
+ (toggle-debug-on-error . 2)
 )
