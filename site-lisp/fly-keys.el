@@ -3456,7 +3456,7 @@ Version 2017-07-07"
   "Format current buffer, use different function according to major mode "
   (interactive)
   (cond
-   ;; ((member major-mode prettier-support-modes) (prettier-format))
+   ((assoc major-mode prettier-support-modes) (prettier-format))
    ((eq major-mode 'emacs-lisp-mode) (indent-region (point-min) (point-max)))))
 
 (defun show-fly-keymap ()

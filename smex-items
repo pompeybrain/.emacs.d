@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- prettier-find-config
+ prettier-format
+ eval-region
+ prettier-test
  toggle-debug-on-error
  customize-group
  web-mode
  rainbow-mode
- load-theme
- eval-last-sexp
 )
 
 ;; ----- smex-data -----
@@ -196,7 +196,7 @@
  (json-mode . 2)
  (treemacs-create-file . 1)
  (whitespace-mode . 5)
- (prettier-format . 75)
+ (prettier-format . 118)
  (ierror-hydra/body . 1)
  (flycheck-verify-setup . 1)
  (revert-buffer . 2)
@@ -207,6 +207,8 @@
  (kill-buffer . 1)
  (prettier-js-mode . 2)
  (prettier-js . 5)
- (prettier-find-config . 10)
+ (prettier-find-config . 16)
  (toggle-debug-on-error . 2)
+ (prettier-test . 24)
+ (eval-region . 1)
 )
