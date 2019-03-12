@@ -72,28 +72,46 @@
       (push "--no-bracket-spacing" options))
     options))
 
+
+;;convert prettier.useTabs to prettier-use-tabs
+(defun config-vscode-to-emacs (str)
+  (let ((case-fold-search nil))
+    (replace-regexp-in-string "\\." "-"
+                              (downcase (replace-regexp-in-string "[[:upper:]]" "-\\&" str)))))
+
 (defun prettier-vscode-config ()
   "aware current project .vscode config about prettier and set options use let bind variable."
   (let* ((project-dir (locate-dominating-file (buffer-file-name) ".vscode"))
          (settings (expand-file-name ".vscode/settings.json" project-dir))
          (vsconfig nil))
-    (if (and project-dir (not (equal project-dir "~/")))
-        (when (file-exists-p settings)
-          (setq vsconfig (json-read-file settings))
+    (when (and project-dir (not (equal project-dir "~/")))
+      (when (file-exists-p settings)
+        (setq vsconfig
+              (seq-filter (lambda (pair)
+                            (string-match "prettier" (symbol-name (car pair))))
+                          (json-read-file settings)))
+        (when vsconfig
+          ;; (message "%S" vsconfig)
           (mapcar (lambda (pair)
-                    (message "%S" (type-of (car pair))))
+                    ;; (message "%S" (type-of (cdr pair)))
+                    (make-variable-buffer-local (intern (config-vscode-to-emacs (symbol-name (car pair)))))
+                    (set (intern (config-vscode-to-emacs (symbol-name (car pair))))
+                         (if (numberp (cdr pair))
+                             (number-to-string (cdr pair)) ;number convert to string
+                           (if (symbolp (cdr pair)) ; :json-false is nil
+                               nil
+                             (cdr pair)))))
                   vsconfig)
-          ;; (seq-filter (lambda (pair)
-          ;;               (string-match "prettier" (car pair)))
-          ;;             vsconfig)
-          vsconfig)
-      nil)))
+          (prettier-default-options))))))
 
 (defun prettier-options ()
   "Make up prettier options if find config use config file otherwise use default options."
-  (let ((config-path (prettier-find-config)))
+  (let ((config-path (prettier-find-config))
+        (vscode-config (prettier-vscode-config)))
     (if (string-empty-p config-path)
-        (prettier-default-options)
+        (if vscode-config
+            vscode-config
+          (prettier-default-options))
       (list "--config" config-path))))
 
 (defvar prettier-support-modes
@@ -144,12 +162,7 @@
 
 (defun prettier-test ()
   "test"
-  (interactive)
-  (message "%S" (prettier-vscode-config))
-  ;; (let ((prettier-print-width 83))
-  ;;   (message "%S" (prettier-default-options)))
-  ;; (message prettier-print-width)
-  )
+  (interactive))
 
 ;; add save hook format
 (defun add-save-format (mode)

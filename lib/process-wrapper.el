@@ -16,6 +16,7 @@
     ;; (message "%S" args)
     (unwind-protect
         (progn
+          ;; (let ((inhibit-message t))
           (if input-buffer
               (with-current-buffer input-buffer
                 (save-restriction
@@ -33,6 +34,7 @@
           (unless (string-empty-p error-output)
             (when error-handler
               (funcall error-handler error-output)))
+          ;; )
           (if (zerop res-code)
               (progn
                 (unless (or silent (string-empty-p error-output))
