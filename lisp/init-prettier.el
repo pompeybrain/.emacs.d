@@ -72,6 +72,23 @@
       (push "--no-bracket-spacing" options))
     options))
 
+(defun prettier-vscode-config ()
+  "aware current project .vscode config about prettier and set options use let bind variable."
+  (let* ((project-dir (locate-dominating-file (buffer-file-name) ".vscode"))
+         (settings (expand-file-name ".vscode/settings.json" project-dir))
+         (vsconfig nil))
+    (if (and project-dir (not (equal project-dir "~/")))
+        (when (file-exists-p settings)
+          (setq vsconfig (json-read-file settings))
+          (mapcar (lambda (pair)
+                    (message "%S" (type-of (car pair))))
+                  vsconfig)
+          ;; (seq-filter (lambda (pair)
+          ;;               (string-match "prettier" (car pair)))
+          ;;             vsconfig)
+          vsconfig)
+      nil)))
+
 (defun prettier-options ()
   "Make up prettier options if find config use config file otherwise use default options."
   (let ((config-path (prettier-find-config)))
@@ -128,18 +145,21 @@
 (defun prettier-test ()
   "test"
   (interactive)
-  (message "%S" (prettier-options))
+  (message "%S" (prettier-vscode-config))
+  ;; (let ((prettier-print-width 83))
+  ;;   (message "%S" (prettier-default-options)))
+  ;; (message prettier-print-width)
   )
 
-;; should call flycheck-handle-save more late
-;; (call-process-region nil nil (prettier-command) nil "*prettier-output*" nil)
 ;; add save hook format
-;; (defun add-save-format (mode)
-;;   (add-hook (intern  (concat (symbol-name mode) "-hook"))
-;;             (lambda ()
-;;               (add-hook 'after-save-hook 'prettier-format t t))))
+(defun add-save-format (mode)
+  (add-hook (intern  (concat (symbol-name (car mode)) "-hook"))
+            (lambda ()
+              (add-hook 'before-save-hook 'prettier-format nil t))))
 
-;; (mapcar 'add-save-format prettier-support-modes)
+(mapcar 'add-save-format prettier-support-modes)
+
+(setq prettier-print-width "95")
 
 (provide 'init-prettier)
 ;;; init-prettier.el ends here.
