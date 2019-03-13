@@ -54,8 +54,14 @@
   "Print spaces between brackets in object literals."
   :type 'boolean
   :group 'prettier)
-
 ;; TODO: add jsx options support
+
+(defvar prettier-support-modes
+  '((js2-mode . "babylon") (javascript-mode . "babylon") (css-mode . "css")
+    (scss-mode . "scss") (less-mode . "less") (json-mode . "json") (web-mode . "vue") (yaml-mode . "yaml")
+    (typescript-mode . "typescript") (markdown-mode . "markdown"))
+  "prettier support major mode")
+
 (defun prettier-default-options ()
   "Generate prettier options cli."
   (let ((options '()))
@@ -94,14 +100,17 @@
           ;; (message "%S" vsconfig)
           (mapcar (lambda (pair)
                     ;; (message "%S" (type-of (cdr pair)))
+                    ;; (message (config-vscode-to-emacs (symbol-name (car pair))))
                     (make-variable-buffer-local (intern (config-vscode-to-emacs (symbol-name (car pair)))))
                     (set (intern (config-vscode-to-emacs (symbol-name (car pair))))
                          (if (numberp (cdr pair))
                              (number-to-string (cdr pair)) ;number convert to string
-                           (if (symbolp (cdr pair)) ; :json-false is nil
+                           (if (eq ':json-false (cdr pair)) ; :json-false is nil
                                nil
+                             ;; (message "%S" (eq ':json-false (cdr pair)))
                              (cdr pair)))))
                   vsconfig)
+          ;; (message "%S" prettier-semi)
           (prettier-default-options))))))
 
 (defun prettier-options ()
@@ -114,11 +123,7 @@
           (prettier-default-options))
       (list "--config" config-path))))
 
-(defvar prettier-support-modes
-  '((js2-mode . "babylon") (javascript-mode . "babylon") (css-mode . "css")
-    (json-mode . "json") (web-mode . "vue") (yaml-mode . "yaml")
-    (typescript-mode . "typescript") (markdown-mode . "markdown"))
-  "prettier support major mode")
+
 
 (defun prettier-command ()
   "Find the bin in dir node_modules or use global in execpath."
@@ -134,9 +139,11 @@
 ;;;###autoload
 (defun prettier-find-config ()
   "Use prettier find current buffer file config path."
-  (sync-process (prettier-command)
-                (list "--find-config-path" (buffer-file-name))
-                nil nil t))
+  (replace-regexp-in-string
+   "\n\\'" ""
+   (sync-process (prettier-command)
+                 (list "--find-config-path" (buffer-file-name))
+                 nil nil t)))
 
 (defun prettier-apply (formated-text)
   (let ((prev-point (point)))
@@ -162,7 +169,8 @@
 
 (defun prettier-test ()
   "test"
-  (interactive))
+  (interactive)
+  (message "%S" (prettier-vscode-config)))
 
 ;; add save hook format
 (defun add-save-format (mode)

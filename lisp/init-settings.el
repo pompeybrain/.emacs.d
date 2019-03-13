@@ -17,6 +17,7 @@
 
   (auto-save-visited-mode t)
 
+  (setq require-final-newline t)
 ;;;自动加载更改过的文件
   (global-auto-revert-mode 1)
 

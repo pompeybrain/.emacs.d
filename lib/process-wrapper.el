@@ -1,8 +1,6 @@
 ;;; process-wrapper.el -*- coding: utf-8; lexical-binding: t; -*-
-(defun filter-process-out (output)
-  "remove the last newline in output."
-  (replace-regexp-in-string "\n\\'" "" output))
 
+;;; output has a newline in end
 (defun sync-process (command args input-buffer &optional output-handler silent error-handler)
   "Call sync process command with friendly output and error handle."
   (let ((input-file (make-temp-file (file-name-nondirectory command) nil "-input"))
@@ -26,11 +24,11 @@
           (setq res-code (apply 'call-process command input-file (list output-buffer error-file)
                                 nil args))
           (with-current-buffer output-buffer
-            (setq output-string (filter-process-out (buffer-string))))
+            (setq output-string (buffer-string)))
           (with-current-buffer error-buffer
             (erase-buffer)
             (insert-file-contents error-file)
-            (setq error-output (filter-process-out (buffer-string))))
+            (setq error-output (buffer-string)))
           (unless (string-empty-p error-output)
             (when error-handler
               (funcall error-handler error-output)))

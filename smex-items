@@ -7,7 +7,7 @@
  rainbow-mode
  rectangle-mark-mode
  eval-region
- toggle-debug-on-error
+ eval-last-sexp
 )
 
 ;; ----- smex-data -----
@@ -196,7 +196,7 @@
  (json-mode . 2)
  (treemacs-create-file . 1)
  (whitespace-mode . 5)
- (prettier-format . 137)
+ (prettier-format . 143)
  (ierror-hydra/body . 1)
  (flycheck-verify-setup . 1)
  (revert-buffer . 2)
@@ -209,7 +209,8 @@
  (prettier-js . 5)
  (prettier-find-config . 16)
  (toggle-debug-on-error . 2)
- (prettier-test . 85)
+ (prettier-test . 98)
  (eval-region . 1)
  (rectangle-mark-mode . 1)
+ (smerge-keep-all . 1)
 )
