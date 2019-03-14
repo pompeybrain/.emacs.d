@@ -19,10 +19,8 @@
   (defhydra ijump-hydra (:hint nil :foreign-keys warn)
     "
   	\t jump and page scroll:
-  	\t_n_ : page down
-  	\t_p_ : page up
-  	\t_l_ : line center <-> top <-> bottom
-  	\t_j_ : ace jump
+  	\t_n_ : page down \t_p_ : page up
+  	\t_l_ : line center <-> top <-> bottom \t_j_ : ace jump
   	\t_s_ : swiper search
         \t_q_ : quit
   "

@@ -15,6 +15,8 @@
   ;; 自动保存到文件，而不是另外的
   (setq auto-save-default nil)
 
+  (setq auto-save-list-file-prefix nil)
+
   (auto-save-visited-mode t)
 
   (setq require-final-newline t)
@@ -36,6 +38,7 @@
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier 'none))
 
+  (setq recentf-save-file (concat emacs-d ".cache/recentf"))
   (setq recentf-max-saved-items 30)
   (recentf-mode t)
   (column-number-mode t)
@@ -43,6 +46,8 @@
   (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
   (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/\\.cache/.*" (getenv "HOME")))
 
+  (setq eww-bookmarks-directory (concat emacs-d ".cache/"))
+  (setq url-configuration-directory (concat emacs-d ".cache/url/"))
   ;; prevent some operation for region like C-w
   ;; (setq mark-even-if-inactive nil)
   )

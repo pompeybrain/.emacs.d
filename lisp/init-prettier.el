@@ -54,6 +54,38 @@
   "Print spaces between brackets in object literals."
   :type 'boolean
   :group 'prettier)
+
+(defcustom prettier-jsx-single-quote nil
+  "Use single quotes instead of double quotes in JSX."
+  :type 'boolean
+  :group 'prettier)
+
+(defcustom prettier-jsx-bracket-same-line nil
+  "Put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (does not apply to self closing elements)."
+  :type 'boolean
+  :group 'prettier)
+
+(defcustom prettier-arrow-parens "avoid"
+  "Include parentheses around a sole arrow function parameter."
+  :type 'string
+  :group 'prettier)
+
+(defcustom prettier-prose-wrap "preserve"
+  "By default, Prettier will wrap markdown text as-is since some services use a linebreak-sensitive renderer, e.g. GitHub comment and BitBucket. In some cases you may want to rely on editor/viewer soft wrapping instead, so this option allows you to opt out with never."
+  :type 'string
+  :group 'prettier)
+
+(defcustom prettier-html-whitespace-sensitivity "css"
+  "Specify the global whitespace sensitivity for HTML files"
+  :type 'string
+  :group 'prettier)
+
+(defcustom prettier-end-of-line "auto"
+  "end of line: auto lf crlf cr"
+  :type 'string
+  :group 'prettier)
+
+
 ;; TODO: add jsx options support
 
 (defvar prettier-support-modes
@@ -76,6 +108,14 @@
     (setq options (append options (list "--trailing-comma" prettier-trailing-comma)))
     (unless prettier-bracket-space
       (push "--no-bracket-spacing" options))
+    (when prettier-jsx-single-quote
+      (push "--jsx-single-quote" options))
+    (when prettier-jsx-bracket-same-line
+      (push "--jsx-bracket-same-line" options))
+    (setq options (append options (list "--arrow-parens" prettier-arrow-parens)))
+    (setq options (append options (list "--prose-wrap" prettier-prose-wrap)))
+    (setq options (append options (list "--html-whitespace-sensitivity" prettier-html-whitespace-sensitivity)))
+    (setq options (append options (list "--end-of-line" prettier-end-of-line)))
     options))
 
 
@@ -179,8 +219,6 @@
               (add-hook 'before-save-hook 'prettier-format nil t))))
 
 (mapcar 'add-save-format prettier-support-modes)
-
-(setq prettier-print-width "95")
 
 (provide 'init-prettier)
 ;;; init-prettier.el ends here.

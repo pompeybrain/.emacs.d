@@ -76,8 +76,8 @@
   (file-name-directory
    (file-chase-links load-file-name)))
 
-(setq custom-file (expand-file-name "custom.el" emacs-d))
-(load custom-file)
+(setq custom-file (expand-file-name ".cache/custom.el" emacs-d))
+;;(load custom-file)
 
 (add-to-list 'load-path (expand-file-name "lib/" emacs-d) t)
 (add-to-list 'load-path (expand-file-name "lisp/" emacs-d) t)
@@ -94,6 +94,6 @@
 (require 'init-keybinds)
 (require 'init-dashboard)
 (require 'init-prettier)
-;; (require 'init-git-lisp)
+(require 'init-git-lisp)
 (provide 'init)
 ;;; init.el ends here

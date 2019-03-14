@@ -2,6 +2,8 @@
 ;;; package -- Summary
 ;;; Commentary:
 ;;; Code:
+(defvar emacs-d)
+
 (eval-when-compile
   (require 'use-package))
 
@@ -15,14 +17,6 @@
      (diminish 'eldoc-mode)
      (diminish 'flymake-mode)))
   (add-hook 'hs-minor-mode-hook (lambda () (diminish 'hs-minor-mode))))
-
-(use-package auto-package-update
-  :ensure t
-  :defer 2
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
 
 ;; need global install eslint tslint
 (use-package flycheck
@@ -145,14 +139,6 @@
   (add-hook 'js2-mode-hook #'setup-tide-mode)
   (add-hook 'typescript-mode-hook #'setup-tide-mode))
 
-;; Prettier-emacs can't surpport config files, and need
-;; config to use node_modules/bin/prettier, so don't use it temporarily.
-;; (use-package  prettier-js
-;; 	:ensure t
-;; 	:hook((typescript-mode . prettier-js-mode)
-;; 				(js2-mode . prettier-js-mode)))
-
-
 (use-package geiser
   :ensure t
   :defer t
@@ -231,10 +217,6 @@
   :config
   (editorconfig-mode +1))
 
-;; (use-package rainbow-mode
-;;   :ensure t
-;;   :defer t)
-
 (use-package hl-todo
   :ensure t
   :defer 2
@@ -262,9 +244,9 @@
 
 (use-package smex
   :ensure t
-  :defer 2)
-
-(defvar emacs-d)
+  :defer 2
+  :init
+  (setq smex-save-file (concat emacs-d ".cache/smex-items")))
 
 (use-package projectile
   :ensure t
@@ -349,17 +331,11 @@
   :ensure t
   :defer t)
 
-(defun init-json-mode ()
-  "Init json mode config."
-  ;; (setq tab-width 2)
-  )
-
 (use-package json-mode
   :ensure t
   :defer t
   :mode
-  ("\\.json\\'")
-  :hook (json-mode . init-json-mode))
+  ("\\.json\\'"))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

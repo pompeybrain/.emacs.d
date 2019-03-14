@@ -3512,6 +3512,12 @@ Version 2017-07-07"
         (swiper str))
     (swiper)))
 
+(defun lookup-symbol ()
+  "Look up current symbol."
+  (interactive)
+  (symbol-overlay-put)
+  (lookup/body))
+
 (defun fly-indent-buffer ()
   "Indent current buffer."
   (interactive)

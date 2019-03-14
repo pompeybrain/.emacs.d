@@ -1,3 +1,4 @@
-[submodule "git-lisp/company-posframe"]
-	path = git-lisp/company-posframe
-	url = https://github.com/tumashu/company-posframe.git
+
+[submodule "git-lisp/symbol-overlay"]
+	path = git-lisp/symbol-overlay
+	url = https://github.com/wolray/symbol-overlay.git
