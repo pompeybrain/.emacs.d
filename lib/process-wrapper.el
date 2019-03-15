@@ -1,4 +1,5 @@
 ;;; process-wrapper.el -*- coding: utf-8; lexical-binding: t; -*-
+(require 'shut-up)
 
 ;;; output has a newline in end
 (defun sync-process (command args input-buffer &optional output-handler silent error-handler)
@@ -14,7 +15,8 @@
     ;; (message "%S" args)
     (unwind-protect
         (progn
-          ;; (let ((inhibit-message t))
+          (shut-up
+              ;; ((inhibit-message t))
           (if input-buffer
               (with-current-buffer input-buffer
                 (save-restriction
@@ -32,7 +34,7 @@
           (unless (string-empty-p error-output)
             (when error-handler
               (funcall error-handler error-output)))
-          ;; )
+          )
           (if (zerop res-code)
               (progn
                 (unless (or silent (string-empty-p error-output))

@@ -337,5 +337,9 @@
   :mode
   ("\\.json\\'"))
 
+(use-package shut-up
+  :ensure t
+  :defer t)
+
 (provide 'init-packages)
 ;;; init-packages.el ends here
