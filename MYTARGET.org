@@ -1,5 +1,19 @@
 * Target for my emacs config files
 
+** TODO new structor of emacs.d
+   refere doom-emacs
+   1. generate autoload
+   2. byte-compile all el files
+   3. a plain package management
+
+structor:
+early-init.el & init.el for generally use
+lib/ for share lib el files
+.local/ for local files
+packages/ for installed third-party el files like a package
+core/ for el that config files of my
+config/ for el that config packages
+
 ** TODO symbol lookup
    refer to symbol-overlay
    1. when active get current symbol, like hydra buffer, show some key help
@@ -37,11 +51,12 @@
    1. treemacs use imagemagick first but imagemagick@6 doesn't support svg so I should not use imageMagick.
    2. insert icon in dashboard dired
    3. can't scale svg image in emacs now
-** DONE prettier support
+** TODO prettier support
    1. support buffer format not file
    2. support config file
    3. support customize-group
    4. support vscode config
+   5. a more light way to apply changes to current buffer
 ** DONE dashboard
    recentf file list use some simple key to quick open them.
    1. variable recentf-list  the file list find-file can open
