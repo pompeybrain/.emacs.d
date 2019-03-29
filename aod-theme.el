@@ -469,9 +469,10 @@
    `(linum ((t (:foreground ,aod-comment :background ,aod-bg))))
    ;; hlinum
    `(linum-highlight-face ((t (:foreground ,aod-fg :background ,aod-bg))))
+
    ;; native line numbers (emacs version >=26)
-   `(line-number ((t (:foreground ,aod-comment :background ,aod-bg))))
-   `(line-number-current-line ((t (:foreground ,aod-fg :background ,aod-bg))))
+   `(line-number ((t (:foreground ,aod-mono-3 :background ,aod-bg))))
+   `(line-number-current-line ((t (:foreground ,aod-comment :background ,aod-bg))))
 
    ;; regexp-builder
    `(reb-match-0 ((t (:background ,aod-bg-hl))))

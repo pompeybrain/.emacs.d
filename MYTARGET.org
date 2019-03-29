@@ -2,17 +2,19 @@
 
 ** TODO new structor of emacs.d
    refere doom-emacs
+   1. move dirs
    1. generate autoload
    2. byte-compile all el files
    3. a plain package management
 
-structor:
-early-init.el & init.el for generally use
-lib/ for share lib el files
-.local/ for local files
-packages/ for installed third-party el files like a package
-core/ for el that config files of my
-config/ for el that config packages
+   structor:
+   early-init.el & init.el for generally use
+   lib/ for share lib el files
+   .local/ for local files
+   .local/packages/ for installed third-party el files like a package
+   core/ for el that config files of my
+   config/ for el that config packages
+   guard/ for el make cmd
 
 ** TODO symbol lookup
    refer to symbol-overlay

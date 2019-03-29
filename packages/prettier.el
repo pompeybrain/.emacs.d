@@ -1,4 +1,6 @@
-;;; init-prettier -*- lexical-binding: t -*-
+;;; prettier ---  -*- lexical-binding: t; -*-
+;;; Commentary:
+
 ;;; to react with prettier
 ;;; first a global installed prettier is required
 
@@ -8,6 +10,8 @@
 ;;; use find-config-path if get a configpath use it replace of global options
 
 ;;; support vscode prettier setting to keep up with other co-worker
+
+;;; Code:
 
 (require 'process-wrapper)
 
@@ -220,5 +224,5 @@
 
 (mapcar 'add-save-format prettier-support-modes)
 
-(provide 'init-prettier)
-;;; init-prettier.el ends here.
+(provide 'prettier)
+;;; prettier ends here

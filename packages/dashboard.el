@@ -1,4 +1,7 @@
-;;; init-dashboard.el -*- lexical-binding: t; -*-
+;;; dashboard.el ---  -*- lexical-binding: t; -*-
+;;; Commentary:
+
+;;; Code:
 
 (defvar dashboard-buffer-name "*dashboard*" "dashboard buffer name")
 
@@ -54,11 +57,11 @@
 (defun dashboard-cons-key-file-alist (keylist filelist)
   "Insert file name row and cons alist"
   (let ((key (car keylist)) (file (car filelist)))
-    (when key
+    (when (and key file)
       (insert (propertize (format "[%s]" key) 'face 'font-lock-keyword-face)
               " " file "\n")
       ;; (setq dashboard-key-file-alist (cons '(key . file) dashboard-key-file-alist))
-      (define-key fly-dashboard-mode-map (kbd key) (dashboard-open-file-fun file))
+      (define-key dashboard-mode-map (kbd key) (dashboard-open-file-fun file))
       (dashboard-cons-key-file-alist (cdr keylist) (cdr filelist)))))
 
 (defun dashboard-open-file-fun (filename)
@@ -72,10 +75,10 @@
 
 (defun dashboard-init-mode ()
   "Initial dashboard-mode keybind."
-  (unless (eq major-mode 'fly-dashboard-mode)
-    (fly-dashboard-mode)))
+  (unless (eq major-mode 'dashboard-mode)
+    (dashboard-mode)))
 
-(define-derived-mode fly-dashboard-mode special-mode
+(define-derived-mode dashboard-mode special-mode
   "dashboard"
   :syntax-table nil
   :abbrev-table nil
@@ -83,4 +86,5 @@
   (visual-line-mode -1)
   (setq-local truncate-lines t))
 
-(provide 'init-dashboard)
+(provide 'dashboard)
+;;; dashboard.el ends here
