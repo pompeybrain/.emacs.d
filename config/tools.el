@@ -40,8 +40,8 @@
   :ensure t
   :defer t
   :init
-  (setq transient-history-file "~/.emacs.d/.cache/transient-history.el")
-  (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
+  (setq transient-history-file (concat user-local-directory "transient-history.el")
+        magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :bind("C-x g" . magit-status))
 

@@ -1,8 +1,3 @@
 elpa/*
-recentf*
-auto-save-list/*
-url
-.cache/*
+.local/*
 eshell/*
-.last-package-update-day
-transient/*
