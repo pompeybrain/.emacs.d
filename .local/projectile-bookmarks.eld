@@ -1,1 +1,0 @@
-("~/.emacs.d/" "~/workSpace/vue_spa_webpack/" "~/workSpace/webpack/webpack/" "~/workSpace/webpack/enhanced-resolve/" "~/workSpace/flutter/myapp/")
