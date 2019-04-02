@@ -279,6 +279,18 @@ Version 2016-11-22"
       (backward-sexp))
      (t (backward-up-list 1 'ESCAPE-STRINGS 'NO-SYNTAX-CROSSING)))))
 
+
+
+(defun fly-next-20-lines ()
+  "Next 20 lines."
+  (interactive)
+  (scroll-up-command 20))
+
+(defun fly-prev-20-lines ()
+  "Prev 20 lines."
+  (interactive)
+  (scroll-down-command 20))
+
 ;;; ----------------------------------------------------------------------------
 
 ;;; interactive tools

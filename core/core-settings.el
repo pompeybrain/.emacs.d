@@ -29,16 +29,16 @@
 (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
 (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/\\.local/.*" (getenv "HOME")))
 
-(when (eq system-type 'darwin)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'none))
-
 (defun setup-prog-mode ()
   "Setup prog mode."
   (show-paren-mode t)
   (hs-minor-mode +1))
 
 (add-hook 'prog-mode-hook #'setup-prog-mode)
+
+
+(add-hook 'emacs-startup-hook (lambda ()
+                                (setq debug-on-error nil)))
 
 (provide 'core-settings)
 ;;; core-settings ends here

@@ -13,7 +13,8 @@
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
           treemacs-show-hidden-files          t
-          treemacs-width                      40)
+          treemacs-width                      40
+          treemacs-persist-file (concat user-local-directory "treemacs-persist"))
     (treemacs-resize-icons 14)
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
@@ -44,7 +45,6 @@
         magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :bind("C-x g" . magit-status))
-
 
 (provide 'tools)
 ;;; tools ends here

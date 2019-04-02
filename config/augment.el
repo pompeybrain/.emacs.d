@@ -19,6 +19,14 @@
   :ensure t
   :defer t)
 
+(use-package hydra
+  :ensure t
+  :defer t
+  :init
+  (setq hydra-is-helpful t
+        hydra-lv t
+        lv-use-separator nil))
+
 (use-package ivy
   :ensure t
   :defer t
@@ -26,8 +34,8 @@
   :init
   (setq ivy-initial-inputs-alist nil)
   (add-hook 'after-init-hook (ivy-mode 1))
-  ;; :bind (:map ivy-minibuffer-map
-  ;;             ("RET" . ivy-alt-done))
+  :bind (:map ivy-minibuffer-map
+              ("RET" . ivy-alt-done))
   )
 
 (use-package swiper
@@ -38,13 +46,8 @@
   :ensure t
   :defer t
   :init
-  ;; (setq counsel-grep-base-command
-  ;; 	"rg -i -M 120 --no-heading --line-number --color never '%s' %s")
   :bind(
-        ;; ("C-s" . counsel-grep-or-swiper)
         ("M-x" . counsel-M-x)
-        ;; ("C-c f" . counsel-find-file)
-        ;; ("M-r" . counsel-recentf)
         )
   :config
   (setq ivy-use-virtual-buffers t)
@@ -101,8 +104,7 @@
   :diminish
   :config
   (counsel-projectile-mode +1)
-  :bind-keymap ("C-x p" . projectile-command-map)
-  )
+  :bind-keymap ("C-x p" . projectile-command-map))
 
 
 (use-package helpful
@@ -121,6 +123,13 @@
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-major-mode-icon nil)
   :hook (after-init . doom-modeline-init))
+
+(use-package highlight-indent-guides
+  :ensure t
+  :defer t
+  :init
+  (setq highlight-indent-guides-method 'character)
+  :hook (prog-mode . highlight-indent-guides-mode))
 
 (provide 'augment)
 ;;; augment ends here

@@ -53,12 +53,11 @@
    1. treemacs use imagemagick first but imagemagick@6 doesn't support svg so I should not use imageMagick.
    2. insert icon in dashboard dired
    3. can't scale svg image in emacs now
-** TODO prettier support
+** DONE prettier support
    1. support buffer format not file
    2. support config file
    3. support customize-group
    4. support vscode config
-   5. a more light way to apply changes to current buffer
 ** DONE dashboard
    recentf file list use some simple key to quick open them.
    1. variable recentf-list  the file list find-file can open

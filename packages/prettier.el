@@ -1,4 +1,4 @@
-;;; prettier ---  -*- lexical-binding: t; -*-
+;;; prettier.el ---  -*- lexical-binding: t; -*-
 ;;; Commentary:
 
 ;;; to react with prettier
@@ -141,20 +141,15 @@
                             (string-match "prettier" (symbol-name (car pair))))
                           (json-read-file settings)))
         (when vsconfig
-          ;; (message "%S" vsconfig)
           (mapcar (lambda (pair)
-                    ;; (message "%S" (type-of (cdr pair)))
-                    ;; (message (config-vscode-to-emacs (symbol-name (car pair))))
                     (make-variable-buffer-local (intern (config-vscode-to-emacs (symbol-name (car pair)))))
                     (set (intern (config-vscode-to-emacs (symbol-name (car pair))))
                          (if (numberp (cdr pair))
                              (number-to-string (cdr pair)) ;number convert to string
                            (if (eq ':json-false (cdr pair)) ; :json-false is nil
                                nil
-                             ;; (message "%S" (eq ':json-false (cdr pair)))
                              (cdr pair)))))
                   vsconfig)
-          ;; (message "%S" prettier-semi)
           (prettier-default-options))))))
 
 (defun prettier-options ()
@@ -225,4 +220,4 @@
 (mapcar 'add-save-format prettier-support-modes)
 
 (provide 'prettier)
-;;; prettier ends here
+;;; prettier.el ends here

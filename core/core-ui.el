@@ -9,41 +9,42 @@
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 ;;;(mac-auto-operator-composition-mode)	;macport for fira code
-(setq-default line-spacing 3
-              custom-safe-themes t      ;theme no warn
-              overflow-newline-into-fringe nil
-              indicate-empty-lines nil
-              compilation-always-kill t        ; kill compilation process before starting another
-              compilation-scroll-output 'first-error
-              cursor-in-non-selected-windows nil ; hide cursors in other windows
-              enable-recursive-minibuffers nil
-              fringe-indicator-alist
-              (delq (assq 'continuation fringe-indicator-alist)
-                    fringe-indicator-alist)
-              highlight-nonselected-windows nil
-              image-animate-loop t
-              indicate-buffer-boundaries nil
-              inhibit-compacting-font-caches t
-              max-mini-window-height 0.3
-              mode-line-default-help-echo nil ; disable mode-line mouseovers
-              mouse-yank-at-point t           ; middle-click paste at point, not at click
-              resize-mini-windows 'grow-only  ; Minibuffer resizing
-              show-help-function nil          ; hide :help-echo text
-              split-width-threshold 160       ; favor horizontal splits
-              use-dialog-box nil              ; always avoid GUI
-              visible-cursor nil
-              x-stretch-cursor nil
-              pos-tip-internal-border-width 6
-              pos-tip-border-width 1
-              ;; no beeping or blinking please
-              ring-bell-function #'ignore
-              visible-bell nil
-              ;; don't resize emacs in steps, it looks weird
-              window-resize-pixelwise t
-              frame-resize-pixelwise t
-              display-line-numbers-current-absolute t
-              display-line-numbers-width 3
-              )
+(setq-default
+ line-spacing 3
+ custom-safe-themes t      ;theme no warn
+ overflow-newline-into-fringe nil
+ indicate-empty-lines nil
+ compilation-always-kill t        ; kill compilation process before starting another
+ compilation-scroll-output 'first-error
+ cursor-in-non-selected-windows nil ; hide cursors in other windows
+ enable-recursive-minibuffers nil
+ fringe-indicator-alist
+ (delq (assq 'continuation fringe-indicator-alist)
+       fringe-indicator-alist)
+ highlight-nonselected-windows nil
+ image-animate-loop t
+ indicate-buffer-boundaries nil
+ inhibit-compacting-font-caches t
+ max-mini-window-height 0.3
+ mode-line-default-help-echo nil ; disable mode-line mouseovers
+ mouse-yank-at-point t           ; middle-click paste at point, not at click
+ resize-mini-windows 'grow-only  ; Minibuffer resizing
+ show-help-function nil          ; hide :help-echo text
+ split-width-threshold 160       ; favor horizontal splits
+ use-dialog-box nil              ; always avoid GUI
+ visible-cursor nil
+ x-stretch-cursor nil
+ pos-tip-internal-border-width 6
+ pos-tip-border-width 1
+ ;; no beeping or blinking please
+ ring-bell-function #'ignore
+ visible-bell nil
+ ;; don't resize emacs in steps, it looks weird
+ window-resize-pixelwise t
+ frame-resize-pixelwise t
+ display-line-numbers-current-absolute t
+ display-line-numbers-width 3
+ )
 
 (fset #'yes-or-no-p #'y-or-n-p)
 (fset #'display-startup-echo-area-message #'ignore)
