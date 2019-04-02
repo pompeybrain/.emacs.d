@@ -1,4 +1,4 @@
-;;; fly-keys.el -*- coding: utf-8; lexical-binding: t; -*-
+ ;;; fly-keys.el -*- coding: utf-8; lexical-binding: t; -*-
 
 ;;; my version xah-fly-keys  renamed fly-keys
 
@@ -3393,7 +3393,6 @@ Version 2018-05-07"
 
   (setq mode-line-front-space "I")
   (force-mode-line-update)
-
   ;;
   )
 
