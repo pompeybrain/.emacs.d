@@ -7,8 +7,6 @@
 
 (defvar dashboard-key-list '("a" "s" "d" "f" "g" "h" "j" "k" "l" "n") "key list")
 
-;; (defvar dashboard-key-file-alist '() "key and file associate list")
-
 (setq initial-buffer-choice #'dashboard-init-buffer)
 
 (add-hook 'window-setup-hook #'dashboard-init)
@@ -60,7 +58,6 @@
     (when (and key file)
       (insert (propertize (format "[%s]" key) 'face 'font-lock-keyword-face)
               " " file "\n")
-      ;; (setq dashboard-key-file-alist (cons '(key . file) dashboard-key-file-alist))
       (define-key dashboard-mode-map (kbd key) (dashboard-open-file-fun file))
       (dashboard-cons-key-file-alist (cdr keylist) (cdr filelist)))))
 

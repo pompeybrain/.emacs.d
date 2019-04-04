@@ -1,5 +1,12 @@
 * Target for my emacs config files
 
+** TODO symbol lookup
+   refer to symbol-overlay
+   1. when active get current symbol, use hydra display some key
+   2. use i k to navigate in current buffer where symbol appear
+   3. r to active query-replace
+   4. s to active rg current project
+   5. and so on.
 ** TODO new structor of emacs.d
    refere doom-emacs
    1. move dirs
@@ -16,14 +23,6 @@
    config/ for el that config packages
    guard/ for el make cmd
 
-** TODO symbol lookup
-   refer to symbol-overlay
-   1. when active get current symbol, like hydra buffer, show some key help
-   2. use transient or hydra to bind a temporarily keymap
-   3. use i k to navigate in current buffer where symbol appear
-   4. r to active query-replace
-   5. s to active rg current project
-   6. and so on.
 ** TODO compile and autoload my el file
    1. refer to doom-emacs
 ** TODO use posframe for company and quickhelp

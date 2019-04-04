@@ -38,6 +38,9 @@
 (require 'dired-x) ; in emacs
 (require 'ido) ; in emacs
 
+(require 'lookup)                       ;my package
+(require 'quiet)
+
 
 
 (when (version<= emacs-version "26.0.50"  )
@@ -3233,9 +3236,6 @@ Version 2019-02-12"
   ;;     (define-key xah-fly-key-map (kbd "C-t") 'xah-pop-local-mark-ring)
   ;;     ))
 
-  (define-key xah-fly-key-map (kbd "M-RET") 'fly-newline-insert)
-  (define-key xah-fly-key-map (kbd "C-<return>") 'fly-newline-command-no-open)
-
   (define-key xah-fly-key-map (kbd "M-SPC") 'xah-fly-command-mode-activate-no-hook))
 
 
@@ -3253,19 +3253,13 @@ Version 2017-01-21"
    '(
      ("~" . nil)
      (":" . nil)
-     ("RET" . fly-newline-command)
      ("SPC" . xah-fly-leader-key-map)
-     ;; ("'" . xah-reformat-lines)
      ("'" . eval-last-sexp)
-     ;; ("-" . xah-cycle-hyphen-underscore-space)
      ("[" . hippie-expand)
-     ;; ("=" . xah-forward-equal-sign)
      ("-" . xah-backward-punct )
      ("=" . xah-forward-punct)
      ("`" . other-frame)
      (";" . xah-end-of-line-or-block)
-     ;; ("#" . xah-backward-quote)
-     ;; ("$" . xah-forward-punct)
      ("0" . balance-windows)
      ("1" . delete-other-windows)
      ("2" . split-window-below)
@@ -3282,7 +3276,7 @@ Version 2017-01-21"
      ("d" . delete-char)
      ("e" . xah-backward-kill-word)
      ("f" . xah-fly-insert-mode-activate)
-     ("g" . fly-swiper-current-selection)
+     ("g" . lookup)
      ("h" . xah-beginning-of-line-or-block)
      ("i" . previous-line)
      ("j" . backward-char)
@@ -3292,7 +3286,7 @@ Version 2017-01-21"
      ("n" . fly-next-20-lines)
      ("o" . forward-word)
      ("p" . fly-prev-20-lines)
-     ("q" . save-buffer)
+     ("q" . quiet-save)
      ("r" . xah-kill-word)
      ("s" . xah-extend-selection)
      ("t" . set-mark-command)
@@ -3329,7 +3323,6 @@ Version 2018-05-07"
   (xah-fly--define-keys
    xah-fly-key-map
    '(
-     ("RET" . nil)
      ("SPC" . nil)
      ("DEL" . nil)
 
