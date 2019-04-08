@@ -1,12 +1,11 @@
 * Target for my emacs config files
 
-** TODO symbol lookup
-   refer to symbol-overlay
-   1. when active get current symbol, use hydra display some key
-   2. use i k to navigate in current buffer where symbol appear
-   3. r to active query-replace
-   4. s to active rg current project
-   5. and so on.
+** TODO use posframe for company and quickhelp
+   1. suitable dimension
+   2. support tide
+   3. support eglot
+   4. support quickhelp
+   5. support company
 ** TODO new structor of emacs.d
    refere doom-emacs
    1. move dirs
@@ -25,12 +24,6 @@
 
 ** TODO compile and autoload my el file
    1. refer to doom-emacs
-** TODO use posframe for company and quickhelp
-   1. suitable dimension
-   2. support tide
-   3. support eglot
-   4. support quickhelp
-   5. support company
 ** TODO a dict tool in emacs
    1. a cmd tool in mac os provide interface from dictionary app
    2. a dict.el file interact this tool and show context in posframe
@@ -52,6 +45,13 @@
    1. treemacs use imagemagick first but imagemagick@6 doesn't support svg so I should not use imageMagick.
    2. insert icon in dashboard dired
    3. can't scale svg image in emacs now
+** DONE symbol lookup
+   refer to symbol-overlay
+   1. when active get current symbol, use hydra display some key
+   2. use i k to navigate in current buffer where symbol appear
+   3. r to active query-replace
+   4. s to active rg current project
+   5. and so on.
 ** DONE prettier support
    1. support buffer format not file
    2. support config file
