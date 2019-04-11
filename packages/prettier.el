@@ -186,6 +186,7 @@
 
 (defun prettier-apply (formated-text)
   (let ((prev-point (point)))
+    (message "%S" prev-point)
     (erase-buffer)
     (insert formated-text)
     (goto-char prev-point)))

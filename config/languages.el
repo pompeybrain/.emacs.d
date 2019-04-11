@@ -53,8 +53,9 @@
 (use-package web-mode
   :ensure t
   :init
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-enable-current-element-highlight t)
+  (setq web-mode-markup-indent-offset 2
+        web-mode-attr-indent-offset 2
+        web-mode-enable-current-element-highlight t)
   :mode "\\.html\\'")
 
 (use-package emmet-mode
@@ -92,6 +93,9 @@
   :defer t
   :mode
   ("\\.json\\'"))
+
+;;; builtin package
+(setq css-indent-offset 2)
 
 (provide 'languages)
 ;;; languages ends here

@@ -213,7 +213,7 @@
                                                :foreground ,aod-type :weight semi-bold))))
    `(ivy-minibuffer-match-highlight ((t (:foreground ,aod-primary :background ,aod-bg))))
    `(ivy-modified-buffer ((t (:inherit default :foreground ,aod-warn))))
-   `(ivy-virtual ((t (:inherit font-lock-builtin-face :slant italic))))
+   `(ivy-virtual ((t (:inherit font-lock-builtin-face))))
 
    ;; counsel
    `(counsel-key-binding ((t (:foreground ,aod-type :weight bold))))

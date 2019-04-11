@@ -35,8 +35,7 @@
   (setq ivy-initial-inputs-alist nil)
   (add-hook 'after-init-hook (ivy-mode 1))
   :bind (:map ivy-minibuffer-map
-              ("RET" . ivy-alt-done))
-  )
+              ("RET" . ivy-alt-done)))
 
 (use-package swiper
   :ensure t
@@ -124,12 +123,12 @@
   (setq doom-modeline-major-mode-icon nil)
   :hook (after-init . doom-modeline-init))
 
-(use-package highlight-indent-guides
-  :ensure t
-  :defer t
-  :init
-  (setq highlight-indent-guides-method 'character)
-  :hook (prog-mode . highlight-indent-guides-mode))
+;; (use-package highlight-indent-guides
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (setq highlight-indent-guides-method 'character)
+;;   :hook (prog-mode . highlight-indent-guides-mode))
 
 (provide 'augment)
 ;;; augment ends here
