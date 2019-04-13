@@ -2,14 +2,14 @@
 (require 'quiet)
 
 ;;; output has a newline in end
-(defun sync-process (command args input-buffer &optional output-handler silent error-handler)
+(defun sync-process (command args input-buffer &optional success-code output-handler silent error-handler)
   "Call sync process command with friendly output and error handle."
   (let ((input-file (make-temp-file (file-name-nondirectory command) nil "-input"))
-        (output-buffer (get-buffer-create (concat command "-output")))
+        (output-buffer (get-buffer-create (concat (file-name-nondirectory command) "-output")))
         (output-string nil)
         (res-code nil)
         (error-file (make-temp-file (file-name-nondirectory command)))
-        (error-buffer (get-buffer-create (concat command "-error")))
+        (error-buffer (get-buffer-create (concat (file-name-nondirectory command) "-error")))
         (error-output nil))
     (unwind-protect
         (progn
@@ -32,7 +32,7 @@
               (when error-handler
                 (funcall error-handler error-output)))
             )
-          (if (zerop res-code)
+          (if (member res-code success-code)
               (progn
                 (unless (or silent (string-empty-p error-output))
                   (message "command [%s] succeeded but has warn:\n %s" command error-output))
@@ -41,7 +41,7 @@
                   output-string))
             (unless silent (message "command [%s] failed:\n %s" command error-output))
             ""))
-      (kill-buffer error-buffer)
+      ;; (kill-buffer error-buffer)
       (when input-file (delete-file input-file))
       (delete-file error-file)
       (kill-buffer output-buffer))))

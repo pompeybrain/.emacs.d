@@ -182,14 +182,69 @@
    "\n\\'" ""
    (sync-process (prettier-command)
                  (list "--find-config-path" (buffer-file-name))
-                 nil nil t)))
+                 nil '(0) nil t)))
 
-(defun prettier-apply (formated-text)
-  (let ((prev-point (point)))
-    (message "%S" prev-point)
-    (erase-buffer)
-    (insert formated-text)
-    (goto-char prev-point)))
+(defun goto-prev-line (line)
+  (goto-char (point-min))
+  (forward-line (1- line)))
+
+(defun prettier-apply-patch (patch-text)
+  "Apply an RCS-formatted diff from PATCH-BUFFER to the current buffer."
+  (let ((target-buffer (current-buffer))
+        (patch-buffer (get-buffer-create "prettier-patch-buffer"))
+        ;; Relative offset between buffer line numbers and line numbers
+        ;; in patch.
+        ;;
+        ;; Line numbers in the patch are based on the source file, so
+        ;; we have to keep an offset when making changes to the
+        ;; buffer.
+        ;;
+        ;; Appending lines decrements the offset (possibly making it
+        ;; negative), deleting lines increments it. This order
+        ;; simplifies the forward-line invocations.
+        (line-offset 0))
+    (with-current-buffer patch-buffer
+      (erase-buffer)
+      (insert patch-text))
+    (save-excursion
+      (with-current-buffer patch-buffer
+        (goto-char (point-min))
+        (while (not (eobp))
+          (unless (looking-at "^\\([ad]\\)\\([0-9]+\\) \\([0-9]+\\)")
+            (error "Invalid rcs patch in prettier-apply-patch"))
+          (forward-line)
+          (let ((action (match-string 1))
+                (from (string-to-number (match-string 2)))
+                (len  (string-to-number (match-string 3))))
+            (cond
+             ((equal action "a")
+              (let ((start (point)))
+                (forward-line len)
+                (let ((text (buffer-substring start (point))))
+                  (with-current-buffer target-buffer
+                    (setq line-offset (- line-offset len))
+                    (goto-char (point-min))
+                    (forward-line (- from len line-offset))
+                    (insert text)))))
+             ((equal action "d")
+              (with-current-buffer target-buffer
+                (goto-prev-line (- from line-offset))
+                (setq line-offset (+ line-offset len))
+                (let ((beg (point)))
+                  (forward-line len)
+                  (delete-region (point) beg))))
+             (t
+              (error "Invalid rcs patch in prettier-apply-patch")))))))))
+
+(defun prettier-diff-formated (formated-text)
+  (let ((formated-file (make-temp-file "prettier-formated")))
+    (with-temp-buffer
+      (erase-buffer)
+      (insert formated-text)
+      (write-region nil nil formated-file))
+    (sync-process "diff" (list "-n" "--strip-trailing-cr" "-" formated-file)
+                  (current-buffer) '(0 1) #'prettier-apply-patch)))
+
 
 ;;;###autoload
 (defun prettier-format ()
@@ -204,13 +259,9 @@
                (sync-process (prettier-command)
                              (append (prettier-options) parser-or-path-args)
                              (current-buffer)
-                             #'prettier-apply))
+                             '(0)
+                             #'prettier-diff-formated))
       (message "prettier doesn't support current major mode: %s" major-mode))))
-
-(defun prettier-test ()
-  "test"
-  (interactive)
-  (message "%S" (prettier-vscode-config)))
 
 ;; add save hook format
 (defun add-save-format (mode)
