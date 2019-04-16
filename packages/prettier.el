@@ -14,6 +14,7 @@
 ;;; Code:
 
 (require 'process-wrapper)
+(require 'quiet)
 
 (defgroup prettier nil
   "prettier a tool to format some front-end relate language."
@@ -192,16 +193,6 @@
   "Apply an RCS-formatted diff from PATCH-BUFFER to the current buffer."
   (let ((target-buffer (current-buffer))
         (patch-buffer (get-buffer-create "prettier-patch-buffer"))
-        ;; Relative offset between buffer line numbers and line numbers
-        ;; in patch.
-        ;;
-        ;; Line numbers in the patch are based on the source file, so
-        ;; we have to keep an offset when making changes to the
-        ;; buffer.
-        ;;
-        ;; Appending lines decrements the offset (possibly making it
-        ;; negative), deleting lines increments it. This order
-        ;; simplifies the forward-line invocations.
         (line-offset 0))
     (with-current-buffer patch-buffer
       (erase-buffer)
@@ -234,16 +225,21 @@
                   (forward-line len)
                   (delete-region (point) beg))))
              (t
-              (error "Invalid rcs patch in prettier-apply-patch")))))))))
+              (error "Invalid rcs patch in prettier-apply-patch")))))))
+    (kill-buffer patch-buffer)))
 
 (defun prettier-diff-formated (formated-text)
-  (let ((formated-file (make-temp-file "prettier-formated")))
-    (with-temp-buffer
-      (erase-buffer)
-      (insert formated-text)
-      (write-region nil nil formated-file))
-    (sync-process "diff" (list "-n" "--strip-trailing-cr" "-" formated-file)
-                  (current-buffer) '(0 1) #'prettier-apply-patch)))
+  (quiet
+    (let ((formated-file (make-temp-file "prettier-formated")))
+      (unwind-protect
+          (progn
+            (with-temp-buffer
+              (erase-buffer)
+              (insert formated-text)
+              (write-region nil nil formated-file))
+            (sync-process "diff" (list "-n" "--strip-trailing-cr" "-" formated-file)
+                          (current-buffer) '(0 1) #'prettier-apply-patch))
+        (delete-file formated-file)))))
 
 
 ;;;###autoload

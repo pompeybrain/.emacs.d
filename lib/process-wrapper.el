@@ -30,8 +30,7 @@
               (setq error-output (buffer-string)))
             (unless (string-empty-p error-output)
               (when error-handler
-                (funcall error-handler error-output)))
-            )
+                (funcall error-handler error-output))))
           (if (member res-code success-code)
               (progn
                 (unless (or silent (string-empty-p error-output))
@@ -41,7 +40,7 @@
                   output-string))
             (unless silent (message "command [%s] failed:\n %s" command error-output))
             ""))
-      ;; (kill-buffer error-buffer)
+      (kill-buffer error-buffer)
       (when input-file (delete-file input-file))
       (delete-file error-file)
       (kill-buffer output-buffer))))
