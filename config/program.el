@@ -29,7 +29,7 @@
   :ensure t
   :defer 1
   :config
-  (setq flycheck-check-syntax-automatically '(save mode-enabled)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled idle-change)
         flycheck-indication-mode nil
         flycheck-emacs-lisp-load-path 'inherit
         flycheck-global-modes '(not emacs-lisp-mode))

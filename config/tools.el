@@ -9,13 +9,13 @@
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  (setq   treemacs-persist-file (concat user-local-directory "treemacs-persist")
+          treemacs--last-error-persist-file (concat user-local-directory "treemacs-persist-at-last-error"))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
           treemacs-show-hidden-files          t
-          treemacs-width                      40
-          treemacs-persist-file (concat user-local-directory "treemacs-persist")
-          treemacs--last-error-persist-file (concat user-local-directory "treemacs-persist-at-last-error"))
+          treemacs-width                      40)
     (treemacs-resize-icons 14)
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)

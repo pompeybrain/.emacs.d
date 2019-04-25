@@ -5,10 +5,12 @@
 
 ;; set font
 (set-face-attribute 'default nil :family "Fira Code")
-;; (set-face-attribute 'default nil :family "Menlo")
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
-;;;(mac-auto-operator-composition-mode)	;macport for fira code
+;;; macport for fira code
+(when (fboundp 'mac-auto-operator-composition-mode)
+  (mac-auto-operator-composition-mode))
+
 (setq-default
  line-spacing 3
  custom-safe-themes t      ;theme no warn

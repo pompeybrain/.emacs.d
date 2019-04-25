@@ -36,7 +36,6 @@
    4. major mode
    5. encoding
    6. point percent
-** TODO add plugin for prettyhtml
 ** TODO scheme config
    1. runtime
    2. eval last expresion

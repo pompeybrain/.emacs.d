@@ -5,6 +5,10 @@
 
 (setq debug-on-error t)
 
+;;; set title  early-init has the best appearance
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
 ;;; set gc
 (let ((normal-gc-cons-threshold (* 32 1024 1024))
       (init-gc-cons-threshold (* 512 1024 1024))
