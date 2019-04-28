@@ -10,6 +10,7 @@
   :config
   (setq typescript-indent-level 2))
 
+;;; highlight buffer in tide-jump-to-definition has problem.
 (use-package js2-mode
   :ensure t
   :defer t

@@ -1,11 +1,10 @@
 * Target for my emacs config files
 
-** TODO use posframe for company and quickhelp
+** TODO doc box
    1. suitable dimension
    2. support tide
    3. support eglot
    4. support quickhelp
-   5. support company
 ** TODO new structor of emacs.d
    refere doom-emacs
    1. move dirs
