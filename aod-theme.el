@@ -422,7 +422,7 @@
 
    ;;show-paren
    `(show-paren-mismatch ((t (:foreground ,aod-error :background ,aod-bg-hl :weight bold))))
-   `(show-paren-match ((t (:background ,aod-bg-hl :weight bold))))
+   `(show-paren-match ((t (:background ,aod-bg-hl))))
 
    ;; smartparens
    `(sp-show-pair-mismatch-face ((t (:foreground ,aod-error :background ,aod-bg-hl :weight bold))))

@@ -39,7 +39,7 @@
 
 (defun dashboard-recentf ()
   "Display recentf list."
-  (insert "\n" (propertize "[Recent Files]" 'face 'font-lock-warning-face)  "\n")
+  (insert "\n" (propertize "Recent Files: " 'face 'font-lock-warning-face)  "\n")
   (dashboard-cons-key-file-alist dashboard-key-list recentf-list))
 
 (defun dashboard-startup-time ()
@@ -57,7 +57,7 @@
   (let ((key (car keylist)) (file (car filelist)))
     (when (and key file)
       (insert (propertize (format "[%s]" key) 'face 'font-lock-keyword-face)
-              " " file "\n")
+              " " (abbreviate-file-name file) "\n")
       (define-key dashboard-mode-map (kbd key) (dashboard-open-file-fun file))
       (dashboard-cons-key-file-alist (cdr keylist) (cdr filelist)))))
 
