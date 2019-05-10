@@ -18,25 +18,26 @@
   :config
   (setq js2-strict-missing-semi-warning nil))
 
-(defun setup-tide-mode ()
-  "Setup tide config."
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (company-mode +1)
-  (setq tab-width 2)
-  (setq company-tooltip-align-annotations t)
-  (tide-hl-identifier-mode +1))
+;; (defun setup-tide-mode ()
+;;   "Setup tide config."
+;;   (interactive)
+;;   (tide-setup)
+;;   (flycheck-mode +1)
+;;   (company-mode +1)
+;;   (setq tab-width 2)
+;;   (setq company-tooltip-align-annotations t)
+;;   (tide-hl-identifier-mode +1))
 
-(use-package tide
-  :ensure t
-  :diminish
-  :defer t
-  :init
-  (setq tide-hl-identifier-idle-time 10)
-  (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
-  (add-hook 'js2-mode-hook #'setup-tide-mode)
-  (add-hook 'typescript-mode-hook #'setup-tide-mode))
+;; (use-package tide
+;;   :ensure t
+;;   :diminish
+;;   :defer t
+;;   :init
+;;   (setq tide-hl-identifier-idle-time 10)
+;;   (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
+;;   ;; (add-hook 'js2-mode-hook #'setup-tide-mode)
+;;   ;; (add-hook 'typescript-mode-hook #'setup-tide-mode)
+;;   )
 
 (use-package geiser
   :ensure t
@@ -62,6 +63,8 @@
 (use-package dart-mode
   :ensure t
   :defer t
+  :init
+  (setq dart-format-on-save t)
   :mode
   ("\\.dart\\'"))
 
@@ -71,13 +74,30 @@
   :mode
   ("\\.yaml\\'"))
 
-(use-package eglot
+(use-package lsp-mode
   :ensure t
   :defer t
+  :commands lsp
   :init
-  (add-hook 'dart-mode-hook 'eglot-ensure)
-  :bind
-  ("M-i" . eglot-help-at-point))
+  (setq lsp-session-file (concat user-local-directory "lsp-sessions")
+        lsp-auto-guess-root nil)
+  :hook ((dart-mode typescript-mode js2-mode) . lsp))
+
+(use-package lsp-ui
+  :ensure t
+  :defer t
+  :commands lsp-ui-mode
+  :init
+  (setq lsp-ui-flycheck-enable t
+        lsp-ui-peek-enable nil
+        lsp-ui-sideline-enable nil
+        lsp-ui-doc-position 'at-point
+        lsp-ui-doc-delay 0.8))
+
+(use-package company-lsp
+  :ensure t
+  :defer t
+  :commands company-lsp)
 
 (use-package markdown-mode
   :ensure t

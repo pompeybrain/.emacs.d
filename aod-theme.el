@@ -527,10 +527,13 @@
    `(undo-tree-visualizer-current-face ((t (:foreground ,aod-error))))
    `(undo-tree-visualizer-register-face ((t (:foreground ,aod-warn))))
    `(undo-tree-visualizer-unmodified-face ((t (:foreground ,aod-builtin))))
+
+   `(lsp-ui-doc-background ((t (:background ,aod-bg-2))))
    ))
 
-(setq company-quickhelp-color-background "#121417")
-(setq company-quickhelp-color-foreground "#9dA5B4")
+;;; lsp-ui
+(setq lsp-ui-doc-border "#61AFEF")
+(setq lsp-ui-doc-max-width 60)
 
 (aod-with-color-variables
   (custom-theme-set-variables

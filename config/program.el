@@ -19,13 +19,7 @@
         company-require-match nil
         company-show-numbers t)
   :config
-  (global-company-mode 1)
-  (company-quickhelp-mode 1)            
-  )
-
-(use-package company-quickhelp
-  :ensure t
-  :defer t)
+  (global-company-mode 1))
 
 (use-package flycheck
   :ensure t
@@ -35,7 +29,7 @@
         flycheck-indication-mode nil
         flycheck-emacs-lisp-load-path 'inherit
         flycheck-temp-prefix "/tmp/flycheck"
-        flycheck-global-modes '(not emacs-lisp-mode lisp-interaction-mode scss-mode))
+        flycheck-global-modes '(not emacs-lisp-mode lisp-interaction-mode scss-mode org-mode))
   :config
   (global-flycheck-mode +1))
 

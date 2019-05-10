@@ -8,6 +8,7 @@
               auto-save-default nil
               auto-save-list-file-prefix nil
               require-final-newline t
+              backup-directory-alist `(("." . ,(concat user-local-directory "backups")))
               recentf-save-file (concat user-local-directory "recentf")
               recentf-max-saved-items 30
               eww-bookmarks-directory user-local-directory
@@ -18,6 +19,9 @@
               make-backup-files nil
               ring-bell-function 'ignore
               custom-file (concat user-local-directory "custom.el")
+              auto-revert-verbose nil
+              ns-use-native-fullscreen nil
+              ns-use-fullscreen-animation nil
               )
 
 (auto-save-visited-mode t)

@@ -3449,7 +3449,8 @@ Version 2017-07-07"
   (interactive)
   (cond
    ((assoc major-mode prettier-support-modes) (prettier-format))
-   ((eq major-mode 'emacs-lisp-mode) (indent-region (point-min) (point-max)))))
+   ((eq major-mode 'emacs-lisp-mode) (indent-region (point-min) (point-max)))
+   ((eq major-mode 'dart-mode) (dart-format))))
 
 (defun show-fly-keymap ()
   "Show fly-keys keymap use which-key."
