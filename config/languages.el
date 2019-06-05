@@ -18,27 +18,6 @@
   :config
   (setq js2-strict-missing-semi-warning nil))
 
-;; (defun setup-tide-mode ()
-;;   "Setup tide config."
-;;   (interactive)
-;;   (tide-setup)
-;;   (flycheck-mode +1)
-;;   (company-mode +1)
-;;   (setq tab-width 2)
-;;   (setq company-tooltip-align-annotations t)
-;;   (tide-hl-identifier-mode +1))
-
-;; (use-package tide
-;;   :ensure t
-;;   :diminish
-;;   :defer t
-;;   :init
-;;   (setq tide-hl-identifier-idle-time 10)
-;;   (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
-;;   ;; (add-hook 'js2-mode-hook #'setup-tide-mode)
-;;   ;; (add-hook 'typescript-mode-hook #'setup-tide-mode)
-;;   )
-
 (use-package geiser
   :ensure t
   :defer t
@@ -64,7 +43,8 @@
   :ensure t
   :defer t
   :init
-  (setq dart-format-on-save t)
+  (setq dart-format-on-save t
+        dart-formatter-show-errors 'echo)
   :mode
   ("\\.dart\\'"))
 
@@ -80,7 +60,8 @@
   :commands lsp
   :init
   (setq lsp-session-file (concat user-local-directory "lsp-sessions")
-        lsp-auto-guess-root nil)
+        lsp-auto-guess-root nil
+        lsp-prefer-flymake nil)
   :hook ((dart-mode typescript-mode js2-mode) . lsp))
 
 (use-package lsp-ui

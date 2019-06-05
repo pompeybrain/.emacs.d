@@ -2615,15 +2615,22 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
 Version 2017-10-09"
   (interactive)
   (cond
-   ((string-equal system-type "windows-nt")
-    (message "Microsoft Windows not supported. File a bug report or pull request."))
    ((string-equal system-type "darwin")
     (let ((process-connection-type nil))
       (start-process "" nil terminal-app default-directory)))
+   ((string-equal system-type "windows-nt")
+    (message "Microsoft Windows not supported. File a bug report or pull request."))
    ((string-equal system-type "gnu/linux")
     (let ((process-connection-type nil))
       (start-process "" nil "x-terminal-emulator"
                      (concat "--working-directory=" default-directory))))))
+()
+
+(defun fly-open-in-terminal ()
+  "Open current dir in terminal window."
+  (interactive)
+  (when (string-equal system-type "darwin")
+    ()))
 
 (defun xah-next-window-or-frame ()
   "Switch to next window or frame.
@@ -3008,7 +3015,7 @@ Version 2019-02-12"
    ("u" . isearch-forward)
    ("v" . magit-status)
    ("w" . nil)
-   ("x" . xah-cut-all-or-region)
+   ("x" . nil)
    ("y" . xah-search-current-word)
    ("z" . nil)
    ))

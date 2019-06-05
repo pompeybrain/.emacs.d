@@ -7,10 +7,11 @@
   :ensure t
   :defer t
   :init
+  (setq treemacs-persist-file (concat user-local-directory "treemacs-persist"))
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
-  (setq   treemacs-persist-file (concat user-local-directory "treemacs-persist")
-          treemacs--last-error-persist-file (concat user-local-directory "treemacs-persist-at-last-error"))
+  (with-eval-after-load 'treemacs-persistence
+    (setq treemacs--last-error-persist-file (concat user-local-directory "treemacs-persist-at-last-error")))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)

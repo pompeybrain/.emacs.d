@@ -3,7 +3,7 @@
 
 ;;; output has a newline in end
 (defun sync-process (command args input-buffer &optional success-code output-handler silent error-handler)
-  "Call sync process command with friendly output and error handle."
+  "call-process wraper : excute command with friendly output and error handle."
   (let ((input-file (make-temp-file (file-name-nondirectory command) nil "-input"))
         (output-buffer (get-buffer-create (concat (file-name-nondirectory command) "-output")))
         (output-string nil)

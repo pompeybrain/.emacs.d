@@ -1,10 +1,7 @@
 * Target for my emacs config files
 
-** TODO doc box
-   1. suitable dimension
-   2. support tide
-   3. support eglot
-   4. support quickhelp
+** TODO more org-mode helper
+
 ** TODO new structor of emacs.d
    refere doom-emacs
    1. move dirs
@@ -26,23 +23,10 @@
 ** TODO a dict tool in emacs
    1. a cmd tool in mac os provide interface from dictionary app
    2. a dict.el file interact this tool and show context in posframe
-** TODO add yasnippet
-   work with company like vscode
-** TODO prettify mode-line
-   1. file modified inspect(colorful)
-   2. git branch
-   3. file name
-   4. major mode
-   5. encoding
-   6. point percent
 ** TODO scheme config
    1. runtime
    2. eval last expresion
    3. eval region
-** TODO add icon for treemacs use vscode meterial-icons
-   1. treemacs use imagemagick first but imagemagick@6 doesn't support svg so I should not use imageMagick.
-   2. insert icon in dashboard dired
-   3. can't scale svg image in emacs now
 ** DONE symbol lookup
    refer to symbol-overlay
    1. when active get current symbol, use hydra display some key

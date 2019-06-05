@@ -1,20 +1,32 @@
 ;;; prettier.el ---  -*- lexical-binding: t; -*-
 ;;; Commentary:
 
-;;; to react with prettier
-;;; first a global installed prettier is required
+;;; Required: global installed prettier in path
 
-;;; use project specific config file first.
-;;; use default config when don't find config file
+;;; 1 project specific config file first.
 
-;;; use find-config-path if get a configpath use it replace of global options
+;;; 2 vscode prettier setting to keep up with other co-worker
 
-;;; support vscode prettier setting to keep up with other co-worker
+;;; 3 default config when don't find config file
+
+;;; to support ignore-path should excute prettier command in project root directory
+
+;;; add minor mode to switch  format before save in support major modes
 
 ;;; Code:
 
 (require 'process-wrapper)
 (require 'quiet)
+
+(defvar prettier-support-modes
+  '(js2-mode javascript-mode css-mode scss-mode less-mode json-mode web-mode
+             yaml-mode typescript-mode markdown-mode) "prettier support major mode")
+
+(defvar prettier-support-modes-alist
+  '((js2-mode . "babylon") (javascript-mode . "babylon") (css-mode . "css")
+    (scss-mode . "scss") (less-mode . "less") (json-mode . "json") (web-mode . "vue") (yaml-mode . "yaml")
+    (typescript-mode . "typescript") (markdown-mode . "markdown"))
+  "prettier support major mode parser alist")
 
 (defgroup prettier nil
   "prettier a tool to format some front-end relate language."
@@ -93,12 +105,6 @@
 
 ;; TODO: add jsx options support
 
-(defvar prettier-support-modes
-  '((js2-mode . "babylon") (javascript-mode . "babylon") (css-mode . "css")
-    (scss-mode . "scss") (less-mode . "less") (json-mode . "json") (web-mode . "vue") (yaml-mode . "yaml")
-    (typescript-mode . "typescript") (markdown-mode . "markdown"))
-  "prettier support major mode")
-
 (defun prettier-default-options ()
   "Generate prettier options cli."
   (let ((options '()))
@@ -132,10 +138,10 @@
 
 (defun prettier-vscode-config ()
   "aware current project .vscode config about prettier and set options use let bind variable."
-  (let* ((project-dir (locate-dominating-file (buffer-file-name) ".vscode"))
-         (settings (expand-file-name ".vscode/settings.json" project-dir))
+  (let* ((exist-dir (locate-dominating-file (buffer-file-name) ".vscode"))
+         (settings (expand-file-name ".vscode/settings.json" exist-dir))
          (vsconfig nil))
-    (when (and project-dir (not (equal project-dir "~/")))
+    (when (and exist-dir (not (equal exist-dir "~/")))
       (when (file-exists-p settings)
         (setq vsconfig
               (seq-filter (lambda (pair)
@@ -164,13 +170,12 @@
       (list "--config" config-path))))
 
 
-
 (defun prettier-command ()
   "Find the bin in dir node_modules or use global in execpath."
   (or
-   (let ((project-dir (locate-dominating-file buffer-file-name "node_modules")))
-     (when project-dir
-       (let ((pretter-bin (concat project-dir "node_modules/.bin/prettier")))
+   (let ((exist-dir (locate-dominating-file buffer-file-name "node_modules")))
+     (when exist-dir
+       (let ((pretter-bin (concat exist-dir "node_modules/.bin/prettier")))
          (when (file-executable-p pretter-bin)
            pretter-bin))))
    (executable-find "prettier")
@@ -241,12 +246,24 @@
                           (current-buffer) '(0 1) #'prettier-apply-patch))
         (delete-file formated-file)))))
 
+;; need more reasonable implementation
+;; 1st .prettierignore root directory
+;; 2nd node_modules root directory
+;; 2nd projectl intergate
+;; .git root directory
+;; nothing change
+(defun prettier-project-directory ()
+  (let ((project-dir (locate-dominating-file (buffer-file-name) ".prettierignore")))
+    (if project-dir
+        project-dir
+      default-directory)))
 
 ;;;###autoload
 (defun prettier-format ()
   "Use prettier format current buffer file, just support file buffer now."
   (interactive)
-  (let ((parser (assoc-default major-mode prettier-support-modes))
+  (let ((default-directory (prettier-project-directory))
+        (parser (assoc-default major-mode prettier-support-modes-alist))
         (parser-or-path-args nil))
     (if parser
         (progn (if (buffer-file-name)
@@ -260,12 +277,29 @@
       (message "prettier doesn't support current major mode: %s" major-mode))))
 
 ;; add save hook format
-(defun add-save-format (mode)
-  (add-hook (intern  (concat (symbol-name (car mode)) "-hook"))
-            (lambda ()
-              (add-hook 'before-save-hook 'prettier-format nil t))))
+;; (defun add-save-format (mode)
+;;   (add-hook (intern  (concat (symbol-name (car mode)) "-hook"))
+;;             (lambda ()
+;;               (add-hook 'before-save-hook 'prettier-format nil t))))
 
-(mapcar 'add-save-format prettier-support-modes)
+;; (mapcar 'add-save-format prettier-support-modes)
+
+(defun prettier-add-format-hook ()
+  "add format before save hook"
+  (when (memq major-mode prettier-support-modes)
+    (add-hook 'before-save-hook 'prettier-format nil 'local)))
+
+;;;###autoload
+(define-minor-mode global-prettier-mode
+  "Runs prettier-format on support major modes before save when this mode is turned on"
+  nil
+  :lighter " Prettier"
+  :global t
+  (if global-prettier-mode
+      (progn (add-hook 'after-change-major-mode-hook #'prettier-add-format-hook)
+             (prettier-add-format-hook))
+    (remove-hook 'after-change-major-mode-hook #'prettier-add-format-hook)
+    (remove-hook 'before-save-hook 'prettier-format 'local)))
 
 (provide 'prettier)
 ;;; prettier.el ends here

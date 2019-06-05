@@ -59,8 +59,8 @@
               window-divider-default-bottom-width 1
               window-divider-default-right-width 1)
 
-;; (load-theme 'leuven)
-(load-theme 'aod)
+(load-theme 'leuven)
+;; (load-theme 'aod)
 ;; (load-theme 'zenburn)
 
 ;; 左右边界
@@ -81,7 +81,7 @@
 ;; 关闭文件滑动控件
 (scroll-bar-mode -1)
 
-(global-hl-line-mode +1)
+;; (global-hl-line-mode +1)
 
 (add-hook 'minibuffer-setup-hook (lambda () (visual-line-mode -1)))
 

@@ -14,6 +14,7 @@
 ;;; my packages
 (require 'dashboard)
 (require 'prettier)
+(add-hook 'after-init-hook (global-prettier-mode 1))
 
 (provide 'config-packages)
 ;;; config ends here
