@@ -61,7 +61,8 @@
   :init
   (setq lsp-session-file (concat user-local-directory "lsp-sessions")
         lsp-auto-guess-root nil
-        lsp-prefer-flymake nil)
+        lsp-prefer-flymake nil
+        lsp-eldoc-enable-hover nil)
   :hook ((dart-mode typescript-mode js2-mode) . lsp))
 
 (use-package lsp-ui
@@ -73,7 +74,8 @@
         lsp-ui-peek-enable nil
         lsp-ui-sideline-enable nil
         lsp-ui-doc-position 'at-point
-        lsp-ui-doc-delay 0.8))
+        lsp-ui-doc-delay 0.8
+        lsp-ui-doc-include-signature t))
 
 (use-package company-lsp
   :ensure t

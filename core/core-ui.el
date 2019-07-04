@@ -59,8 +59,8 @@
               window-divider-default-bottom-width 1
               window-divider-default-right-width 1)
 
-(load-theme 'leuven)
-;; (load-theme 'aod)
+;; (load-theme 'leuven)
+(load-theme 'aod)
 ;; (load-theme 'zenburn)
 
 ;; 左右边界

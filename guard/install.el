@@ -20,7 +20,7 @@
   (message "Removing installed packages: ")
   (delete-directory "elpa" t)
   (message "Starting install packages: ")
-  (package-install 'use-package)
+  (package-reinstall 'use-package)
   (load-file "init.el"))
 
 (install-packages)
