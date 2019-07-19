@@ -16,7 +16,6 @@
 ;;; Code:
 
 (require 'process-wrapper)
-(require 'quiet)
 
 (defvar prettier-support-modes
   '(js2-mode javascript-mode css-mode scss-mode less-mode json-mode web-mode

@@ -38,9 +38,6 @@
 
 (package-initialize)
 
-;; (let ((default-directory (expand-file-name "git-lisp/" user-emacs-directory)))
-;;   (normal-top-level-add-subdirs-to-load-path))
-
 (require 'config-packages)
 
 (require 'core-keybind)

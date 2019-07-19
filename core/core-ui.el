@@ -60,8 +60,8 @@
               window-divider-default-right-width 1)
 
 ;; (load-theme 'leuven)
-(load-theme 'aod)
-;; (load-theme 'zenburn)
+;; (load-theme 'aod)
+(load-theme 'zenburn)
 
 ;; 左右边界
 (fringe-mode '(4 . 0))

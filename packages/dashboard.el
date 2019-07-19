@@ -22,7 +22,8 @@
     (dashboard-recentf)
     (dashboard-startup-time)
     (dashboard-init-mode)
-    (xah-fly-insert-mode-activate)))
+    (when (fboundp 'fly-insert-mode-activate)
+      (fly-insert-mode-activate))))
 
 (defun dashboard-banner ()
   "display banner emacs."
@@ -68,8 +69,8 @@
    (lambda ()
      (interactive)
      (find-file filename)
-     (xah-fly-command-mode-activate)
-     )))
+     (when (fboundp 'fly-command-mode-activate)
+       (fly-command-mode-activate)))))
 
 (defun dashboard-init-mode ()
   "Initial dashboard-mode keybind."

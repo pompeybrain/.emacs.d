@@ -1,5 +1,4 @@
 ;;; process-wrapper.el -*- coding: utf-8; lexical-binding: t; -*-
-(require 'quiet)
 
 ;;; output has a newline in end
 (defun sync-process (command args input-buffer &optional success-code output-handler silent error-handler)

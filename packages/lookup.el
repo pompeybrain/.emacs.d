@@ -2,9 +2,6 @@
 
 ;;; Commentary:
 ;;; use isearch to lookup symbol or a word references.
-;;; TODO:
-;;; 1. isearch-yank's problem
-;;; 2. interactively read input
 
 ;;; Code:
 
@@ -18,6 +15,7 @@
   ("i" isearch-repeat-backward "Previous")
   ("k" isearch-repeat-forward "Next")
   ("r" lookup-replace "Replace" :color blue)
+  ("e" lookup-edit-search "Edit" :color blue)
   ("s" lookup-search-in-project "Search in project" :color blue)
   ("SPC" isearch-exit "Ok" :color blue)
   ("q" isearch-cancel "Cancel" :color blue))
@@ -37,7 +35,17 @@
 	          (goto-char (car bounds)))
             (setq lookup-current-str
                   (buffer-substring-no-properties (car bounds) (cdr bounds))))
-        (setq lookup-current-str (read-string "iSearch: ")))))
+        (setq lookup-current-str (read-string "Lookup: ")))))
+  (when lookup-current-str
+    (isearch-mode t)
+    (isearch-yank-string lookup-current-str)
+    (hydra-lookup/body)))
+
+(defun lookup-edit-search ()
+  (interactive)
+  "Edit current search string then search"
+  (isearch-exit)
+  (setq lookup-current-str (read-string "Lookup: " lookup-current-str))
   (when lookup-current-str
     (isearch-mode t)
     (isearch-yank-string lookup-current-str)

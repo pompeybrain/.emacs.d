@@ -1,7 +1,6 @@
 * Target for my emacs config files
 
 ** TODO more org-mode helper
-
 ** TODO new structor of emacs.d
    refere doom-emacs
    1. move dirs
