@@ -39,13 +39,6 @@
 (defvar fly-insert-state-q t "Boolean value. true means insertion mode is on.")
 (setq fly-insert-state-q t)
 
-;; (defun fly-mode-toggle ()
-;;   "Switch between {insertion, command} modes."
-;;   (interactive)
-;;   (if fly-insert-state-q
-;;       (fly-command-mode-activate)
-;;     (fly-insert-mode-activate)))
-
 (defun fly-save-buffer-if-file ()
   "Save current buffer if it is a file."
   (interactive)
@@ -76,27 +69,6 @@ Version 2017-07-07"
   "Show fly-keys keymap use which-key."
   (interactive)
   (which-key-show-keymap 'fly-key-map))
-
-(defun fly-next-20-lines ()
-  "Next 20 lines."
-  (interactive)
-  (scroll-up-command 20))
-
-(defun fly-prev-20-lines ()
-  "Prev 20 lines."
-  (interactive)
-  (scroll-down-command 20))
-
-(defun fly-save-all-buffer ()
-  (interactive)
-  (save-some-buffers t))
-
-(defun fly-js-dev ()
-  "In current directory excute shell command : yarn dev, need core-lib shellcommand function."
-  (interactive)
-  (if (fboundp 'shellcommand)
-      (shellcommand "yarn dev" "js-dev")
-    (message "need shellcommand function")))
 
 (defun fly-keys-off ()
   "Turn off fly-keys minor mode."
@@ -363,13 +335,7 @@ URL `http://ergoemacs.org/misc/ergoemacs_vi_mode.html'"
  '(
    ;; ("SPC" . fly-insert-mode-activate)
    ;; ("RET" . execute-extended-command)
-   ("TAB" . fly--tab-key-map)
-   ("." . fly-dot-keymap)
-   ("'" . xah-fill-or-unfill)
-   (";" . fly-comma-keymap)
-   ("-" . xah-show-formfeed-as-line)
-   ("\\" . toggle-input-method)
-
+   (";" . nil)
    ("," . fly-w-keymap)
    ("0" . delete-window)
    ("1" . delete-other-windows)
@@ -427,7 +393,7 @@ URL `http://ergoemacs.org/misc/ergoemacs_vi_mode.html'"
     ("2" . split-window-below)
     ("3" . delete-window)
     ("4" . split-window-right)
-    ;; ("5" . fly-format)          
+    ("5" . fly-format)          
     ;; ("6" . xah-select-block)           
     ("7" . xah-select-line)
     ;; ("8" . xah-extend-selection)
