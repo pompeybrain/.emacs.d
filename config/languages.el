@@ -10,11 +10,11 @@
   :config
   (setq typescript-indent-level 2))
 
-;;; highlight buffer in tide-jump-to-definition has problem.
 (use-package js2-mode
   :ensure t
   :defer t
-  :mode "\\.js\\'"
+  :init
+   (add-hook 'js-mode-hook 'js2-minor-mode)
   :config
   (setq js2-strict-missing-semi-warning nil))
 
@@ -60,8 +60,9 @@
   :commands lsp
   :init
   (setq lsp-session-file (concat user-local-directory "lsp-sessions")
-        lsp-auto-guess-root nil
+        lsp-auto-guess-root t
         lsp-prefer-flymake nil
+        lsp-auto-execute-action nil
         lsp-eldoc-enable-hover nil)
   :hook ((dart-mode typescript-mode js2-mode) . lsp))
 
@@ -74,8 +75,8 @@
         lsp-ui-peek-enable nil
         lsp-ui-sideline-enable nil
         lsp-ui-doc-position 'at-point
-        lsp-ui-doc-delay 0.8
-        lsp-ui-doc-include-signature t))
+        lsp-ui-doc-delay 1
+        lsp-ui-doc-include-signature nil))
 
 (use-package company-lsp
   :ensure t
