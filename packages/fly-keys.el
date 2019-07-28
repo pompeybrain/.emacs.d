@@ -18,7 +18,7 @@
 
 (require 'xah-helper)     ; xahlee's helper package
 (require 'fly-edit)       ; my package
-(require 'lookup)         ;my package
+(require 'lookup)         ; my package
 
 (defvar fly-command-mode-activate-hook nil "Hook for `fly-command-mode-activate'")
 (defvar fly-insert-mode-activate-hook nil "Hook for `fly-insert-mode-activate'")

@@ -14,7 +14,7 @@
   :ensure t
   :defer t
   :init
-   (add-hook 'js-mode-hook 'js2-minor-mode)
+   ;; (add-hook 'js-mode-hook 'js2-minor-mode)
   :config
   (setq js2-strict-missing-semi-warning nil))
 
@@ -64,7 +64,7 @@
         lsp-prefer-flymake nil
         lsp-auto-execute-action nil
         lsp-eldoc-enable-hover nil)
-  :hook ((dart-mode typescript-mode js2-mode) . lsp))
+  :hook ((dart-mode typescript-mode js-mode css-mode) . lsp))
 
 (use-package lsp-ui
   :ensure t

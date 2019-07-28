@@ -24,7 +24,7 @@
   :defer t
   :init
   (setq hydra-is-helpful t
-        hydra-hint-display-type t
+        hydra-hint-display-type 'lv
         lv-use-separator nil))
 
 (use-package ivy

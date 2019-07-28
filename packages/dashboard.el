@@ -83,7 +83,8 @@
   :abbrev-table nil
   "Major mode for my dashboard buffer."
   (visual-line-mode -1)
-  (setq-local truncate-lines t))
+  (setq-local truncate-lines t)
+  (setq-local default-directory "~/"))
 
 (provide 'dashboard)
 ;;; dashboard.el ends here
