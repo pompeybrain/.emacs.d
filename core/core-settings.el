@@ -24,7 +24,7 @@
               ns-use-fullscreen-animation nil
               )
 
-(auto-save-visited-mode t)
+;; (auto-save-visited-mode t)
 (global-auto-revert-mode 1)
 (electric-pair-mode t)
 (global-subword-mode 1)
